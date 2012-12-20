@@ -21,7 +21,7 @@ License: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.ht
 global $wpmobi;
 
 // Should not have spaces in it, same as above
-define( 'WPMOBI_VERSION', '1.0.0' );
+define( 'WPMOBI_VERSION', '1.0.1' );
 
 // Configuration
 require_once( 'include/config.php' );

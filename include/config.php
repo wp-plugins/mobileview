@@ -24,8 +24,8 @@ define( 'WPMOBI_SIMULATE_ALL', false );
 
 //! The key in the database for the WPMobi settings
 	define( 'WPMOBI_SETTING_NAME', 'wpmobi-me' );
-	define( 'WPMOBI_DIR', WP_PLUGIN_DIR . '/mobile-view' );
-	define( 'WPMOBI_URL', clc_wpmobi_sslize( WP_PLUGIN_URL . '/mobile-view' ) );
+	define( 'WPMOBI_DIR', WP_PLUGIN_DIR . '/mobileview' );
+	define( 'WPMOBI_URL', clc_wpmobi_sslize( WP_PLUGIN_URL . '/mobileview' ) );
 	define( 'WPMOBI_PRODUCT_NAME', 'MobileView' );
 
 

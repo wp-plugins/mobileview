@@ -64,6 +64,11 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.0.1 =
+
+* /include/config.php 
+    - Fix dirname bug.
+
 = 1.0.0 =
 
 * First release!
