@@ -20,7 +20,7 @@ define( 'WPMOBI_SIMULATE_ALL', false );
 
 // Set up beta variable
 	define( 'WPMOBI_PRO_BETA', false );	
-	define( 'WPMOBI_ROOT_DIR', 'mobile-view' );
+	define( 'WPMOBI_ROOT_DIR', 'mobileview' );
 
 //! The key in the database for the WPMobi settings
 	define( 'WPMOBI_SETTING_NAME', 'wpmobi-me' );
