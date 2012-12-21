@@ -45,7 +45,7 @@ The manual installation method involves downloading our feature-rich plugin and 
 
 = Upgrading =
 
-Automatic updates should work a charm; as always though, ensure you backup your site just in case. 
+Automatic updates should work a charm, as always though, ensure you backup your site just in case. 
 
 == Screenshots ==
 
@@ -54,9 +54,9 @@ Automatic updates should work a charm; as always though, ensure you backup your 
 
 == Frequently Asked Questions == 
 
-= Will Mobile Theme work with my theme? =
+= Will MobileView work with my theme? =
 
-Yes; Mobile Theme will work with any theme, but may require some styling to make it match nicely.
+Yes, MobileView will work with any theme, but may require some styling to make it match nicely.
 
 = Where can I report bugs? =
 
