@@ -27,6 +27,8 @@ Features :
 <li>Import/Export panel settings.</li>
 </ul>
 
+[vimeo http://vimeo.com/56080249]
+
 == Installation ==
 
 = Minimum Requirements =
