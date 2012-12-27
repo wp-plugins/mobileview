@@ -471,7 +471,7 @@ function wpmobi_the_post_thumbnail( $param = false, $size = 'small-thumbnail' ) 
  *
  *		\ingroup templatetags
  */
-function wpmobi_get_the_post_thumbnail( $param = false, string $size = 'small-thumbnail' ) {
+function wpmobi_get_the_post_thumbnail( $param = false, $size = 'small-thumbnail' ) {
 	global $post;
 	
 	$thumbnail = false;
