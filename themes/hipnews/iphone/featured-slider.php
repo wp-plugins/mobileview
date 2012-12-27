@@ -25,7 +25,7 @@ if ( wpmobi_have_posts() ) { ?>
 ?>
 
           <li>
-            <img src="<?php wpmobi_the_post_thumbnail( array(800,480) ); ?>" class="attachment-post-thumbnail slider-thumbnail" alt="post thumbnail" />
+            <img src="<?php wpmobi_the_post_thumbnail( false,'feat-thumbnail' ); ?>" class="attachment-post-thumbnail slider-thumbnail" alt="post thumbnail" />
             <h3 class="slide-title"><a href="<?php wpmobi_the_permalink(); ?>"><?php wpmobi_the_title(); ?></a></h3>
           </li>
 

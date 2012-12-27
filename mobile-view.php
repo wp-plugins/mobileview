@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: MobileView
-Version: 1.0.3
+Version: 1.0.4
 Description: MobileView is a free wordpress plugin to transform your wordpress site into mobile-friendly theme for various devices including iPhone, Android, Blackberry and others.
 Author: ColorLabs & Company
 Text Domain: wpmobi-me

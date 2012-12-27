@@ -1,5 +1,8 @@
 *** Mobile View Changelog ***
 
+2012.12.27 - version 1.0.4
+ * Fixed Featured Image
+ 
 2012.12.27 - version 1.0.3
  * Fix thumbnail size
  * Fix image thumbnail size in single post

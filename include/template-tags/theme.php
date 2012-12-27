@@ -448,16 +448,19 @@ function wpmobi_has_post_thumbnail() {
 	}
 }
 
-/*!		\brief This function echos a post thumbnail.
+/**
+ * This function echos a post thumbnail.
  *
- *		This function echos a post thumbnail image; it should be used in conjunction with wpmobi_has_post_thumbnail().
- *
- *		\param param Currently unused
- *
- *		\ingroup templatetags
+ * @since 1.0.4
+ * 
+ * This function echos a post thumbnail image; it should be used in conjunction with wpmobi_has_post_thumbnail().
+ * 
+ * @param float $param
+ * @param string $size Optional. Image size. Defaults to 'small-thumbnail'.
+ * 
  */
-function wpmobi_the_post_thumbnail( $param = false ) {
-	echo wpmobi_get_the_post_thumbnail( $param );
+function wpmobi_the_post_thumbnail( $param = false, $size = 'small-thumbnail' ) {
+	echo wpmobi_get_the_post_thumbnail( $param, $size );
 }
 
 /*!		\brief This function returns a post thumbnail.
@@ -468,13 +471,13 @@ function wpmobi_the_post_thumbnail( $param = false ) {
  *
  *		\ingroup templatetags
  */
-function wpmobi_get_the_post_thumbnail( $param = false ) {
+function wpmobi_get_the_post_thumbnail( $param = false, string $size = 'small-thumbnail' ) {
 	global $post;
 	
 	$thumbnail = false;
 	if ( function_exists( 'has_post_thumbnail' ) && has_post_thumbnail() ) {
 	
-			$thumbnail = get_the_post_thumbnail( $post->ID, 'small-thumbnail' );
+			$thumbnail = get_the_post_thumbnail( $post->ID, $size );
 			if ( preg_match( '#src=\"(.*)\"#iU', $thumbnail, $matches ) ) {
 				$thumbnail = $matches[1];
 			}

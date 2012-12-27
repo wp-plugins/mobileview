@@ -113,7 +113,7 @@ function hipnews_create_thumbnails( $thumbnails_enabled ) {
 	$settings = wpmobi_get_settings();
 	if ( $thumbnails_enabled ) {
 		return ( $settings->hipnews_icon_type == 'thumbnails' );
-	}	
+	}
 	
 	return $thumbnails_enabled;
 }
