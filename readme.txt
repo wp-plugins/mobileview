@@ -66,6 +66,16 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.0.3 =
+
+ * Fix thumbnail size
+ * Fix image thumbnail size in single post
+ * small bug fixed
+
+= 1.0.2 =
+
+ * Removed Regionalization feature.
+ 
 = 1.0.1 =
 
 * /include/config.php 

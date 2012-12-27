@@ -474,7 +474,7 @@ function wpmobi_get_the_post_thumbnail( $param = false ) {
 	$thumbnail = false;
 	if ( function_exists( 'has_post_thumbnail' ) && has_post_thumbnail() ) {
 	
-			$thumbnail = get_the_post_thumbnail( $post->ID, 'wpmobi-new-thumbnail' );
+			$thumbnail = get_the_post_thumbnail( $post->ID, 'small-thumbnail' );
 			if ( preg_match( '#src=\"(.*)\"#iU', $thumbnail, $matches ) ) {
 				$thumbnail = $matches[1];
 			}

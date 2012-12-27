@@ -50,7 +50,7 @@ function hipnews_default_settings( $settings ) {
 	$settings->hipnews_custom_background_image = '';
 
 	// Post Icon Settings
-	$settings->hipnews_icon_type = 'calendar';
+	$settings->hipnews_icon_type = 'thumbnails';
 	$settings->hipnews_calendar_icon_bg = 'cal-colors';
 	$settings->hipnews_custom_cal_icon_color = '';
 	$settings->hipnews_custom_field_thumbnail_name = 'thumbnail';

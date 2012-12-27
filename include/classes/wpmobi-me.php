@@ -320,6 +320,7 @@ class WPMobi {
 		if ( $create_thumbnails ) {
 			add_theme_support( 'post-thumbnails' );
 			add_image_size( 'wpmobi-new-thumbnail', $settings->post_thumbnails_new_image_size, $settings->post_thumbnails_new_image_size, true );
+            add_image_size( 'small-thumbnail', 100, 100, true );
 		} 
 		
 		$this->custom_page_templates = apply_filters( 'wpmobi_custom_templates', $this->custom_page_templates );	

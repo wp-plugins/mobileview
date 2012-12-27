@@ -198,7 +198,7 @@ function wpmobi_setup_general_tab() {
 					array( 'checkbox', 'show_wpmobi_in_footer', __( 'Display "Powered by MobileView" in footer', 'wpmobi-me' ) ),						
 					array( 'section-end' ),
 					array( 'spacer' ),
-					array( 'section-start', 'language-text', __( 'Regionalization', 'wpmobi-me' ) ),
+					/*array( 'section-start', 'language-text', __( 'Regionalization', 'wpmobi-me' ) ),
 					array( 
 						'list', 
 						'force_locale', 
@@ -207,7 +207,7 @@ function wpmobi_setup_general_tab() {
 						wpmobi_admin_get_languages()
 					),
 					array( 'section-end' ),
-					array( 'spacer' ),			
+					array( 'spacer' ),	*/
 					array( 'section-start', 'landing-page', __( 'MobileView Landing Page', 'wpmobi-me' ) ),
 					array( 'checkbox', 'enable_home_page_redirect', __( 'Enable landing redirect (overrides default WordPress settings for landing page)', 'wpmobi-me' ), __( 'When checked MobileView overrides your WordPress homepage settings, and uses another page you select for its homepage.', 'wpmobi-me' ) ),
 					array( 'redirect' ),
