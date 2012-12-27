@@ -1,0 +1,1 @@
+<p class="copytext"><?php wpmobi_the_tab_setting_desc(); ?></p>
