@@ -463,13 +463,17 @@ function wpmobi_the_post_thumbnail( $param = false, $size = 'small-thumbnail' ) 
 	echo wpmobi_get_the_post_thumbnail( $param, $size );
 }
 
-/*!		\brief This function returns a post thumbnail.
+/**
+ * This function returns a post thumbnail.
  *
- *		This function returns a post thumbnail image; it should be used in conjunction with wpmobi_has_post_thumbnail().
- *
- *		This method calls the WordPress function \em get_the_post_thumbnail() internally.
- *
- *		\ingroup templatetags
+ * @since 1.0.4
+ * 
+ * This function returns a post thumbnail image; it should be used in conjunction with wpmobi_has_post_thumbnail().
+ * This method calls the WordPress function \em get_the_post_thumbnail() internally.
+ * 
+ * @param float $param
+ * @param string $size Optional. Image size. Defaults to 'small-thumbnail'.
+ * 
  */
 function wpmobi_get_the_post_thumbnail( $param = false, $size = 'small-thumbnail' ) {
 	global $post;

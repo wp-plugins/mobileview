@@ -66,6 +66,10 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.0.5 =
+
+ * Fixed post thumbnail function
+
 = 1.0.4 =
 
  * Fixed Featured Image
