@@ -2536,6 +2536,7 @@ p#clc-trademark em {
       -ms-border-radius: 5px;
        -o-border-radius: 5px;
           border-radius: 5px;
+  height: 30px;
 }
 .btn:hover,
 #clc-submit input:hover,
