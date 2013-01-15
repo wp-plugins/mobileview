@@ -1340,11 +1340,14 @@ html[xmlns] .slides {
   color: #999;
   font-size: 11px;
 }
-.post-list .entry-date:after {
+.post-list .entry-date:after{
   content: "\2022";
   margin-left: 5px;
 }
-
+.post-list .entry-comment-count:before{
+  content: "\2022";
+  margin-right: 5px;
+}
 /* ===================================================================
   #Post Navigation
 =================================================================== */
@@ -1451,11 +1454,14 @@ html[xmlns] .slides {
   text-align: center;
   -webkit-font-smoothing: antialiased;
 }
-.footer-nav ul {
+.switcher{
+    text-align: center;
+}
+.switcher ul {
   list-style: none;
   margin: 0;
 }
-.footer-nav li {
+.switcher li {
   position: relative;
   display: -moz-inline-stack;
   display: inline-block;
@@ -1464,12 +1470,12 @@ html[xmlns] .slides {
   zoom: 1;
   *display: inline;
 }
-.footer-nav a {
+.switcher a {
   color: #fff;
   display: block;
   padding: 10px;
 }
-.footer-nav li:before {
+.switcher li:before {
   content: "";
   background: #706666;
   position: absolute;
@@ -1483,7 +1489,7 @@ html[xmlns] .slides {
   -ms-border-radius: 4px;
   border-radius: 4px;
 }
-.footer-nav li:first-child:before {
+.switcher li:first-child:before {
   display: none;
 }
 
@@ -1793,37 +1799,98 @@ ol.commentlist li.load-more-comments-link a.ajax-spinner {
 .wpmobi-desktop-switch {
   padding: 15px 0
 }
-.wpmobi-desktop-switch div span {
-  padding: 5px;
+.wpmobi-desktop-switch .switch-text {
   display: inline-block;
-  width: 45px;
-  margin: 0 -2px;
+  line-height: 32px;
+  position: relative;
+  top: -11px;
+  margin-right: 10px;
+}
+.wpmobi-desktop-switch .switcher-inner {
+  width: 180px;
+  -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+       -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+.wpmobi-desktop-switch .active .switcher-inner {
+  margin-left: -59px;
+}
+.wpmobi-desktop-switch .switcher-wrapper span {
+  display: inline-block;
+  width: 80px;
+  color: #fff;
+  padding: 0 10px;
+  float: left;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 0 -1px rgba(0,0,0,.4);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  background: #eee;
-  color: #aaa;
-  border: 1px solid #000;
-  text-shadow: 0 1px #fff;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0px 6px rgba(0, 0, 0, .5) inset, 0 1px #fff;
 }
-.wpmobi-desktop-switch div {
-  margin-top: 10px;
+.wpmobi-desktop-switch .switcher-wrapper {
+  width: 80px;
+  padding: 5px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px auto 0;
+  background: #f8fcfc;
+  background: -webkit-linear-gradient( #f8fcfc, #cbdbe8 );
+  background: -moz-linear-gradient( #f8fcfc, #cbdbe8 );
+  background: -o-linear-gradient( #f8fcfc, #cbdbe8 );
+  background: -ms-linear-gradient( #f8fcfc, #cbdbe8 );
+  background: linear-gradient( #f8fcfc, #cbdbe8 );
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
 }
-.wpmobi-desktop-switch div .active {
-  background: #333;
-  color: #04DCF0;
-  text-shadow: 0 0 10px rgba(4,240,220,.5), 0 -1px #000;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3) inset;
-  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .3) inset;
-  box-shadow: 0 0 5px rgba(0, 0, 0, .3) inset;
+.wpmobi-desktop-switch .switcher-inner .switcher-btn {
+  border-radius: 50px;
+  height: 31px;
+  width: 31px;
+  margin-left: -26px;
+  background: white;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  position: relative;
+  z-index: 10;
+
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+
+  background: #e7f0f9;
+  background: -webkit-linear-gradient(#ffffff, #e7f0f9);
+  background: -moz-linear-gradient(#ffffff, #e7f0f9);
+  background: -o-linear-gradient(#ffffff, #e7f0f9);
+  background: -ms-linear-gradient(#ffffff, #e7f0f9);
+  background: linear-gradient(#ffffff, #e7f0f9);
 }
+
 .wpmobi-desktop-switch .on {
-  -webkit-border-radius: 3px 0 0 3px;
-  -moz-border-radius: 3px 0 0 3px;
-  border-radius: 3px 0 0 3px;
+  text-align: left;
+  background: #D93C28;
+  background: -webkit-linear-gradient(#E5847A, #D93C28);
+  background: -moz-linear-gradient(#E5847A, #D93C28);
+  background: -o-linear-gradient(#E5847A, #D93C28);
+  background: -ms-linear-gradient(#E5847A, #D93C28);
+  background: linear-gradient(#E5847A, #D93C28);
 }
+
 .wpmobi-desktop-switch .off {
-  -webkit-border-radius: 0 3px 3px 0;
-  -moz-border-radius: 0 3px 3px 0;
-  border-radius: 0 3px 3px 0;
+  text-align: right;
+  background: #1E6CDE;
+  margin-left: -26px;
+  background: #1E6CDE;
+  background: -webkit-linear-gradient(#46B9F2, #1E6CDE);
+  background: -moz-linear-gradient(#46B9F2, #1E6CDE);
+  background: -o-linear-gradient(#46B9F2, #1E6CDE);
+  background: -ms-linear-gradient(#46B9F2, #1E6CDE);
+  background: linear-gradient(#46B9F2, #1E6CDE);
 }

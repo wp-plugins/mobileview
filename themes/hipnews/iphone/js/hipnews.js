@@ -251,11 +251,12 @@ function doHipnewsReady() {
 	hipnewsJS( '.on' ).text( onLabel );
 	hipnewsJS( '.off' ).text( offLabel );
 	
-	hipnewsJS( '#switch div' ).bind( hipnewsEndOrClick, function(){ 
+	hipnewsJS( '#switch .switcher-wrapper' ).bind( hipnewsEndOrClick, function(){ 
 		var switchURL = hipnewsJS( this ).attr( 'title' );
+		jQuery(this).toggleClass('active');
 		hipnewsJS( '.on' ).toggleClass( 'active' );
 		hipnewsJS( '.off' ).toggleClass( 'active' );
-		setTimeout( function () { window.location = switchURL }, 500 );
+		setTimeout( function () { window.location = switchURL }, 1000 );
 		return false;
 	});
 

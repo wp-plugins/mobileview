@@ -3092,7 +3092,7 @@ class WPMobi {
 	 *		\ingroup wpmobiglobal
 	 */		
 	function show_wpmobi_message_in_footer() {
-		echo '<p>'.sprintf( __( "Powered by %1\$s %2\$s. ", "wpmobi-me" ) . __( "Designed by <a href='http://pixelbeam.net/'>PixelBeam</a>. ", "wpmobi-me" ), 'MobileView', WPMOBI_VERSION ).'</p>';
+		echo '<p>'.sprintf( __( "Powered by %1\$s %2\$s. ", "wpmobi-me" ) . __( "Designed by <a href='http://colorlabsproject.com/' target='_blank'>ColorLabs & Company</a>. ", "wpmobi-me" ), '<a href="http://wordpress.org/extend/plugins/mobileview/" target="_blank">MobileView</a>', WPMOBI_VERSION ).'</p>';
 		//echo _e( "<p>By ColorLabs</p>", "wpmobi-me" );
         echo _e( "<p>&copy;2012 <a href='http://colorlabsproject.com/'>ColorLabs & Company</a>. All Rights Reserved.</p>", "wpmobi-me" );
 	}

@@ -66,6 +66,12 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.0.6 =
+
+ * Changed footer credit link and content.
+ * Fix HipNews thumbnail
+ * Changed mobile switcher design
+ 
 = 1.0.5 =
 
  * Fixed post thumbnail function
