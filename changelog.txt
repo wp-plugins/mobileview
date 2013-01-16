@@ -1,0 +1,27 @@
+*** Mobile View Changelog ***
+
+2013.01.15 - version 1.0.6
+ * Changed footer credit link and content.
+ * Fix HipNews thumbnail
+ * Changed mobile switcher design
+
+2012.12.27 - version 1.0.5 
+ * Fixed post thumbnail function
+
+2012.12.27 - version 1.0.4
+ * Fixed Featured Image
+ 
+2012.12.27 - version 1.0.3
+ * Fix thumbnail size
+ * Fix image thumbnail size in single post
+ * small bug fixed
+
+2012.12.20 - version 1.0.2
+ * Removed Regionalization feature.
+ 
+2012.12.20 - version 1.0.1
+ * /include/config.php 
+    - Fix dirname bug.
+ 
+2012.12.15 - version 1.0.0
+ * First release!
