@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: MobileView
-Version: 1.0.6
+Version: 1.0.7
 Description: MobileView is a free wordpress plugin to transform your wordpress site into mobile-friendly theme for various devices including iPhone, Android, Blackberry and others.
 Author: ColorLabs & Company
 Text Domain: wpmobi-me
@@ -9,19 +9,18 @@ Domain Path: /lang
 License: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.html
 
 # All admin and theme(s) Designs / Images / CSS
-# are Copyright 2011 - 2012 ColorLabs & Company.
-# 'MobileView (WPMobi.me)' are unregistered trademarks of ColorLabs & Company., 
-# and cannot be re-used in conjuction with the GPL v2 usage of this software 
+# are Copyright 2013 ColorLabs & Company.
+# and cannot be re-used in conjuction with the GPL v2 usage of this software
 # under the license terms of the GPL v2 without permission.
 # 
 # You may find WPMOBI variable in MobileView Plugins file. It was actually variable name for MobileView.
-# MobileView = WPMobi
+# MobileView => WPMobi
 */
 
 global $wpmobi;
 
 // Should not have spaces in it, same as above
-define( 'WPMOBI_VERSION', '1.0.6' );
+define( 'WPMOBI_VERSION', '1.0.7' );
 
 // Configuration
 require_once( 'include/config.php' );

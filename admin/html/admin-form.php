@@ -57,7 +57,7 @@
 			</span>
 		</p>
 
-		<p id="clc-trademark"><?php echo sprintf( __( "%sMobileView%s is a trademark of ColorLabs & Company.", "wpmobi-me" ), '<em>', '</em>' ); ?></p>
+		<p id="clc-trademark"><?php echo sprintf( __( "Copyright &copy; 2013 by ColorLabs & Company. ", "wpmobi-me" ), '<em>', '</em>' ); ?></p>
 		<div class="poof">&nbsp;</div>
 	</div> <!-- wpmobi-admin-area -->
 </form>

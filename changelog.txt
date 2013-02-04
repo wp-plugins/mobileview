@@ -1,5 +1,11 @@
 *** Mobile View Changelog ***
 
+2013.01.18 - version 1.0.7
+ * Change switcher text from "Mobile Theme" to "MobileView"
+ * Change footer credit text
+ * Change switcher style
+ * Change admin footer credit text
+ 
 2013.01.15 - version 1.0.6
  * Changed footer credit link and content.
  * Fix HipNews thumbnail

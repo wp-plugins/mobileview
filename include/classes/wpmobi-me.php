@@ -132,7 +132,6 @@ class WPMobi {
 		$this->restore_failure = false;
         
         $this->plugin_name = WPMOBI_ROOT_DIR ."/".WPMOBI_ROOT_DIR.".php";
-        //$this->plugin_name = WPMOBI_ROOT_DIR ."/wpmobi-me.php";
 	}
 	
 	/*!		\brief Initializes the MobileView object
@@ -3092,9 +3091,17 @@ class WPMobi {
 	 *		\ingroup wpmobiglobal
 	 */		
 	function show_wpmobi_message_in_footer() {
-		echo '<p>'.sprintf( __( "Powered by %1\$s %2\$s. ", "wpmobi-me" ) . __( "Designed by <a href='http://colorlabsproject.com/' target='_blank'>ColorLabs & Company</a>. ", "wpmobi-me" ), '<a href="http://wordpress.org/extend/plugins/mobileview/" target="_blank">MobileView</a>', WPMOBI_VERSION ).'</p>';
-		//echo _e( "<p>By ColorLabs</p>", "wpmobi-me" );
-        echo _e( "<p>&copy;2012 <a href='http://colorlabsproject.com/'>ColorLabs & Company</a>. All Rights Reserved.</p>", "wpmobi-me" );
+        
+        if(!function_exists('wpmobi_the_theme_title')) require_once( WPMOBI_DIR . '/admin/template-tags/themes.php' );;
+       
+		echo '<p>'.sprintf(
+        __( "Copyright &copy; 2013 %1\$s by %2\$s.", "wpmobi-me" ),
+        wpmobi_the_theme_title(),
+        '<a href="http://colorlabsproject.com/" target="_blank">ColorLabs & Company</a>' )
+        .'</p>';
+        
+        echo '<p>' . sprintf( __("Powered by %1\$s.", "wpmobi-me"), '<a href="http://wordpress.org/extend/plugins/mobileview/" target="_blank">MobileView</a>' ) . __( "All Rights Reserved.", "wpmobi-me" ) . '</p>';
+        
 	}
 
 	/*!		\brief Redirects the user to another page

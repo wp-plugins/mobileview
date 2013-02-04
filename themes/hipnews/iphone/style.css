@@ -1821,7 +1821,7 @@ ol.commentlist li.load-more-comments-link a.ajax-spinner {
   display: inline-block;
   width: 80px;
   color: #fff;
-  padding: 0 10px;
+  padding: 2px 10px 0;
   float: left;
   font-weight: bold;
   font-size: 16px;
@@ -1852,9 +1852,9 @@ ol.commentlist li.load-more-comments-link a.ajax-spinner {
 }
 .wpmobi-desktop-switch .switcher-inner .switcher-btn {
   border-radius: 50px;
-  height: 31px;
-  width: 31px;
-  margin-left: -26px;
+  height: 33px;
+  width: 33px;
+  margin-left: -28px;
   background: white;
   margin-top: -5px;
   margin-bottom: -5px;

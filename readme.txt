@@ -66,6 +66,13 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.0.7 =
+
+ * Change switcher text from "Mobile Theme" to "MobileView"
+ * Change footer credit text
+ * Change switcher style
+ * Change admin footer credit text
+ 
 = 1.0.6 =
 
  * Changed footer credit link and content.

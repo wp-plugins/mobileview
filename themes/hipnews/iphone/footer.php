@@ -14,7 +14,7 @@
             <?php if ( wpmobi_show_switch_link() && !hipnews_is_web_app_mode() ) { ?>
     			<div id="switch" class="wpmobi-desktop-switch clearfix">
     				<span class="switch-text">
-    					<?php _e( "Mobile Theme", "wpmobi-me" ); ?>
+    					<?php _e( "MobileView", "wpmobi-me" ); ?>
     				</span>
     				<div class="switcher-wrapper" title="<?php wpmobi_the_mobile_switch_link(); ?>">
                         <div class="switcher-inner">
