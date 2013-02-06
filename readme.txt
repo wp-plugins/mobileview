@@ -1,8 +1,8 @@
 === MobileView by ColorLabs & Company ===
 Contributors: colorlabs
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@colorlabsproject.com&item_name=Donation+for+Mobile+View
-Requires at least: WP 3.1
-Tested up to: WP 3.5
+Requires at least: WordPress 3.1.0
+Tested up to: WordPress 3.5.0
 Stable tag: trunk
 License: GPLv3 or later
 Tags: mobile, mobile theme, mobileview, android, apple, blackberry, colorlabs, iphone, smartphone, skin
