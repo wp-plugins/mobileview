@@ -11,20 +11,18 @@ MobileView is a free WordPress plugin to transform your WordPress site into mobi
 
 == Description ==
 
-Enhance your WordPress website with the MobileView Plugin. Transform your WordPress site into mobile-friendly theme for various devices including iPad, iPhone, Android, Blackberry or Windows Phone.
-
-It includes a theme panel that allows you to customize the settings, create custom mobile menu, and try different landing page for your mobile site. It is easy, fast and free.
+Enhance your WordPress website with the MobileView Plugin. Transform your WordPress site into mobile-friendly theme for various devices including iPad, iPhone, Android, Blackberry or Windows Phone. It includes a theme panel that allows you to customize the settings, create custom mobile menu, and try different landing page for your mobile site. It is easy, fast and free.
 
 Features :
 
 <ul>
 <li>Detect mobile devices automatically</li>
-<li>A mobile Theme Panel</li>
+<li>A mobile theme panel</li>
 <li>Redirect or choose different landing page for your mobile site</li>
 <li>Include or exclude certain pages from mobile site viewing</li>
-<li>Customizable menu</li>
+<li>Custom mobile menu</li>
 <li>Mobile to desktop switcher</li>
-<li>Import/Export panel settings.</li>
+<li>Import/export panel settings.</li>
 </ul>
 
 [vimeo http://vimeo.com/56080249]
