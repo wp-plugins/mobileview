@@ -1,14 +1,14 @@
-/* WPMobi HipNews JS */
+/* MobileView HipNews JS */
 /* This file holds all the default jQuery & Ajax functions for the HipNews theme on mobile */
 /* Description: JavaScript for the HipNews theme on mobile */
 /* Required jQuery version: 1.5.2+ */
 
 var hipnewsJS = jQuery.noConflict();
-var WPMobiWebApp = navigator.standalone;
+var MobileViewWebApp = navigator.standalone;
 var iOS5 = navigator.userAgent.match( 'OS 5_' );
 
 /* For debugging Web-App mode in a browser */
-//var WPMobiWebApp = true;
+//var MobileViewWebApp = true;
 
 /* see http://cubiq.org/add-to-home-screen for additional options */
 var addToHomeConfig = {
@@ -16,11 +16,11 @@ var addToHomeConfig = {
 	animationOut: 'drop',
 	startDelay: 550,								// milliseconds
 	lifespan: 1000*60,							// milliseconds  (set to: 30 secs)
-	expire: 60*24*WPMobi.expiryDays,	// minutes (set in admin settings)
+	expire: 60*24*MobileView.expiryDays,	// minutes (set in admin settings)
 	bottomOffset: 14,
 	hipnewsIcon: true,
 	arrow: true,
-	message: WPMobi.add2home_message
+	message: MobileView.add2home_message
 };
 
 /*
@@ -53,7 +53,7 @@ function doHipnewsReady() {
 	});
 
 	hipnewsJS( 'a#header-menu-toggle' ).click( function() {
-//		if ( WPMobiWebApp && iOS5 ) {
+//		if ( MobileViewWebApp && iOS5 ) {
 //			hipnewsJS( this ).toggleClass( 'menu-toggle-open' );
 //			hipnewsJS( '#main-menu' ).toggleClass( 'open' ).toggleClass( 'closed' );	
 //			return false;		
@@ -160,7 +160,8 @@ function doHipnewsReady() {
 		},
 		success: function() {
 			hipnewsJS( '#commentform textarea' ).removeClass( 'loading' ).addClass( 'success' );			
-			alert( WPMobi.comment_success );
+			alert( MobileView.comment_success );
+			window.location.href =window.location.href;
 			setTimeout( function () { 
 				hipnewsJS( '#commentform textarea' ).removeClass( 'success' );
 			}, 1500 );
@@ -170,7 +171,8 @@ function doHipnewsReady() {
 		},
 		error: function() {
 			hipnewsJS( '#commentform textarea' ).removeClass( 'loading' ).addClass( 'error' );
-			alert( WPMobi.comment_failure );
+			alert( MobileView.comment_failure );
+			window.location.href =window.location.href;
 			setTimeout( function () { 
 				hipnewsJS( '#commentform textarea' ).removeClass( 'error' );
 			}, 3000 );
@@ -229,7 +231,7 @@ function doHipnewsReady() {
 	var allVideos = hipnewsJS( '.content' ).find(videoSelectors.join(','));
 	
 	hipnewsJS( allVideos ).each( function(){ 
-		hipnewsJS( this ).unwrap().addClass( 'wpmobi-videos' ).parentsUntil( '.content', 'div:not(.fluid-width-video-wrapper), span' ).removeAttr( 'width' ).removeAttr( 'height' ).removeAttr( 'style' );
+		hipnewsJS( this ).unwrap().addClass( 'mobileview-videos' ).parentsUntil( '.content', 'div:not(.fluid-width-video-wrapper), span' ).removeAttr( 'width' ).removeAttr( 'height' ).removeAttr( 'style' );
 	});
 
 	hipnewsJS( '.content' ).fitVids();
@@ -247,18 +249,13 @@ function doHipnewsReady() {
 	});
 	
 	/* New Toggle Switch JS */
-	var onLabel = WPMobi.toggle_on, offLabel = WPMobi.toggle_off;
-	hipnewsJS( '.on' ).text( onLabel );
-	hipnewsJS( '.off' ).text( offLabel );
-	
-	hipnewsJS( '#switch .switcher-wrapper' ).bind( hipnewsEndOrClick, function(){ 
-		var switchURL = hipnewsJS( this ).attr( 'title' );
-		jQuery(this).toggleClass('active');
-		hipnewsJS( '.on' ).toggleClass( 'active' );
-		hipnewsJS( '.off' ).toggleClass( 'active' );
-		setTimeout( function () { window.location = switchURL }, 1000 );
-		return false;
-	});
+	hipnewsJS('.check-ios').on('change', function(){
+		var is_checked = hipnewsJS(this).is(':checked'),
+			url = hipnewsJS(this).data('url');
+		setTimeout(function(){
+			window.location.href = url;
+		}, 300);
+	}); 
 
 	hipnewsHandleShortcodes();
 }
@@ -283,10 +280,10 @@ jQuery.fn.viewportCenter = function() {
 }
 
 function welcomeMessage() {
-	if ( !WPMobiWebApp ) {	
+	if ( !MobileViewWebApp ) {	
 		hipnewsJS( '#welcome-message' ).show();
 		hipnewsJS( 'a#close-msg' ).bind( 'click', function() {
-			WPMobiCreateCookie( 'wpmobi_welcome', '1', 365 );
+			MobileViewCreateCookie( 'mobileview_welcome', '1', 365 );
 			hipnewsJS( '#welcome-message' ).fadeOut( 350 );
 			return false;
 		});
@@ -294,7 +291,7 @@ function welcomeMessage() {
 }
 
 function webAppLinks() {
-	if ( WPMobiWebApp ) {
+	if ( MobileViewWebApp ) {
 		// The New Sauce ( Nobody makes tasty gravy like mom )		
 		// bind to all links, except UI controls and such
 		var webAppLinks = hipnewsJS( 'a' ).not(
@@ -308,8 +305,8 @@ function webAppLinks() {
 //			var localDomain = location.hostname;	
 	
 			// link is local, but set to be non-mobile
-			if ( typeof wpmobi_ignored_urls != 'undefined' ) {
-				hipnewsJS.each( wpmobi_ignored_urls, function( i, val ) {
+			if ( typeof mobileview_ignored_urls != 'undefined' ) {
+				hipnewsJS.each( mobileview_ignored_urls, function( i, val ) {
 					if ( targetUrl.match( val ) ) {
 						targetLink.addClass( 'ignored' );
 					}
@@ -327,7 +324,7 @@ function webAppLinks() {
 
 				// is this an external link? Confirm to leave WAM
 				if ( hipnewsJS( targetLink ).hasClass( 'external' ) || hipnewsJS( targetLink ).parent( 'li' ).hasClass( 'external' ) ) {
-			       	confirmForExternal = confirm( WPMobi.external_link_text + ' \n' + WPMobi.open_browser_text );
+			       	confirmForExternal = confirm( MobileView.external_link_text + ' \n' + MobileView.open_browser_text );
 					if ( confirmForExternal ) {
 						return true;
 					} else {			
@@ -341,7 +338,7 @@ function webAppLinks() {
 				} else if ( targetUrl.match( localDomain ) || !targetUrl.match( 'http://' ) ) {
 					// make sure it's not in the ignored list first
 					if ( hipnewsJS( targetLink ).hasClass( 'ignored' ) || hipnewsJS( targetLink ).parent( 'li' ).hasClass( 'ignored' ) ) {
-				       	confirmForExternal = confirm( WPMobi.wpmobi_ignored_text + ' \n' + WPMobi.open_browser_text );
+				       	confirmForExternal = confirm( MobileView.mobileview_ignored_text + ' \n' + MobileView.open_browser_text );
 							if ( confirmForExternal ) {
 								return true;	
 							} else {
@@ -360,7 +357,7 @@ function webAppLinks() {
 					}
 				// not local, not ignored, doesn't have no-ajax but it's got an external http domain url
 				} else {
-			       	confirmForExternal = confirm( WPMobi.external_link_text + ' \n' + WPMobi.open_browser_text );
+			       	confirmForExternal = confirm( MobileView.external_link_text + ' \n' + MobileView.open_browser_text );
 					if ( confirmForExternal ) {
 						return true;
 					} else {			
@@ -385,9 +382,9 @@ function loadPage( targetUrl ) {
 		hipnewsJS( '#outer-ajax' ).load( targetUrl + ' #inner-ajax', function( allDone ) {
 			hipnewsJS( '#progress' ).addClass( 'done' );
 			if ( persistenceOn ) {
-		  		WPMobiCreateCookie( 'wpmobi-load-last-url', targetUrl, 365 );
+		  		MobileViewCreateCookie( 'mobileview-load-last-url', targetUrl, 365 );
 			} else {
-			  	WPMobiEraseCookie( 'wpmobi-load-last-url' );	
+			  	MobileViewEraseCookie( 'mobileview-load-last-url' );	
 			}
 			doHipnewsReady();
 			scrollTo( 0, 0, 100 );
@@ -396,7 +393,7 @@ function loadPage( targetUrl ) {
 		hipnewsJS( 'body' ).append( '<div id="progress"></div>' );
 		hipnewsJS( '#progress' ).viewportCenter();
 		if ( persistenceOn ) {
-	  		WPMobiCreateCookie( 'wpmobi-load-last-url', targetUrl, 365 );
+	  		MobileViewCreateCookie( 'mobileview-load-last-url', targetUrl, 365 );
 		}
 		setTimeout( function () { window.location = targetUrl; }, 550 );
 	}
@@ -404,10 +401,10 @@ function loadPage( targetUrl ) {
 
 /* Things to do only when in Web-App Mode */
 function webAppOnly() {
-	if ( WPMobiWebApp ) {
+	if ( MobileViewWebApp ) {
 		var persistenceOn = hipnewsJS( 'body.loadsaved' ).length;
 		if ( !persistenceOn ) {
-			WPMobiEraseCookie( 'wpmobi-load-last-url' );
+			MobileViewEraseCookie( 'mobileview-load-last-url' );
 		}
 		hipnewsJS( 'body' ).addClass( 'web-app' );
 		hipnewsJS( 'body.black-translucent' ).css( 'margin-top', '20px' );
@@ -418,8 +415,8 @@ function webAppOnly() {
 
 function hipnewsHandleShortcodes() {
 	// For web application mode
-	if ( WPMobiWebApp ) {
-		var webAppDivs = jQuery( '.wpmobi-shortcode-webapp-only' );
+	if ( MobileViewWebApp ) {
+		var webAppDivs = jQuery( '.mobileview-shortcode-webapp-only' );
 		if ( webAppDivs.length ) {
 			webAppDivs.show();
 		}
@@ -430,7 +427,7 @@ function loadMoreEntries() {
 	var loadMoreLink = hipnewsJS( 'a.load-more-link' );
 	var ajaxDiv = '.ajax-page-target';
 	loadMoreLink.live( 'click', function() {
-		hipnewsJS( this ).addClass( 'ajax-spinner' ).text( WPMobi.loading_text );
+		hipnewsJS( this ).addClass( 'ajax-spinner' ).text( MobileView.loading_text );
 		var loadMoreURL = hipnewsJS( this ).attr( 'rel' );
 		hipnewsJS( '.post-list' ).append( "<div class='ajax-page-target'></div>" );
 		hipnewsJS( ajaxDiv ).hide().load( loadMoreURL + ' .post-list .post, .post-list .load-more-link', function() {
@@ -453,7 +450,7 @@ function loadMoreComments() {
 		hipnewsJS( ajaxDiv ).hide().load( loadMoreURL + ' ol.commentlist > li', function() {
 			hipnewsJS( this ).replaceWith( hipnewsJS( this ).html() );	
 			hipnewsJS( '.load-more-comments-link a.ajax-spinner' ).parent().fadeOut( 350 );
-			if ( WPMobiWebApp ) { 
+			if ( MobileViewWebApp ) { 
 				hipnewsJS( 'a.comment-reply-link, a.comment-edit-link' ).remove();
 				webAppLinks(); 
 			}
@@ -469,18 +466,18 @@ function comReplyArrows() {
 	});
 }
 
-function WPMobiCreateCookie( name, value, days ) {
+function MobileViewCreateCookie( name, value, days ) {
 	if ( days ) {
 		var date = new Date();
 		date.setTime( date.getTime() + ( days*24*60*60*1000 ) );
 		var expires = "; expires="+date.toGMTString();
 	}
 	else var expires = "";
-	document.cookie = name+"="+value+expires+"; path="+WPMobi.siteurl;
+	document.cookie = name+"="+value+expires+"; path="+MobileView.siteurl;
 }
 
-function WPMobiEraseCookie( name ) {
-	WPMobiCreateCookie( name,"",-1 );
+function MobileViewEraseCookie( name ) {
+	MobileViewCreateCookie( name,"",-1 );
 }
 
 hipnewsJS( document ).ready( function() { doHipnewsReady(); } );

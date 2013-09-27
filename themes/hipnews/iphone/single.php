@@ -1,49 +1,38 @@
 <?php get_header(); ?>	
 
-	<?php if ( wpmobi_have_posts() ) { ?>
+	<?php if ( mobileview_have_posts() ) { ?>
 	
-		<?php wpmobi_the_post(); ?>
+		<?php mobileview_the_post(); ?>
 
-		<div class="<?php wpmobi_post_classes(); ?> entry-content">
+		<div class="<?php mobileview_post_classes(); ?> entry-content">
 
-			<?php if ( hipnews_use_thumbnail_icons() && hipnews_thumbs_on_single() ) { ?>
+			<?php if ( has_post_thumbnail() && hipnews_thumbs_on_single() ) { ?>
 				<?php locate_template( 'thumbnails.php', true ); ?>
 			<?php } ?>	
 
-			<h2 class="entry-title"><?php wpmobi_the_title(); ?></h2>
+			<h2 class="entry-title"><?php mobileview_the_title(); ?></h2>
 
             <ul class="entry-meta">
+                <?php if( mobileview_has_categories() ){ ?>
+                    <li><?php mobileview_the_categories(); ?></li>
+                <?php } ?>
                 <?php if ( hipnews_show_author_single() ) { ?>
-                    <li><?php _e( "By", "wpmobi-me" ); ?> <?php the_author(); ?></li>
+                    <li><?php _e( "By", "mobileviewlang" ); ?> <?php the_author(); ?></li>
                 <?php } ?>
                 <?php if ( hipnews_show_date_single() ) { ?>
-                    <li><time class="entry-date"><?php wpmobi_the_time( 'F jS, Y' ); ?></time></li>
+                    <li><time class="entry-date"><?php mobileview_the_time( 'F jS, Y' ); ?></time></li>
                 <?php } ?>
-                <?php if ( wpmobi_get_comment_count() ) { ?>
-                    <li><a class="entry-comment-count" href="#wpmobi-comments"><?php comments_number( __('No Comment', 'wpmobi-me'), __('1 Comment', 'wpmobi-me'), __('% Comments', 'wpmobi-me') ); ?></a></li>
+                <?php if ( mobileview_get_comment_count() ) { ?>
+                    <li><a class="entry-comment-count" href="#mobileview-comments"><?php comments_number( __('No Comment', 'mobileviewlang'), __('1 Comment', 'mobileviewlang'), __('% Comments', 'mobileviewlang') ); ?></a></li>
                 <?php } ?>
             </ul>
-        
-    		<!-- text for 'back and 'next' is hidden via CSS, and replaced with arrow images -->
-			<div class="post-navigation nav-top">
-				<div class="post-nav-fwd">
-					<?php hipnews_get_next_post_link(); ?>
-				</div>				
-				<div class="post-nav-middle">
-					<?php if ( wpmobi_get_comment_count() > 0 ) echo '<a href="javascript: return false" class="middle-link no-ajax">' . __( "Skip to Responses", "wpmobi-me" ) . '</a>' ; ?>
-				</div>
-				<div class="post-nav-back">
-						<?php hipnews_get_previous_post_link(); ?>
-				</div>
-			</div>
-
 			
-			<div class="<?php wpmobi_content_classes(); ?>">
-				<?php wpmobi_the_content(); ?>
+			<div class="<?php mobileview_content_classes(); ?>">
+				<?php mobileview_the_content(); ?>
 				<br class="clearfix" />
 				<?php if ( wp_link_pages( 'echo=0' ) ) { ?>
 					<div class="single-post-meta-bottom">
-						<?php wp_link_pages( 'before=<div class="post-page-nav">' . __( "Article Pages", "wpmobi-me" ) . ':&after=</div>&next_or_number=number&pagelink=page %&previouspagelink=&raquo;&nextpagelink=&laquo;' ); ?>
+						<?php wp_link_pages( 'before=<div class="post-page-nav">' . __( "Article Pages", "mobileviewlang" ) . ':&after=</div>&next_or_number=number&pagelink=page %&previouspagelink=&raquo;&nextpagelink=&laquo;' ); ?>
 						<?php if ( hipnews_should_show_taxonomy() ) { ?>
 							<?php if ( hipnews_has_custom_taxonomy() ) { ?>
 								<?php $custom_tax = hipnews_get_custom_taxonomy(); ?>
@@ -63,18 +52,18 @@
 						<?php } ?>
 					</div>   
 				<?php } ?>
-
 			</div>
 
-			<div class="post-navigation nav-bottom">
+			    		<!-- text for 'back and 'next' is hidden via CSS, and replaced with arrow images -->
+			<div class="post-navigation nav-top">
+                <div class="post-nav-back">
+                    <?php hipnews_get_previous_post_link(); ?>
+				</div>
+				<div class="post-nav-middle">
+					<?php if ( mobileview_get_comment_count() > 0 ) echo '<a href="javascript: return false" class="middle-link no-ajax">' . __( "Skip to Responses", "mobileviewlang" ) . '</a>' ; ?>
+				</div>
 				<div class="post-nav-fwd">
 					<?php hipnews_get_next_post_link(); ?>
-				</div>	
-				<div class="post-nav-middle">
-					<a href="#header" class="back-to-top no-ajax"><?php _e( "Back to Top", "wpmobi-me" ); ?></a>
-				</div>
-				<div class="post-nav-back">
-					<?php hipnews_get_previous_post_link(); ?>
 				</div>
 			</div>
 

@@ -1,12 +1,12 @@
 <?php
 
-//add_action( 'wpmobi_module_init', 'wpmobi_youtube_mobile_init' );
+//add_action( 'mobileview_module_init', 'mobileview_youtube_mobile_init' );
 
-function wpmobi_youtube_mobile_init() {
-	add_filter( 'wpmobi_the_content', 'wpmobi_youtube_module_content' );	
+function mobileview_youtube_mobile_init() {
+	add_filter( 'mobileview_the_content', 'mobileview_youtube_module_content' );	
 }
 
-function wpmobi_youtube_module_content( $content ) {
+function mobileview_youtube_module_content( $content ) {
 	$result = preg_match_all( '#<object (.*)>(.*)<param (.*) value=["\']http://www.youtube.com/v/(.*)\?(.*)["\'] (.*)>(.*)</object>#iU', $content, $matches );
 	if ( $result && count( $matches ) ) {		
 		for( $i = 0 ; $i < count( $matches[0] ) ; $i++ ) {

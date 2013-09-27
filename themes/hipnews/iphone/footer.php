@@ -1,37 +1,54 @@
 				  </div><!-- .post-list -->
-                </section><!-- .main-container -->
+                </div><!-- .main-container -->
 					
-				<?php do_action( 'wpmobi_body_bottom' ); ?>
+				<?php do_action( 'mobileview_body_bottom' ); ?>
 
-    <footer class="footer">
+    <div class="footer">
         <h3 class="footer-branding">
-            <a href="<?php wpmobi_bloginfo( 'url' ); ?>"><?php wpmobi_bloginfo( 'site_title' ); ?></a>
+            <a href="<?php mobileview_bloginfo( 'url' ); ?>"><?php mobileview_bloginfo( 'site_title' ); ?></a>
         </h3>
         <div class="footer-nav container copyrights">
-            <?php wpmobi_footer(); ?>
+            <?php show_mobileview_message_in_footer();?>
         </div><!-- .footer-nav -->
-        <div class="<?php wpmobi_footer_classes(); ?> switcher container">
-            <?php if ( wpmobi_show_switch_link() && !hipnews_is_web_app_mode() ) { ?>
-    			<div id="switch" class="wpmobi-desktop-switch clearfix">
-    				<span class="switch-text">
-    					<?php _e( "MobileView", "wpmobi-me" ); ?>
-    				</span>
-    				<div class="switcher-wrapper" title="<?php wpmobi_the_mobile_switch_link(); ?>">
-                        <div class="switcher-inner">
-        					<span class="on active"></span>
-                            <span class="switcher-btn"></span>               
-        					<span class="off"></span>
-                        </div>               
-    				</div>
-    			</div>
-    		<?php } ?>
+        <div class="<?php mobileview_footer_classes(); ?> switcher container">
+            <?php if ( mobileview_show_switch_link() && !hipnews_is_web_app_mode() ) { ?>
+				<div id="switch" class="mobileview-desktop-switch switcher">
+					<div id="mobileview-main-top">
+						<h3>
+							<img src="http://demo.colorlabsproject.com/colabs1/wp-content/plugins/mobileview/admin/images/logo.png">
+							<a href="http://colorlabsproject.com/plugins/mobileview/" target="_blank" title="ColorLabs &amp; Company">MobileView</a>
+						</h3>
+					</div>
+					
+					<?php
+					
+					$settings = mobileview_get_settings();
+					$get_colour = $settings->switch_colour;
+					
+					if (!empty($get_colour)){
+					echo '<style>
+							.check-ios:checked ~ span{
+								background-color:'.$get_colour.'
+							}
+						</style>';
+					}
+					?>
+					<div class="holder">
+						<input type="checkbox" id="check_s" name="check" class="check-ios" checked data-url="<?php mobileview_the_mobile_switch_link(); ?>"/>
+						<label for="check_s"></label>
+						<span></span>
+					</div>
+				
+				</div>
+			<?php } ?>
         </div>
-        <?php do_action( 'wpmobi_advertising_bottom' ); ?>
-    </footer><!-- .footer -->
-    <!-- <?php echo 'Built with MobileView ' . WPMOBI_VERSION; ?> -->
+        <?php do_action( 'mobileview_advertising_bottom' ); ?>
+    </div><!-- .footer -->
+    <!-- <?php echo 'Built with MobileView ' . MOBILEVIEW_VERSION; ?> -->
 
 			</div> <!-- #inner-ajax -->
 		</div> <!-- #outer-ajax -->
-    
+		</div><!-- Wrapperr -->
+    <div class="custom-footer"><?php mobileview_footer(); ?></div>
     </body>
 </html>						

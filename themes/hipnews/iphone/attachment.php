@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 
 	<div class="posts-nav post">
-		<span class="left"><a href="javascript:return false" onclick="window.history.back();"><?php _e( 'Back', 'wpmobi-me' ); ?></a></span>
+		<span class="left"><a href="javascript:return false" onclick="window.history.back();"><?php _e( 'Back', 'mobileviewlang' ); ?></a></span>
 	</div><!-- #nav-single -->
 
 
-<div class="<?php wpmobi_post_classes(); ?>">
+<div class="<?php mobileview_post_classes(); ?>">
 
 	<?php the_post(); ?>
 	
@@ -15,7 +15,7 @@
 		<?php
 		$metadata = wp_get_attachment_metadata();
 		printf( __( '<span class="meta-prep meta-prep-entry-date">Published </span><span class="entry-date"><abbr class="published" title="%1$s">%2$s</abbr></span>
-		<br />at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a><br />in <a href="%6$s" title="Return to %7$s" rel="gallery">%7$s</a>', 'wpmobi-me' ),
+		<br />at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a><br />in <a href="%6$s" title="Return to %7$s" rel="gallery">%7$s</a>', 'mobileviewlang' ),
 		esc_attr( get_the_time() ),
 		get_the_date(),
 		esc_url( wp_get_attachment_url() ),
@@ -25,7 +25,7 @@
 		get_the_title( $post->post_parent )
 		);
 		?>
-		<?php edit_post_link( __( ' | Edit', 'wpmobi-me' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( ' | Edit', 'mobileviewlang' ), '<span class="edit-link">', '</span>' ); ?>
 	</div><!-- .entry-meta -->
 	<br />
 	<div class="content">
@@ -68,8 +68,8 @@
 </div><!-- .post -->
 
 	<div id="nav-single" class="posts-nav post">
-		<span class="left"><?php previous_image_link( false, __( 'Previous Image' , 'wpmobi-me' ) ); ?></span>
-		<span class="right clearfix"><?php next_image_link( false, __( 'Next Image' , 'wpmobi-me' ) ); ?></span>
+		<span class="left"><?php previous_image_link( false, __( 'Previous Image' , 'mobileviewlang' ) ); ?></span>
+		<span class="right clearfix"><?php next_image_link( false, __( 'Next Image' , 'mobileviewlang' ) ); ?></span>
 	</div><!-- #nav-single -->
 
 

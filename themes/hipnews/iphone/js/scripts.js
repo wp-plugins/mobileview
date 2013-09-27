@@ -1,24 +1,6 @@
 (function($){
 $(document).ready(function(){
 
-/* ===================================================================
-  #Mobile Menu Toggle
-=================================================================== */
-$('.collapse-toggle').click(function(e){
-  e.preventDefault();
-  var $el = $(this),
-      $navCollapse = $('.nav-collapse');
-
-  // If collapsed
-  if( $el.hasClass('collapsed') ) {
-    $navCollapse.height( $navCollapse.children().outerHeight(true) );
-    $el.removeClass('collapsed');
-  } else {
-    $navCollapse.height(0);
-    $el.addClass('collapsed');
-  }
-});
-
 
 /* ===================================================================
   #FlexSlider
@@ -30,6 +12,26 @@ $('.flexslider').imagesLoaded(function(){
   });
 });
 
+/* ===================================================================
+  #Mobile Menu 
+=================================================================== */
+$('#top-sliding-menu').mmenu({
+	counters: false,
+	configuration: {
+	  menuNodetype: 'div'
+	}
+});
+
+
+/* Margin top for wrapper */
+
+var headerHeight = $('.header').outerHeight(true);
+$('.outer-wrapper').css('margin-top', headerHeight);
+
+/* Welcome message */
+$('#close-msg').click(function(){
+	window.location.href = window.location.href;
+});
 
 });
 })(jQuery);

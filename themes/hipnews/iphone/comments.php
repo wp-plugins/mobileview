@@ -22,13 +22,13 @@
 		</div>
 	<?php } ?>
 	
-	<ol id="wpmobi-comments" class="commentlist  <?php if ( hipnews_mobile_hide_responses() ) echo 'hidden'; ?>">
+	<ol id="mobileview-comments" class="commentlist  <?php if ( hipnews_mobile_hide_responses() ) echo 'hidden'; ?>">
 		<?php wp_list_comments('type=all&callback=hipnews_custom_comments'); ?>
 		<?php if ( hipnews_is_ajax_enabled() ) { ?>
 			<?php if ( hipnews_comments_newer() ) { ?>
-				<li class="load-more-comments-link"><?php previous_comments_link(__( "Load More Comments&hellip;", "wpmobi-me" ) ); ?></li>
+				<li class="load-more-comments-link"><?php previous_comments_link(__( "Load More Comments&hellip;", "mobileviewlang" ) ); ?></li>
 			<?php } else { ?>
-				<li class="load-more-comments-link"><?php next_comments_link(__( "Load More Comments&hellip;", "wpmobi-me" ) ); ?></li>
+				<li class="load-more-comments-link"><?php next_comments_link(__( "Load More Comments&hellip;", "mobileviewlang" ) ); ?></li>
 			<?php } ?>
 		<?php } ?>
 	</ol>
@@ -48,7 +48,7 @@
 		<!-- If comments are open, but there are no comments. -->
 	 <?php else : // comments are closed ?>
 		<!-- If comments are closed. -->
-		<p class="nocomments"><?php _e( "Comments are closed", "wpmobi-me" ); ?>.</p>
+		<p class="nocomments"><?php _e( "Comments are closed", "mobileviewlang" ); ?>.</p>
 	<?php endif; ?>
 	
 <?php endif; ?>
@@ -57,37 +57,37 @@
 
 	<div id="respond">
 		<div class="cancel-comment-reply">
-			<?php cancel_comment_reply_link( __( 'Cancel', 'wpmobi-me' ) ); ?>
+			<?php cancel_comment_reply_link( __( 'Cancel', 'mobileviewlang' ) ); ?>
 		</div>	
 		
-		<h3><?php comment_form_title( __( 'Leave a Reply', 'wpmobi-me' ), __( 'Leave a Reply to %s', 'wpmobi-me' ) ); ?></h3>
+		<h3><?php comment_form_title( __( 'Leave a Reply', 'mobileviewlang' ), __( 'Leave a Reply to %s', 'mobileviewlang' ) ); ?></h3>
 		
 		<?php if ( get_option( 'comment_registration' ) && !is_user_logged_in() ) : ?>
-		<p><?php echo sprintf( __( "You must be %slogged in%s to post a comment.", "wpmobi-me" ), '<a class="login-req" href="' . wp_login_url( get_permalink() ) . '">', '</a>' ); ?></p>
+		<p><?php echo sprintf( __( "You must be %slogged in%s to post a comment.", "mobileviewlang" ), '<a class="login-req" href="' . wp_login_url( get_permalink() ) . '">', '</a>' ); ?></p>
 		
 		<?php else : ?>
 		
-		<form action="<?php wpmobi_bloginfo('wpurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+		<form action="<?php mobileview_bloginfo('wpurl'); ?>/wp-comments-post.php" method="post" id="commentform">
 			<?php if ( is_user_logged_in() ) : ?>
 			
-			<p><?php _e( "Logged in as", "wpmobi-me" ); ?> <?php echo $user_identity; ?>. <a href="<?php echo wp_logout_url( get_bloginfo( 'url' ) ); ?>" title="Log out"><?php _e( "Log out", "wpmobi-me" ); ?> &raquo;</a></p>
+			<p><?php _e( "Logged in as", "mobileviewlang" ); ?> <?php echo $user_identity; ?>. <a href="<?php echo wp_logout_url( get_bloginfo( 'url' ) ); ?>" title="Log out"><?php _e( "Log out", "mobileviewlang" ); ?> &raquo;</a></p>
 			
 			<?php else : ?>
 			
 			<p><input type="text" name="author" id="author" value="<?php echo esc_attr( $comment_author ); ?>" size="22" <?php if ( $req ) echo "aria-required='true'"; ?> tabindex="10" />
-			<label for="author"><?php _e( "Name", "wpmobi-me" ); ?><?php if ( $req ) echo "*"; ?></label></p>
+			<label for="author"><?php _e( "Name", "mobileviewlang" ); ?><?php if ( $req ) echo "*"; ?></label></p>
 			
 			<p><input type="email" autocapitalize="off" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" <?php if ( $req ) echo "aria-required='true'"; ?> tabindex="11" />
-			<label for="email"><?php _e( "E-Mail", "wpmobi-me" ); ?><?php if ( $req ) echo "*"; ?></label></p>
+			<label for="email"><?php _e( "E-Mail", "mobileviewlang" ); ?><?php if ( $req ) echo "*"; ?></label></p>
 			
 			<p><input type="url" autocapitalize="off" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="12" />
-			<label for="url"><?php _e( "Website", "wpmobi-me" ); ?></label></p>
+			<label for="url"><?php _e( "Website", "mobileviewlang" ); ?></label></p>
 					
 			<?php endif; ?>
 				
 			<p><textarea name="comment" id="comment" cols="58" rows="10" tabindex="13"></textarea></p>
 			
-			<p><input name="submit" type="submit" id="submit" value="<?php _e( "Publish", "wpmobi-me" ); ?>" tabindex="14" /></p>
+			<p><input name="submit" type="submit" id="submit" value="<?php _e( "Publish", "mobileviewlang" ); ?>" tabindex="14" /></p>
 			
 			<?php comment_id_fields(); ?>
 			
@@ -98,6 +98,5 @@
 		<?php endif; // If registration required and not logged in ?>
 	</div>
 
-</div><!-- #comments -->
-
 <?php endif; // if you delete this the sky will fall on your head ?>
+</div><!-- #comments -->

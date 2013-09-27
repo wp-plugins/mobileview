@@ -1,41 +1,45 @@
-<?php get_header(); ?>	
-
-<?php if ( wpmobi_hipnews_is_custom_latest_posts_page() ) { ?>
-	<?php wpmobi_hipnews_custom_latest_posts_query(); ?>
-	<?php locate_template( 'blog-loop.php', true ); ?>
-<?php } else { ?>
-	<?php if ( wpmobi_have_posts() ) { ?>
+<?php get_header(); ?>	 
+	<?php if ( mobileview_have_posts() ) { ?>
 	
-		<?php wpmobi_the_post(); ?>
-		<div class="<?php wpmobi_post_classes(); ?> page-title-area">
+		<?php mobileview_the_post(); ?>
 
-			<?php if ( hipnews_use_thumbnail_icons() && hipnews_thumbs_on_pages() ) { ?>
-				<?php locate_template( 'thumbnails.php', true ); ?>
-			<?php } elseif ( wpmobi_page_has_icon() ) { ?>
-				<img src="<?php wpmobi_page_the_icon(); ?>" alt="<?php the_title(); ?>-page-icon" />
-			<?php } ?>
+		<div class="<?php mobileview_post_classes(); ?> entry-content">	
 
-			<h2><?php wpmobi_the_title(); ?></h2>
-
-			<?php wp_link_pages( __( 'Pages in the article:', 'wpmobi-me' ), '', 'number' ); ?>
-
-		</div>	
-		
-		<div class="<?php wpmobi_post_classes(); ?>">
+			<h2 class="entry-title"><?php mobileview_the_title(); ?></h2>
 			
-			<div class="<?php wpmobi_content_classes(); ?>">
-				<?php wpmobi_the_content(); ?>
+			<div class="<?php mobileview_content_classes(); ?>">
+				<?php mobileview_the_content(); ?>
+				<br class="clearfix" />
+				<?php if ( wp_link_pages( 'echo=0' ) ) { ?>
+					<div class="single-post-meta-bottom">
+						<?php wp_link_pages( 'before=<div class="post-page-nav">' . __( "Article Pages", "mobileviewlang" ) . ':&after=</div>&next_or_number=number&pagelink=page %&previouspagelink=&raquo;&nextpagelink=&laquo;' ); ?>
+						<?php if ( hipnews_should_show_taxonomy() ) { ?>
+							<?php if ( hipnews_has_custom_taxonomy() ) { ?>
+								<?php $custom_tax = hipnews_get_custom_taxonomy(); ?>
+								<?php if ( $custom_tax && count( $custom_tax ) ) { ?>
+									<?php foreach( $custom_tax as $tax_name => $contents ) { ?>
+										<div class="post-page-cats">
+											<?php echo $tax_name . ': '; ?>
+											<?php $tax_array = array(); ?>
+											<?php foreach( $contents as $term ) { ?>
+												<?php $tax_array[] = '<a href="' . $term->link . '">' . $term->name . '</a>'; ?>
+											<?php } ?>
+											<?php echo implode( ', ', $tax_array ); ?>
+										</div>
+									<?php } ?>
+								<?php } ?>
+							<?php } ?>
+						<?php } ?>
+					</div>   
+				<?php } ?>
 			</div>
-			
-					<?php wp_link_pages( 'before=<div class="post-page-nav">' . __( "Pages", "wpmobi-me" ) . ':&after=</div>&next_or_number=number&pagelink=page %&previouspagelink=&raquo;&nextpagelink=&laquo;' ); ?>          
 
-		</div><!-- wpmobi_posts_classes() -->
 
-	<?php } ?>
-	
-	<?php if ( hipnews_show_comments_on_pages() ) { ?>
-		<?php comments_template(); ?>
-	<?php } ?>
-<?php } ?>
+        </div><!-- ./entry-content -->
+
+		<?php } ?>
+		<?php if ( hipnews_show_comments_on_pages() ) { ?>
+					<?php comments_template(); ?>
+				<?php } ?>
 
 <?php get_footer(); ?>

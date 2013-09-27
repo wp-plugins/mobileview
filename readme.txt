@@ -2,7 +2,7 @@
 Contributors: colorlabs
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@colorlabsproject.com&item_name=Donation+for+Mobile+View
 Requires at least: WordPress 3.1.0
-Tested up to: WordPress 3.5.0
+Tested up to: WordPress 3.6.1
 Stable tag: trunk
 License: GPLv3 or later
 Tags: mobile, mobile theme, mobileview, android, apple, blackberry, colorlabs, iphone, smartphone, skin
@@ -64,6 +64,20 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.0.9 =
+
+ * Change switcher style
+ * Change plugin panel interface
+ * Fix HipNews default skin
+ * Add new feature of delete and update the skins
+ * Several Bug Fixes
+ * Add colorpicker feature for option
+ 
+= 1.0.8 =
+
+ * Several Bug Fixes
+ * MobileView now support Mobile Skin
+ 
 = 1.0.7 =
 
  * Change switcher text from "Mobile Theme" to "MobileView"
@@ -97,7 +111,7 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
  
 = 1.0.1 =
 
-* /include/config.php 
+* /includes/config.php 
     - Fix dirname bug.
 
 = 1.0.0 =

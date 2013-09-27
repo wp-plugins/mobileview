@@ -1,0 +1,1 @@
+<p class="copytext"><?php mobileview_the_tab_setting_desc(); ?></p>

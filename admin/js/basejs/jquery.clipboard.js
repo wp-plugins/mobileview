@@ -5,7 +5,7 @@ var ZeroClipboard = {
 	
 	version: "1.0.7",
 	clients: {}, // registered upload clients on page, indexed by id
-	moviePath: WPMobiCustom.wpmobi_url + '/admin/js/ZeroClipboard.swf', // URL to movie
+	moviePath: MobileViewCustom.mobileview_url + '/admin/js/ZeroClipboard.swf', // URL to movie
 	nextId: 1, // ID of next movie
 	
 	$: function(thingy) {

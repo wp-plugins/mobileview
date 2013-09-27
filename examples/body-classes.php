@@ -1,1 +1,0 @@
-<body class="<?php wpmobi_body_classes(); ?>">
