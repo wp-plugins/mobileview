@@ -49,8 +49,9 @@ Automatic updates should work a charm, as always though, ensure you backup your 
 
 == Screenshots ==
 
-1. Easily set up your social gallery settings through Mobile View Panel.
-2. Mobile theme on Iphone.
+1. General Settings at MobileView Panel.
+2. Browse Skins at MobileView Panel.
+3. Display your site at your mobile device.
 
 == Frequently Asked Questions == 
 
