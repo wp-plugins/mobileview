@@ -15,7 +15,7 @@
 				<div id="switch" class="mobileview-desktop-switch switcher">
 					<div id="mobileview-main-top">
 						<h3>
-							<img src="http://demo.colorlabsproject.com/colabs1/wp-content/plugins/mobileview/admin/images/logo.png">
+							<img src="<?php echo MOBILEVIEW_URL;?>/admin/images/logo.png">
 							<a href="http://colorlabsproject.com/plugins/mobileview/" target="_blank" title="ColorLabs &amp; Company">MobileView</a>
 						</h3>
 					</div>
