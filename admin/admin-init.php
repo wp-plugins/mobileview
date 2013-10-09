@@ -199,8 +199,8 @@ function mobileview_setup_general_tab() {
 					array( 'textarea', 'desktop_switch_css', __( 'Theme switch styling', 'mobileviewlang' ), __( 'Here you can edit the CSS output to style the switch link appearance in the footer of your regular theme.', 'mobileviewlang' ) ),	
 					array( 'section-end' ),
 					array( 'spacer' ),			
-					array( 'section-start', 'welcome-four-footer', __( 'Welcome, 404, Footer', 'mobileviewlang' ) ),
-					array( 'textarea', 'welcome_alert', __( 'Welcome message shown on 1st visit (HTML is OK)', 'mobileviewlang' ), __( 'The welcome message shows below the header for visitors until dismissed.', 'mobileviewlang' ) ),
+					array( 'section-start', 'welcome-four-footer', __( 'Notification, 404, Footer', 'mobileviewlang' ) ),
+					array( 'textarea', 'welcome_alert', __( 'Notification bar shown (HTML is OK)', 'mobileviewlang' ), __( 'The notification bar shows below the header for visitors until dismissed.', 'mobileviewlang' ) ),
 					array( 'textarea', 'fourohfour_message', __( 'Custom 404 message (HTML is OK)', 'mobileviewlang' ), __( 'Change this to whatever you\'d like for your 404 page message.', 'mobileviewlang' ) ),
 					array( 'textarea', 'footer_message', __( 'Custom footer content (HTML is OK)', 'mobileviewlang' ), __( 'Enter additional content to be displayed in the MobileView footer. Everything here is wrapped in a paragraph tag.', 'mobileviewlang' ) ),
 					array( 'section-end' ),
@@ -413,6 +413,8 @@ function mobileview_setup_tabs() {
 	do_action( 'mobileview_admin_tab' );
 
 	mobileview_setup_theme_browser_tab();
+	
+	$mobileview->save_settings( $settings );
 	
 	do_action( 'mobileview_later_admin_tabs' );
 }

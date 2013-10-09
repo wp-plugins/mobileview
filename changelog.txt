@@ -1,5 +1,11 @@
 *** Mobile View Changelog ***
 
+2013.10.09 - version 1.1.0
+-	Fix: Several Bugs
+	Files Affected: mobileviewlang.php, theme.php, mobileview-admin.js, admin-init.php, config.php
+- Add: Custom Post Type Support
+	Files Affected: mobileviewlang.php, custom-post-types.php
+	
 2013.09.27 - version 1.0.9
 -	Fix: Several Bugs
 	File Affected: mobileviewlang.php

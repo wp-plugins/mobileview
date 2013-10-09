@@ -1,10 +1,10 @@
 <?php
-add_filter( 'hipnews_extensions_admin', 'mobileview_custom_posts_setup_admin' );
+add_filter( 'mobileview_extensions_admin', 'mobileview_custom_posts_setup_admin' );
 add_filter( 'mobileview_default_settings', 'mobileview_custom_posts_default_settings' );
 add_filter( 'pre_get_posts', 'mobileview_custom_posts_pre_get_posts' );
-add_filter( 'mobileview_hipnews_should_show_taxonomy', 'mobileview_custom_post_should_show' );
-add_filter( 'mobileview_hipnews_has_custom_taxonomy', 'mobileview_custom_post_should_show' );
-add_filter( 'mobileview_hipnews_get_custom_taxonomy', 'mobileview_custom_posts_get_taxonomy' );
+add_filter( 'mobileview_should_show_taxonomy', 'mobileview_custom_post_should_show' );
+add_filter( 'mobileview_has_custom_taxonomy', 'mobileview_custom_post_should_show' );
+add_filter( 'mobileview_get_custom_taxonomy', 'mobileview_custom_posts_get_taxonomy' );
 function mobileview_custom_posts_get_list( $remove_defaults = true ) {
 	$default_post_types = array( 'post', 'page', 'attachment', 'revision', 'nav_menu_item' );
 	// Get the internal list
@@ -23,15 +23,16 @@ function mobileview_custom_posts_default_settings( $defaults ) {
 	$defaults->mobileview_show_custom_post_taxonomy = false;
 	$defaults->mobileview_show_custom_post_taxonomy_on_blog = false;
 	$post_types = mobileview_custom_posts_get_list( true );
+	
 	if ( $post_types && count( $post_types )  ) {
 		foreach( $post_types as $post_type ) {
 			$setting_name = mobileview_custom_posts_get_name_for_post_type( $post_type );
-			$defaults->$setting_name  = false;
+			$defaults->$setting_name = false;
 		}
 	}	
 	return $defaults;
 }
-function mobileview_custom_posts_setup_admin( $admin_data ) {
+function mobileview_custom_posts_setup_admin() {
 	$new_admin_info = array();
 	$new_admin_info[] = array( 'section-start', 'custom_post_types', __( 'Custom Post Types', 'mobileviewlang' ) );
 	// Should be changed to only public types later one, but for testing all included
@@ -48,7 +49,7 @@ function mobileview_custom_posts_setup_admin( $admin_data ) {
 	}
 	$new_admin_info[] = array( 'copytext', 'custom_post_warning', '* ' . __( 'Custom posts often rely on custom meta data and may not always be shown correctly in MobileView', 'mobileviewlang' ), '', '' );	
 	$new_admin_info[] = array( 'section-end' );
-	return array_merge( $admin_data, $new_admin_info );;
+	return $new_admin_info;
 }
 function mobileview_custom_posts_pre_get_posts( $query ) {
 	// Only modify the custom post type information when a mobile theme is showing
@@ -117,6 +118,7 @@ function mobileview_custom_post_should_show( $current ) {
 			$current = true;
 		}
 	}
+	
 	return $current;
 }
 function mobileview_custom_post_type_get_taxonomies( $post_type ) {

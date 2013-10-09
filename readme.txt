@@ -65,6 +65,11 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.1.0 =
+
+	* Fix: Several Bugs
+	* Add: Custom Post Type Support
+ 
 = 1.0.9 =
 
  * Change switcher style

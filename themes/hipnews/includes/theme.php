@@ -616,7 +616,7 @@ function hipnews_should_show_taxonomy() {
 	
 	$should_show_taxonomy = ( $post->post_type == 'post' );
 	
-	return apply_filters( 'mobileview_hipnews_should_show_taxonomy', $should_show_taxonomy );
+	return apply_filters( 'mobileview_should_show_taxonomy', $should_show_taxonomy );
 }
 
 function hipnews_has_custom_taxonomy() {
@@ -624,12 +624,12 @@ function hipnews_has_custom_taxonomy() {
 	
 	$custom_taxonomy = ( $post->post_type != 'post' );
 	
-	return apply_filters( 'mobileview_hipnews_has_custom_taxonomy', $custom_taxonomy );
+	return apply_filters( 'mobileview_has_custom_taxonomy', $custom_taxonomy );
 }
 
 function hipnews_get_custom_taxonomy() {
 	$custom_tax = array();
-	return apply_filters( 'mobileview_hipnews_get_custom_taxonomy', $custom_tax );
+	return apply_filters( 'mobileview_get_custom_taxonomy', $custom_tax );
 }
 
 function hipnews_url_encode( $string ) {

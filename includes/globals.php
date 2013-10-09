@@ -13,7 +13,7 @@ function mobileview_is_mobile_theme_showing() {
 function mobileview_load_extensions() {
 	global $mobileview;
 	$php_files = $mobileview->get_all_recursive_files( MOBILEVIEW_DIR . '/includes/extensions/', 'php' );
-	
+
 	if ( $php_files && count( $php_files ) ) {
 		foreach( $php_files as $php_file ) {
 			require_once( MOBILEVIEW_DIR . '/includes/extensions' . $php_file );
@@ -157,12 +157,12 @@ function mobileview_include_functions_file( $file_name, $template_path, $current
 		if ( $time_since_last_update < MOBILEVIEW_DESKTOP_FCN_CACHE_TIME ) {
 			$generate_new_cached_file = false;
 		}
+		
 	}
 	
 	// Only generate cached file when it's stale or unavailable
 	if ( $generate_new_cached_file ) {
 		$contents = $mobileview->include_functions_file( $file_name, $template_path, $current_path );
-		
 		$f = fopen( $cached_file, 'wt+' );
 		if ( $f ) {	
 			fwrite( $f, $contents );

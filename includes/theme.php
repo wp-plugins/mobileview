@@ -206,7 +206,7 @@ function mobileview_body_classes() {
 function mobileview_get_body_classes() {
 	global $mobileview;
 	$settings = $mobileview->get_settings();
-	$body_classes = array( 'mobileviewlang' );
+	$body_classes = array( 'mobileview' );
 	$mobile_device = $mobileview->get_active_mobile_device();
 	if ( $mobile_device ) {
 		$body_classes[] = 'device-' . mobileview_make_css_friendly( $mobile_device );	
@@ -570,7 +570,7 @@ function mobileview_has_categories() {
 		return false;
 	}
 	$cats = get_the_category();
-	return $cats;
+	return true;
 }
 /*!		\brief Used to echo a comma-separated list of categories associated with a post. 
  *
@@ -887,15 +887,15 @@ function mobileview_get_comment_count() {
 }
 /*!		\brief Echos an ordered category list
  *
- *		This function can be used to echo an ordered category list.  This function is used internally in the category listings in the HipNews theme header/popover sections. $num passed to the function determines the minimum number of posts a category must have to be shown.
+ *		This function can be used to echo an ordered category list.  This function is used internally in the category listings in the theme header/popover sections. $num passed to the function determines the minimum number of posts a category must have to be shown.
  *
  *		\ingroup templatetags 
  */
 function mobileview_ordered_cat_list( $num ) {
 	global $wpdb;
 	$settings = mobileview_get_settings();
-	if (  $settings->hipnews_excluded_categories != 0 ) {
-		$excluded_cats =  $settings->hipnews_excluded_categories;
+	if (  $settings->mobileview_excluded_categories != 0 ) {
+		$excluded_cats =  $settings->mobileview_excluded_categories;
 	} else {
 		$excluded_cats = 0;	
 	}
@@ -912,15 +912,15 @@ function mobileview_ordered_cat_list( $num ) {
 }
 /*!		\brief Echos an ordered tag list
  *
- *		This function can be used to echo an ordered tag list.  This function is used internally in the tag listings in the HipNews theme header/popover sections. $num passed to the function determines the minimum number of posts a tag must have to be shown.
+ *		This function can be used to echo an ordered tag list.  This function is used internally in the tag listings in the theme header/popover sections. $num passed to the function determines the minimum number of posts a tag must have to be shown.
  *
  *		\ingroup templatetags 
  */
 function mobileview_ordered_tag_list( $num ) {
 	global $wpdb;
 	$settings = mobileview_get_settings();
-	if (  $settings->hipnews_excluded_tags != 0 ) {
-		$excluded_tags =  $settings->hipnews_excluded_tags;
+	if (  $settings->mobileview_excluded_tags != 0 ) {
+		$excluded_tags =  $settings->mobileview_excluded_tags;
 	} else {
 		$excluded_tags = 0;	
 	}
@@ -1447,14 +1447,14 @@ $image = '';
 
 $settings = mobileview_get_settings();
 
-$mobileview_share_twitter = $settings->hipnews_share_twitter;
-$mobileview_share_fblike = $settings->hipnews_share_fblike;
-$mobileview_share_google_plusone = $settings->hipnews_share_google_plusone;
+$mobileview_share_twitter = $settings->mobileview_share_twitter;
+$mobileview_share_fblike = $settings->mobileview_share_fblike;
+$mobileview_share_google_plusone = $settings->mobileview_share_google_plusone;
 
-$mobileview_twitter_username= $settings->hipnews_twitter_username;
+$mobileview_twitter_username= $settings->mobileview_twitter_username;
 
-$mobileview_share_pinterest = $settings->hipnews_share_pinterest;
-$mobileview_share_linkedin = $settings->hipnews_share_linkedin;
+$mobileview_share_pinterest = $settings->mobileview_share_pinterest;
+$mobileview_share_linkedin = $settings->mobileview_share_linkedin;
 
     //Share Button Functions 
     $url = get_permalink();

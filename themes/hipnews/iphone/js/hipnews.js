@@ -161,6 +161,9 @@ function doHipnewsReady() {
 		success: function() {
 			hipnewsJS( '#commentform textarea' ).removeClass( 'loading' ).addClass( 'success' );			
 			alert( MobileView.comment_success );
+			if( window.location.hash != '' ) {
+				window.location.href = window.location.href.substr( 0, window.location.href.indexOf('#') )
+			}
 			window.location.href =window.location.href;
 			setTimeout( function () { 
 				hipnewsJS( '#commentform textarea' ).removeClass( 'success' );

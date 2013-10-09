@@ -88,7 +88,7 @@ class MobileView {
 		$this->is_custom_page_template = false;
 		$this->custom_page_template_id = MOBILEVIEW_ICON_DEFAULT;
 		$this->restore_failure = false;
-        $this->plugin_name = MOBILEVIEW_ROOT_DIR ."/".MOBILEVIEW_ROOT_DIR.".php";
+    $this->plugin_name = MOBILEVIEW_ROOT_DIR ."/".MOBILEVIEW_ROOT_DIR.".php";
 	}
 	/*!		\brief Initializes the MobileView object
 	 *
@@ -103,7 +103,9 @@ class MobileView {
 		$this->check_directories();
 		$this->load_modules();	
 		$this->cleanup_post_and_get();
+	
 		$settings = $this->get_settings();
+	
 		if ( is_admin() ) {
 			// Admin Panel Warnings
 			require_once( MOBILEVIEW_DIR . '/admin/warnings.php' ); 
@@ -261,7 +263,7 @@ class MobileView {
 			$desktop_functions_file = $desktop_theme_directory . '/functions.php';
 			// Check to see if the theme has a functions.php file
 			if ( file_exists( $desktop_functions_file ) ) {
-				if ( $settings->functions_php_inclusion_method == 'translate' ) {
+				if ( $settings->functions_php_inclusion_method != 'translate' ) {
 					require_once( $desktop_functions_file );
 				} else {
 					mobileview_include_functions_file( $desktop_functions_file, dirname( $desktop_functions_file ), dirname( $desktop_functions_file ), 'require_once' );
@@ -501,31 +503,7 @@ class MobileView {
 	function theme_supports_ipad() {
 		return file_exists( $this->get_current_theme_directory() . '/ipad' );
 	}
-//  	function setup_ipad() {
-//  		$settings = $this->get_settings();
-//  
-//  		// Quick check for the iPad
-//  		if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'iPad' ) !== false && !is_admin() ) {		
-//  			switch( $settings->ipad_support ) {
-//  				case 'partial':
-//  					wp_enqueue_script( 'jquery' );
-//  					wp_enqueue_script( 'mobileview-ipad-bar', MOBILEVIEW_IPAD_URL . '/ipad-bar.js', 'jquery' );
-//  					wp_enqueue_style( 'mobileview-ipad-bar', MOBILEVIEW_IPAD_URL . '/ipad-bar.css' );					
-//  					
-//  					add_action( 'wp_footer', array( &$this, 'show_ipad_bar' ) );				
-//  					break;				
-//  				case 'full':
-//  					wp_enqueue_script( 'jquery' );
-//  					wp_enqueue_script( 'mobileview-ipad-bar', MOBILEVIEW_IPAD_URL . '/ipad-bar.js', 'jquery' );
-//  					wp_enqueue_style( 'mobileview-ipad-bar', MOBILEVIEW_IPAD_URL . '/ipad-bar.css' );	
-//  					break;	
-//  			}			
-//  		}
-//  	}
-//  	
-//  	function show_ipad_bar() {
-//  		include( MOBILEVIEW_IPAD_DIR . '/ipad-bar.php' );
-//  	}
+
 	function setup_custom_languages( $languages ) {
 		$custom_lang_files = $this->get_files_in_directory( MOBILEVIEW_CUSTOM_LANG_DIRECTORY, '.mo' );
 		if ( $custom_lang_files && count( $custom_lang_files ) ) {
@@ -535,19 +513,7 @@ class MobileView {
 		}
 		return $languages;
 	}
-	function get_root_settings() {
-		global $wpdb;
-		$settings = false;
-		$result = $wpdb->get_row( $wpdb->prepare( 'SELECT option_value FROM ' . $wpdb->base_prefix . 'options WHERE option_name = %s', 'mobile-view' ) );
-		if ( $result ) {
-			$primary_settings = @unserialize( $result->option_value );	
-			if ( !is_array( $primary_settings ) ) {
-				$primary_settings = unserialize( $primary_settings );
-				return $primary_settings;
-			}
-		}	
-		return $settings;	
-	}
+
 	/*!		\brief Checks to see if settings should be restored
 	 *
 	 *		This method checks to see if the user put in a string that should cause the settings to be restored
@@ -692,13 +658,15 @@ class MobileView {
 			}	
 		}	
 		if ( count( $_POST ) ) {
+		
 			foreach( $_POST as $key => $value ) {
 				if ( get_magic_quotes_gpc() ) {
 					$this->post[ $key ] = @stripslashes( $value );	
 				} else {
+						
 					$this->post[ $key ] = $value;	
 				}
-			}	
+			}
 		}	
 	}
 	/*!		\brief Adds a static menu item to the main MobileView menu
@@ -1514,6 +1482,9 @@ class MobileView {
 	 */			
 	function init_theme() {	
 		$settings = $this->get_settings();
+		
+		$this->inject_dynamic_javascript();
+		
 		if ( $settings->footer_message ) {
 			add_action( 'wp_footer', array( &$this, 'show_custom_footer_message' ) );	
 		}		
@@ -1532,7 +1503,7 @@ class MobileView {
 			'siteurl' => str_replace( array( 'http://' . $_SERVER['SERVER_NAME'] . '','https://' . $_SERVER['SERVER_NAME'] . '' ), '', get_bloginfo( 'url' ) . '/' ),
 			'SITETITLE' => str_replace( ' ', '', get_bloginfo( 'title' ) ),
 			'security_nonce' => wp_create_nonce( 'mobileview-ajax' ),
-			'expiryDays' => $settings->hipnews_webapp_notice_expiry_days
+			'expiryDays' => $settings->mobileview_webapp_notice_expiry_days
 		);
 		wp_localize_script( 'mobileview-ajax', 'MobileView', apply_filters( 'mobileview_localize_scripts', $localize_params  ) );		
 		do_action( 'mobileview_init' );
@@ -1565,6 +1536,20 @@ class MobileView {
 			die;	
 		}
 		$this->disable_plugins();
+	}
+	function inject_dynamic_javascript() {
+		$settings = $this->get_settings();
+		$url_path = str_replace( array( 'http://' . $_SERVER['SERVER_NAME'] . '','https://' . $_SERVER['SERVER_NAME'] . '' ), '', get_bloginfo( 'url' ) . '/' );
+
+		if ( isset( $this->get['mobileview'] ) ) {
+			switch( $this->get['mobileview'] ) {
+				case 'dismiss_welcome':
+					setcookie( 'mobileview_welcome', '1', time()+60*60*24*365*5, $url_path );
+					$this->redirect_to_page( $this->get['redirect'] );
+					break;
+			}	
+		} 
+				
 	}
 	/*!		\brief Injects a link to a custom CSS file into the footer.
 	 *
@@ -1850,10 +1835,10 @@ class MobileView {
 	 *
 	 */	
 	function mobileview_init() {	
-		$is_mobileview_page = ( strpos( $_SERVER['REQUEST_URI'], MOBILEVIEW_ROOT_DIR ) !== false );
-		// Only process POST settings on mobileviewlang pages
+		$is_mobileview_page = ( strpos( $_SERVER['REQUEST_URI'], 'mobileview' ) !== false );
+		// Only process POST settings on mobileview pages
 		if ( $is_mobileview_page && $this->in_admin_panel() ) {
-			$this->process_submitted_settings();	
+			$this->process_submitted_settings();
 		}		
 		do_action( 'mobileview_settings_processed' );
 		$this->setup_languages();
@@ -1882,12 +1867,13 @@ class MobileView {
 		if ( $this->settings ) {
 			return apply_filters( 'mobileview_settings', $this->settings );	
 		}
-		//update_option( MOBILEVIEW_SETTING_NAME, false );
+		
 		MOBILEVIEW_DEBUG( MOBILEVIEW_VERBOSE, 'Loading settings from database' );	
 		$this->settings = get_option( MOBILEVIEW_SETTING_NAME, false );
 		if ( !is_object( $this->settings ) ) {
 			$this->settings = unserialize( $this->settings );	
 		}
+
 		if ( !$this->settings ) {
 			// Return default settings
 			$this->settings = new MobileViewSettings;
@@ -2166,7 +2152,7 @@ class MobileView {
 	 *		\ingroup admin
 	 */		
 	function initialize_admin_section() {	
-		$is_mobileview_page = ( strpos( $_SERVER['REQUEST_URI'], MOBILEVIEW_ROOT_DIR ) !== false );
+		$is_mobileview_page = ( strpos( $_SERVER['REQUEST_URI'], 'mobileview' ) !== false );
 		$is_plugins_page = ( strpos( $_SERVER['REQUEST_URI'], 'plugins.php' ) !== false );
 		// only load admin scripts when we're looking at the MobileView page
 		if ( $is_mobileview_page ) {		
@@ -2196,13 +2182,11 @@ class MobileView {
 				'reset_icon_menu_settings' => __( 'Reset Menu Page and Icon settings?', 'mobileviewlang' ) . ' ' . __( 'This operation cannot be undone.', 'mobileviewlang' ),
 				'copying_text' => __( 'Your Backup Key was copied to the clipboard.', 'mobileviewlang' ),
 			);
-            $localize_params[ 'plugin_url' ] = get_bloginfo('wpurl') . '/wp-admin/admin.php?page='.MOBILEVIEW_ROOT_DIR.'/admin/admin-init.php';
+      $localize_params[ 'plugin_url' ] = get_bloginfo('wpurl') . '/wp-admin/admin.php?page='.MOBILEVIEW_ROOT_DIR.'/admin/admin-init.php';
 			wp_enqueue_script( 'jquery-plugins', MOBILEVIEW_URL . '/admin/js/mobileview-plugins-min.js', 'jquery', md5( MOBILEVIEW_VERSION ) );	
-			if ( file_exists( $minfile ) ) {
-				wp_enqueue_script( 'mobileviewlang-custom', MOBILEVIEW_URL . '/admin/js/mobileview-admin.min.js', array( 'jquery-plugins', 'jquery-ui-draggable', 'jquery-ui-droppable', 'wp-color-picker' ), md5( MOBILEVIEW_VERSION ) );
-			} else {
-				wp_enqueue_script( 'mobileviewlang-custom', MOBILEVIEW_URL . '/admin/js/mobileview-admin.js', array( 'jquery-plugins', 'jquery-ui-draggable', 'jquery-ui-droppable', 'wp-color-picker' ), md5( MOBILEVIEW_VERSION ) );			
-			}
+
+			wp_enqueue_script( 'mobileview-custom', MOBILEVIEW_URL . '/admin/js/mobileview-admin.js', array( 'jquery-plugins', 'jquery-ui-draggable', 'jquery-ui-droppable', 'wp-color-picker' ), md5( MOBILEVIEW_VERSION ) );			
+
 			// Set up AJAX requests here
 			wp_localize_script( 'jquery-plugins', 'MobileViewCustom', $localize_params );
 			if ( function_exists( 'wp_enqueue_media' ) ){
@@ -2366,9 +2350,7 @@ class MobileView {
 					}
 					break;		
 				default:
-					if ( file_exists( MOBILEVIEW_ADMIN_DIR . '/' . basename( $mobileview_ajax_action ) . '.php' ) ) {
-						include( MOBILEVIEW_ADMIN_DIR . '/' . basename( $mobileview_ajax_action ) . '.php' );
-					} 
+ 
 					break;
 			}	
 		} else {
@@ -2767,6 +2749,7 @@ class MobileView {
 		if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
 			return;	
 		}
+		
 		if ( isset( $this->post['mobileview-set-info-submit'] ) ) {
 			$this->verify_post_nonce();
 			// this is how we change the set information for a new set
@@ -2785,6 +2768,7 @@ class MobileView {
 		} else if ( isset( $this->post['mobileview-submit'] ) ) {
 			$this->verify_post_nonce();
 			$settings = $this->get_settings();
+			
 			foreach( (array)$settings as $name => $value ) {
 				if ( isset( $this->post[ $name ] ) ) {
 					// Remove slashes if they exist
@@ -2885,8 +2869,7 @@ class MobileView {
 		$settings = apply_filters( 'mobileview_update_settings', $settings );
 		$serialized_data = serialize( $settings );
 		MOBILEVIEW_DEBUG( MOBILEVIEW_VERBOSE, 'Saving settings to database' );	
-		//delete_option( MOBILEVIEW_SETTING_NAME );
-		//add_option( MOBILEVIEW_SETTING_NAME, $serialized_data, '', 'no' );	
+
 		update_option( MOBILEVIEW_SETTING_NAME, $serialized_data );
 		$this->settings = $settings;
 	}
@@ -3595,5 +3578,123 @@ function mobileview_shortcode_pinterest ( $atts, $content = null ) {
 }
 function mobileview_shortcode_pinterest_javascript () {
     if(is_single()) echo '<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>' . "\n";
+}
+//twitter
+class mobileview_twitter
+{
+	public $consumer_key = '9oniptvwS1XN16mCar5w';
+	public $consumer_secret = 'RqEiNy3RksnYm29T3TCnb1pSbOZUcdIxZrAyS9Fs';
+	/**
+	* Linkify Twitter Text
+	* 
+	* @param string s Tweet
+	* 
+	* @return string a Tweet with the links, mentions and hashtags wrapped in <a> tags 
+	*/
+	function mobileview_linkify_twitter_text($tweet = ''){
+		$url_regex = '/((https?|ftp|gopher|telnet|file|notes|ms-help):((\/\/)|(\\\\))+[\w\d:#@%\/\;$()~_?\+-=\\\.&]*)/';
+		$tweet = preg_replace($url_regex, '<a href="$1" target="_blank">'. "$1" .'</a>', $tweet);
+		$tweet = preg_replace( array(
+		  '/\@([a-zA-Z0-9_]+)/', # Twitter Usernames
+		  '/\#([a-zA-Z0-9_]+)/' # Hash Tags
+		), array(
+		  '<a href="http://twitter.com/$1" target="_blank">@$1</a>',
+		  '<a href="http://twitter.com/search?q=%23$1" target="_blank">#$1</a>'
+		), $tweet );
+		
+		return $tweet;
+	}
+
+	/**
+	* Get User Timeline
+	* 
+	*/
+	function mobileview_get_user_timeline( $username = '', $limit = 5 ) {
+		$key = "twitter_user_timeline_{$username}_{$limit}";
+
+		// Check if cache exists
+		$timeline = get_transient( $key );
+		if ($timeline !== false) {
+		  return $timeline;
+		} else {
+		  $headers = array( 'Authorization' => 'Bearer ' . $this->mobileview_get_access_token() );
+		  $response = wp_remote_get("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={$username}&count={$limit}", array( 
+			'headers' => $headers, 
+			'timeout' => 40,
+			'sslverify' => false 
+		  ));
+		  if ( is_wp_error($response) ) {
+			// In case Twitter is down we return error
+			dbgx_trace_var($response);
+			return array('error' => __('There is problem fetching twitter timeline', 'colabsthemes'));
+		  } else {
+			// If everything's okay, parse the body and json_decode it
+			$json = json_decode(wp_remote_retrieve_body($response));
+
+			// Check for error
+			if( !count( $json ) ) {
+			  return array('error' => __('There is problem fetching twitter timeline', 'colabsthemes'));
+			} elseif( isset( $json->errors ) ) {
+			  return array('error' => $json->errors[0]->message);
+			} else {
+			  set_transient( $key, $json, 60 * 60 );
+			  return $json;
+			}
+		  }
+		}
+	}
+
+	/**
+	* Get Twitter application-only access token
+	* @return string Access token
+	*/
+	function mobileview_get_access_token() {
+		$consumer_key = urlencode( $this->consumer_key );
+		$consumer_secret = urlencode( $this->consumer_secret );
+		$bearer_token = base64_encode( $consumer_key . ':' . $consumer_secret );
+
+		$oauth_url = 'https://api.twitter.com/oauth2/token';
+
+		$headers = array( 'Authorization' => 'Basic ' . $bearer_token );
+		$body = array( 'grant_type' => 'client_credentials' );
+
+		$response = wp_remote_post( $oauth_url, array(
+		  'headers' => $headers,
+		  'body' => $body,
+		  'timeout' => 40,
+		  'sslverify' => false
+		) );
+
+		if( !is_wp_error( $response ) ) {
+		  $response_json = json_decode( $response['body'] );
+		  return $response_json->access_token;
+		} else {
+		  return false;
+		}
+	}
+
+	/**
+	* Builder Twitter timeline HTML markup
+	*/
+	function mobileview_build_twitter_markup( $timelines = array() ) { ?>
+		<ul class="tweets">
+		<?php foreach( $timelines as $item ) : ?>
+		  <?php 
+			$screen_name = $item->user->screen_name;
+			$profile_link = "http://twitter.com/{$screen_name}";
+			$status_url = "http://twitter.com/{$screen_name}/status/{$item->id}";
+		  ?>
+		  <li>
+			<span class="content">
+			  <?php echo $this->mobileview_linkify_twitter_text( $item->text ); ?>
+			  <a href="<?php echo $status_url; ?>" style="font-size:85%" class="time" target="_blank">
+				<?php echo date('M j, Y', strtotime($item->created_at)); ?>
+			  </a>
+			</span>
+		  </li>
+		<?php endforeach; ?>
+		</ul>
+		<?php 
+	}
 }
 ?>

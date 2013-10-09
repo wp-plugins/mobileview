@@ -22,7 +22,7 @@ define( 'MOBILEVIEW_SIMULATE_ALL', false );
 	define( 'MOBILEVIEW_ROOT_DIR', 'mobileview' );
 
 //! The key in the database for the MobileView settings
-	define( 'MOBILEVIEW_SETTING_NAME', 'mobileviewlang' );
+	define( 'MOBILEVIEW_SETTING_NAME', 'mobileview' );
 	define( 'MOBILEVIEW_DIR', WP_PLUGIN_DIR . '/mobileview' );
 	define( 'MOBILEVIEW_URL', colabsplugin_mobileview_sslize( WP_PLUGIN_URL . '/mobileview' ) );
 	define( 'MOBILEVIEW_PRODUCT_NAME', 'MobileView' );
@@ -36,6 +36,7 @@ define( 'MOBILEVIEW_IPAD_DIR', MOBILEVIEW_DIR . '/includes/ipad' );
 define( 'MOBILEVIEW_IPAD_URL', MOBILEVIEW_URL . '/includes/ipad' );
 
 define( 'MOBILEVIEW_ADMIN_DIR', MOBILEVIEW_DIR . '/admin' );
+
 define( 'MOBILEVIEW_BASE_CONTENT_DIR', WP_CONTENT_DIR . '/mobileview-source' );
 define( 'MOBILEVIEW_BASE_CONTENT_URL', colabsplugin_mobileview_sslize( WP_CONTENT_URL . '/mobileview-source' ) );
 

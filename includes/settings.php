@@ -22,18 +22,18 @@ class MobileViewDefaultSettings extends MobileViewSettings {
 		
 		$this->show_mobileview_in_footer = true;
 		
-        $this->mobileview_enable_custom_post_types = false;
-        
-        $this->glossy_bookmark_icon = true;
-        //Icon
-        $this->menu_show_email = false;
-        $this->menu_show_rss = false;
+    //$this->mobileview_enable_custom_post_types = false;
+    
+    $this->glossy_bookmark_icon = true;
+    //Icon
+    $this->menu_show_email = false;
+    $this->menu_show_rss = false;
         
 		// Thumbnail images
 		$this->post_thumbnails_enabled = true;
 		$this->post_thumbnails_new_image_size = 92;
 		$this->post_thumbnails_width = 100;
-        $this->post_thumbnails_height = 100;
+    $this->post_thumbnails_height = 100;
         
 		// Excerpt information
 		$this->excerpt_length = 26;

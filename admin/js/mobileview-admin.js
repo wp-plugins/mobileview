@@ -21,17 +21,17 @@ function MobileViewAdminReady() {
 
 /* Select & Checkbox toggles */
 	MobileViewSetupSelects();
-	MobileViewCheckToggle( '#hipnews_show_attached_image', '#setting_hipnews_show_attached_image_location' );
+	MobileViewCheckToggle( '#mobileview_show_attached_image', '#setting_mobileview_show_attached_image_location' );
 	MobileViewCheckToggle( '#enable_home_page_redirect', '.type-redirect' );
-	MobileViewCheckToggle( 'input#hipnews_webapp_enabled', '.section-web-app-settings' );
+	MobileViewCheckToggle( 'input#mobileview_webapp_enabled', '.section-web-app-settings' );
 	MobileViewCheckToggle( '#show_switch_link', '#setting_home_page_redirect_address, #setting_desktop_switch_css' );
 	MobileViewCheckToggle( '#debug_log', '#setting_debug_log_level' );
-	MobileViewCheckToggle( '#hipnews_show_webapp_notice', '#setting_hipnews_add2home_msg' );
-	MobileViewCheckToggle( '#hipnews_webapp_use_loading_img', '#setting_hipnews_webapp_loading_img_location, #setting_hipnews_ipad_webapp_loading_img_location, #setting_webapp-copytext-info, #setting_hipnews_webapp_retina_loading_img_location, #setting_hipnews_ipad_webapp_landscape_loading_img_location' );
+	MobileViewCheckToggle( '#mobileview_show_webapp_notice', '#setting_mobileview_add2home_msg' );
+	MobileViewCheckToggle( '#mobileview_webapp_use_loading_img', '#setting_mobileview_webapp_loading_img_location, #setting_mobileview_ipad_webapp_loading_img_location, #setting_webapp-copytext-info, #setting_mobileview_webapp_retina_loading_img_location, #setting_mobileview_ipad_webapp_landscape_loading_img_location' );
 	MobileViewCheckToggle( '#menu_show_rss', '#setting_menu_custom_rss_url' );
 	MobileViewCheckToggle( '#menu_show_email', '#setting_menu_custom_email_address' );
 	MobileViewCheckToggle( '#cache_menu_tree', '#setting_cache_time' );
-	MobileViewCheckToggle( '#mobileview_enable_custom_post_types', '#setting_mobileview_show_custom_post_taxonomy, #setting_mobileview_show_custom_post_taxonomy_on_blog, #setting_mobileview_show_custom_post_type_tweet' );
+	MobileViewCheckToggle( '#mobileview_enable_custom_post_types', '#setting_mobileview_show_custom_post_taxonomy, #setting_mobileview_show_custom_post_taxonomy_on_blog' );
 	MobileViewCheckToggle( '#include_functions_from_desktop_theme', '#setting_functions_php_inclusion_method' );
 
 	/* Theme Browser Functions */
@@ -227,20 +227,20 @@ function MobileViewSetupSelects() {
 	}).change();
 	
 	
-	jQuery( '#hipnews_calendar_icon_bg' ).change( function() {
+	jQuery( '#mobileview_calendar_icon_bg' ).change( function() {
 		switch( jQuery( this ).val() ) {
 			case 'cal-custom':
-				jQuery( '#setting_hipnews_custom_cal_icon_color' ).slideDown();
+				jQuery( '#setting_mobileview_custom_cal_icon_color' ).slideDown();
 				break;	
 			default:
-				jQuery( '#setting_hipnews_custom_cal_icon_color' ).hide();
+				jQuery( '#setting_mobileview_custom_cal_icon_color' ).hide();
 				break;
 		}
 	}).change();
 	
-	jQuery( '#hipnews_icon_type' ).change( function() {
+	jQuery( '#mobileview_icon_type' ).change( function() {
 		var ThumbDiv = '.section-thumbnail-icon-options';
-		var customThumbDiv = '#setting_hipnews_custom_field_thumbnail_name';
+		var customThumbDiv = '#setting_mobileview_custom_field_thumbnail_name';
 		var calDiv = '.section-calendar-icon-options';
 	
 		switch( jQuery( this ).val() ) {
@@ -274,24 +274,24 @@ function MobileViewSetupSelects() {
 		}
 	}).change();
 	
-	jQuery( '#hipnews_ipad_content_bg' ).change( function() {
+	jQuery( '#mobileview_ipad_content_bg' ).change( function() {
 		switch( jQuery( this ).val() ) {
 			case 'custom':
-				jQuery( '#setting_hipnews_ipad_content_bg_custom, #setting_hipnews_ipad_background_repeat' ).slideDown();
+				jQuery( '#setting_mobileview_ipad_content_bg_custom, #setting_mobileview_ipad_background_repeat' ).slideDown();
 				break;	
 			default:
-				jQuery( '#setting_hipnews_ipad_content_bg_custom, #setting_hipnews_ipad_background_repeat' ).hide();
+				jQuery( '#setting_mobileview_ipad_content_bg_custom, #setting_mobileview_ipad_background_repeat' ).hide();
 				break;
 		}
 	}).change();
 	
-	jQuery( '#hipnews_ipad_sidebar_bg' ).change( function() {
+	jQuery( '#mobileview_ipad_sidebar_bg' ).change( function() {
 		switch( jQuery( this ).val() ) {
 			case 'custom':
-				jQuery( '#setting_hipnews_ipad_sidebar_bg_custom' ).slideDown();
+				jQuery( '#setting_mobileview_ipad_sidebar_bg_custom' ).slideDown();
 				break;	
 			default:
-				jQuery( '#setting_hipnews_ipad_sidebar_bg_custom' ).hide();
+				jQuery( '#setting_mobileview_ipad_sidebar_bg_custom' ).hide();
 				break;
 		}
 	}).change();
