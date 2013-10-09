@@ -1,0 +1,55 @@
+*** Mobile View Changelog ***
+
+2013.09.27 - version 1.0.9
+-	Fix: Several Bugs
+	File Affected: mobileviewlang.php
+- Add: Delete and Update Skins
+	Files Affected: theme-browser.php, mobileviewlang.php, themes.php, mobileview-admin.js, mobileview-admin.css
+- Fix: Plugin Panel Interface
+	Files Added: current-header-light.png, current-light.png, general.png, skins.png, skin-settings.png, book.png, twitter.png, BebasNeue-webfont
+	Files Affected: mobileview-admin.css, admin-interface.php
+- Fix: HipNews Default Skin Bugs
+	Files Affected: page.php, theme.php, style.css, global.php, single.php
+- Add: Custom Color for MobileView Switcher 
+	File Added: colorpicker.php
+	Files Affected: mobileviewlang.php, admin-init.php, mobileview-admin.js, mobileview-admin.css	
+ 
+2013.08.15 - version 1.0.8
+ * Several bug fixes
+ * MobileView now support Mobile Skin
+ * Theme Panel new design
+ * Added different icon for each Settings Menu
+ * Set global function for social share
+ * Added ajax loading and saved settings notification
+ 
+2013.01.18 - version 1.0.7
+ * Change switcher text from "Mobile Theme" to "MobileView"
+ * Change footer credit text
+ * Change switcher style
+ * Change admin footer credit text
+ 
+2013.01.15 - version 1.0.6
+ * Changed footer credit link and content.
+ * Fix HipNews thumbnail
+ * Changed mobile switcher design
+
+2012.12.27 - version 1.0.5 
+ * Fixed post thumbnail function
+
+2012.12.27 - version 1.0.4
+ * Fixed Featured Image
+ 
+2012.12.27 - version 1.0.3
+ * Fix thumbnail size
+ * Fix image thumbnail size in single post
+ * small bug fixed
+
+2012.12.20 - version 1.0.2
+ * Removed Regionalization feature.
+ 
+2012.12.20 - version 1.0.1
+ * /includes/config.php 
+    - Fix dirname bug.
+ 
+2012.12.15 - version 1.0.0
+ * First release!
