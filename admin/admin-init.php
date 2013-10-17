@@ -213,7 +213,7 @@ function mobileview_setup_general_tab() {
 					array( 'text', 'custom_css_file', __( 'URL to a custom CSS file', 'mobileviewlang' ), __( 'Full URL to a custom CSS file to be loaded last in themes. Will override existing styles, preserving updateability of themes.', 'mobileviewlang' ) ),	
 					array( 'section-end' ),
 					array( 'spacer' ),
-					array( 'section-start', 'misc', __( 'Switch Colour', 'mobileviewlang' ) ),
+					array( 'section-start', 'misc', __( 'Switch Color', 'mobileviewlang' ) ),
 					array( 'colorpicker', 'switch_colour', __( 'Select color for switcher button', 'mobileviewlang' ), __( 'Default "#4FD065" ', 'mobileviewlang' ) ),
 					array( 'section-end' )
 				)
