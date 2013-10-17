@@ -30,7 +30,7 @@ if (isset($_POST['mobileview-skin-upload'])) {
 
 <div class="mobileview-skin-uploader">
 	<h4><?php _e('Install a skin in .zip format','mobileviewlang');?></h4>
-	<p class="install-help"><?php _e('If you have a theme in a .zip format, you may install it by uploading it here.','mobileviewlang');?></p>
+	<p class="install-help"><?php _e('If you have a skin in a .zip format, you may install it by uploading it here.','mobileviewlang');?></p>
 		<input type="hidden" name="mobileview-skin-upload" value="true">
 		<input type="file" name="skinzip" id="skinzip">
 		<input type="submit" name="install-skin-submit" id="install-skin-submit" class="button" value="Install Now">
