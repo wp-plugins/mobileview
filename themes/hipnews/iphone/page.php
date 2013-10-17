@@ -1,4 +1,9 @@
-<?php get_header(); ?>	 
+<?php get_header(); ?>
+<?php if ( mobileview_is_custom_latest_posts_page() ) { ?>
+	<?php mobileview_custom_latest_posts_query(); ?>
+	<?php locate_template( 'blog-loop.php', true ); ?>
+<?php } else { ?>
+ 
 	<?php if ( mobileview_have_posts() ) { ?>
 	
 		<?php mobileview_the_post(); ?>
@@ -41,5 +46,6 @@
 		<?php if ( hipnews_show_comments_on_pages() ) { ?>
 					<?php comments_template(); ?>
 				<?php } ?>
+<?php } ?>
 
 <?php get_footer(); ?>

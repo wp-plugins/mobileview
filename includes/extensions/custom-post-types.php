@@ -54,6 +54,8 @@ function mobileview_custom_posts_setup_admin() {
 function mobileview_custom_posts_pre_get_posts( $query ) {
 	// Only modify the custom post type information when a mobile theme is showing
 	$settings = mobileview_get_settings();
+	$post_types = array();
+	$post_type_array = array();
 	if ( !$settings->mobileview_enable_custom_post_types ) {
 		return $query;
 	}
@@ -67,7 +69,7 @@ function mobileview_custom_posts_pre_get_posts( $query ) {
 			$settings = mobileview_get_settings();
 			$post_types = mobileview_custom_posts_get_list( true );
 			if ( $post_types && count( $post_types )  ) {			
-				$post_type_array = array();
+				
 				foreach( $post_types as $post_type ) {
 					$setting_name = mobileview_custom_posts_get_name_for_post_type( $post_type );
 					if ( isset( $settings->$setting_name ) && $settings->$setting_name ) {

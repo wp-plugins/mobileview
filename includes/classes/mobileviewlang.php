@@ -1502,7 +1502,7 @@ class MobileView {
 			'ajaxurl' => get_bloginfo( 'wpurl' ) . '/wp-admin/admin-ajax.php',
 			'siteurl' => str_replace( array( 'http://' . $_SERVER['SERVER_NAME'] . '','https://' . $_SERVER['SERVER_NAME'] . '' ), '', get_bloginfo( 'url' ) . '/' ),
 			'SITETITLE' => str_replace( ' ', '', get_bloginfo( 'title' ) ),
-			'security_nonce' => wp_create_nonce( 'mobileview-ajax' )
+			'security_nonce' => wp_create_nonce( 'mobileview-ajax' ),
 		);
 		wp_localize_script( 'mobileview-ajax', 'MobileView', apply_filters( 'mobileview_localize_scripts', $localize_params  ) );		
 		do_action( 'mobileview_init' );

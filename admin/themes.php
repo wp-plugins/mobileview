@@ -199,7 +199,8 @@ function mobileview_is_theme_update(){
 	$storefront_skin_version = '';
 	$skin_version = '';
 	$url_storefront_skin_version = wp_remote_get('http://colorlabsproject.com/updates/mobileview-skins/'.trim(mobileview_get_theme_title()).'/readme.txt');
-	if(is_object($url_storefront_skin_version)){
+
+	if(!is_wp_error($url_storefront_skin_version)){
 		if ( preg_match( '#Version: (.*)#i', $url_storefront_skin_version['body'], $matches ) ) {
 			if($matches){
 			$storefront_skin_version = $matches[1];

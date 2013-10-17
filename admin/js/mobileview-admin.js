@@ -426,6 +426,7 @@ function MobileViewReloadThemeArea() {
 		jQuery( document ).unbind().die();
 		MobileViewAdminReady();		
 		jQuery( '#pane-content-pane-2 .right-area' ).animate( { opacity: 1 } );
+		jQuery( '#ajax-saved' ).fadeOut( 200 );
 	});				
 }
 
@@ -447,10 +448,9 @@ function MobileViewSetupActivateThemes() {
 				jQuery( "#ajax-saving" ).hide();
 				jQuery( "#ajax-saved" ).show();
 			}, 1000);
-			setTimeout( function() {  
-				jQuery( '#ajax-saved' ).fadeOut( 200 );
+			setTimeout( function() {  	
 				MobileViewReloadThemeArea();
-			}, 2000 );
+			}, 500 );
 		});
 
 		e.preventDefault();

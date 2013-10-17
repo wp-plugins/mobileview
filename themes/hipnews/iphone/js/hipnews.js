@@ -201,12 +201,6 @@ function doHipnewsReady() {
 		return false;
 	});
 			
-	/* Hide addressBar */
-	if ( hipnewsJS( 'body' ).hasClass( 'hide-addressbar' ) ) {
-		hipnewsJS( window ).load( function() {
-		    setTimeout( function(){ scrollTo( 0, 0 ) }, 1 );
-		});
-	}
 	
 	/*Single post Back to Top */
 	hipnewsJS( 'a.back-to-top' ).click( function(){

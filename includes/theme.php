@@ -1659,3 +1659,31 @@ if ( ! function_exists( 'mobileview_pagination' ) ) {
 	} // End mobileview_pagination()
 
 } // End IF Statement
+
+
+function mobileview_is_custom_latest_posts_page() {
+	global $post;
+	
+	$settings = mobileview_get_settings();	
+	
+	if ( $settings->mobileview_latest_posts_page == 'none' ) {
+		return false;	
+	} else {		
+		rewind_posts();
+		the_post();
+		rewind_posts();
+		
+		return apply_filters( 'mobileview_is_custom_latest_posts_page', ( $settings->mobileview_latest_posts_page == $post->ID ) );
+	}
+}
+
+
+function mobileview_custom_latest_posts_query() {
+	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	$args = array(
+		'paged' => $paged,
+		'posts_per_page' => intval( get_option( 'posts_per_page') )
+	);
+	
+	query_posts( $args ); 	
+}

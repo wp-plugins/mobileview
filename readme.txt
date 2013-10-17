@@ -65,6 +65,11 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.1.1 =
+
+	* Fix: Several Bugs
+	* Files Affected: admin/admin-init.php, admin/admin-interface.php, mobileview-admin.css, mobileview-admin.js, themes.php, mobileviewlang.php, custom-post-type.php, theme.php, hipnews/global.php, hipnews/theme.php, hipnews/iphone/functions.php, hipnews/iphone/js/hipnews.js, hipnews/iphone/page.php 
+	
 = 1.1.0 =
 
 	* Fix: Several Bugs

@@ -56,17 +56,17 @@
 					</a>
 				</li>
 			</ul>
-			<div class="loading-ajax">
+			
+			</div>		
+			<div id="mobileview-tabbed-area"  class="main-panel">
+				<?php mobileview_show_tab_settings(); ?>
+				<div class="loading-ajax">
 					<div class="mobileview-ajax-results" id="ajax-loading" style="display:none"><?php _e( "Loading...", "mobileviewlang" ); ?></div>
 					<div class="mobileview-ajax-results" id="ajax-saving" style="display:none"><?php _e( "Saving...", "mobileviewlang" ); ?></div>
 					<div class="mobileview-ajax-results" id="ajax-saved" style="display:none"><?php _e( "Done", "mobileviewlang" ); ?></div>
 					<div class="mobileview-ajax-results" id="ajax-fail" style="display:none"><?php _e( "Oops! Try saving again.", "mobileviewlang" ); ?></div>
 					<br class="clearer" />
 				</div>
-			</div>		
-			<div id="mobileview-tabbed-area"  class="main-panel">
-				<?php mobileview_show_tab_settings(); ?>
-				
 			</div>
 			
 			<br class="clearer" />

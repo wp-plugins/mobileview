@@ -194,10 +194,11 @@ function hipnews_show_attached_image_filter( $content ) {
 		);
 	
 		$attachment_html = false;	
-		
+		$gallery = '';
 		if ( $photos ) {
 			// Grab the first photo, may show more than one eventually			
 			foreach( $photos as $photo ) {
+				if(get_post_thumbnail_id($post->ID)!=$photo->ID)
 				$gallery .=  '<li>'.wp_get_attachment_image( $photo->ID, 'large' ).'</li>';	
 			}	
 			$attachment_html = apply_filters( 'mobileview_image_attachment', '<div class="mobileview-image-attachment"><div class="flexslider"><ul class="slides">' . $gallery . '</ul></div></div>' );
@@ -208,7 +209,7 @@ function hipnews_show_attached_image_filter( $content ) {
 			
 			// Make sure the image isn't already in the post content
 			if ( preg_match( '#src=\"(.*)\"#iU', $attachment_html, $matches ) ) {
-				$image_url = str_replace( mobileview_get_bloginfo( 'home' ), '', $matches[1] );
+				$image_url = str_replace( mobileview_get_bloginfo( 'url' ), '', $matches[1] );
 				
 				if ( strpos( $content, $image_url ) !== false ) {
 					$can_show_attachment = false;	
@@ -463,7 +464,7 @@ function hipnews_exclude_categories( $query ) {
 // filter added in functions.php for mobile + ipad
 function hipnews_exclude_tags( $query ) {
 	$settings = mobileview_get_settings();
-	$excluded = $settings->hipnews_excluded_tags;
+	$excluded = $settings->mobileview_excluded_tags;
 	
 	if ( $excluded ) {
 		$tags = explode( ',', $excluded );
@@ -584,31 +585,6 @@ function hipnews_show_author_single() {
 	return $settings->hipnews_show_post_author_single;
 }
 
-function mobileview_hipnews_is_custom_latest_posts_page() {
-	global $post;
-	
-	$settings = mobileview_get_settings();	
-	
-	if ( $settings->hipnews_latest_posts_page == 'none' ) {
-		return false;	
-	} else {		
-		rewind_posts();
-		the_post();
-		rewind_posts();
-		
-		return apply_filters( 'mobileview_hipnews_is_custom_latest_posts_page', ( $settings->hipnews_latest_posts_page == $post->ID ) );
-	}
-}
-
-function mobileview_hipnews_custom_latest_posts_query() {
-	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-	$args = array(
-		'paged' => $paged,
-		'posts_per_page' => intval( get_option( 'posts_per_page') )
-	);
-	
-	query_posts( $args ); 	
-}
 
 // Custom Post Types
 function hipnews_should_show_taxonomy() {

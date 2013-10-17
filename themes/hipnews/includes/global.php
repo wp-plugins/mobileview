@@ -9,13 +9,12 @@ add_filter( 'mobileview_theme_menu', 'hipnews_admin_menu' );
 // All settings should be properly namespaced in a copied theme, i.e. theme_name_my_setting instead of just my_setting or hipnews_
 function hipnews_default_settings( $settings ) {
 	// General Settings
-	$settings->hipnews_latest_posts_page = 'none';
+	$settings->mobileview_latest_posts_page = 'none';
 	$settings->hipnews_ajax_mode_enabled = true;
 	$settings->hipnews_mobile_enable_zoom = false;
-	$settings->hipnews_hide_addressbar = true;
 	$settings->hipnews_use_compat_css = true;
-	$settings->hipnews_excluded_categories = '';
-	$settings->hipnews_excluded_tags = '';
+	$settings->mobileview_excluded_categories = '';
+	$settings->mobileview_excluded_tags = '';
 	
 	// Style and Appearance
 	$settings->hipnews_header_img_location = '';
@@ -131,12 +130,11 @@ function hipnews_admin_menu( $menu ) {
 			array(
 				array( 'section-start', 'misc-options', __( 'Miscellaneous Options', "mobileviewlang" ) ),
 				array( 'custom-latest', '', '', '', array( 'ipad' ) ),
-				//array( 'checkbox', 'hipnews_ajax_mode_enabled', __( 'Enable AJAX "Load More" link for posts and comments', "mobileviewlang" ), __( 'Posts and comments will be appended to existing content with an AJAX "Load More..." link. If unchecked regular post/comment pagination will be used.', "mobileviewlang" ), array( 'ipad' ) ),
+				array( 'checkbox', 'hipnews_ajax_mode_enabled', __( 'Enable AJAX "Load More" link for posts and comments', "mobileviewlang" ), __( 'Posts and comments will be appended to existing content with an AJAX "Load More..." link. If unchecked regular post/comment pagination will be used.', "mobileviewlang" ), array( 'ipad' ) ),
 				array( 'checkbox', 'hipnews_mobile_enable_zoom', __( 'Allow zooming', "mobileviewlang" ), __( 'Will allow visitors to zoom in/out on content.', "mobileviewlang" ) ),
-				array( 'checkbox', 'hipnews_hide_addressbar', __( 'Hide address bar on page load', "mobileviewlang" ), __( 'Will hide the address bar in compatible browsers on a page load, showing the MobileView header as the top of the page.', "mobileviewlang" ) ),
 				array( 'checkbox', 'hipnews_use_compat_css', __( 'Use compatibility CSS', "mobileviewlang" ), __( 'Add the compat.css file from the theme folder. Contains various CSS declarations for a variety of plugins.', "mobileviewlang" ), array( 'ipad' ) ),
-				array( 'text', 'hipnews_excluded_categories', __( 'Excluded Categories (Comma list of category IDs)', "mobileviewlang" ), __( 'Posts in these categories will not be shown in MobileView. (e.g. 3,4,5)', "mobileviewlang" ), array( 'ipad' ) ),
-				array( 'text', 'hipnews_excluded_tags', __( 'Excluded Tags (Comma list of tag IDs)', "mobileviewlang" ), __( 'Posts with these tags will not be shown in MobileView. (e.g. 3,4,5)', "mobileviewlang" ), array( 'ipad' ) ),
+				array( 'text', 'mobileview_excluded_categories', __( 'Excluded Categories (Comma list of category IDs)', "mobileviewlang" ), __( 'Posts in these categories will not be shown in MobileView. (e.g. 3,4,5)', "mobileviewlang" ), array( 'ipad' ) ),
+				array( 'text', 'mobileview_excluded_tags', __( 'Excluded Tags (Comma list of tag IDs)', "mobileviewlang" ), __( 'Posts with these tags will not be shown in MobileView. (e.g. 3,4,5)', "mobileviewlang" ), array( 'ipad' ) ),
 				array( 'section-end' ),
 
                 array( 'section-start', 'misc-options', __( 'Slider Options', "mobileviewlang" ) ),

@@ -74,12 +74,6 @@ function hipnews_body_classes( $body_classes ) {
 		$body_classes[] = 'ajax-on';
 	}
 
-
-	if ( $settings->hipnews_hide_addressbar ) {
-		$body_classes[] = 'hide-addressbar';
-	}
-
-	
 	if ( $settings->hipnews_webapp_status_bar_color == 'black-translucent' ) {
 		$body_classes[] = $settings->hipnews_webapp_status_bar_color;
 	}
@@ -235,3 +229,20 @@ function hipnews_commenter_link() {
 	$avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( $avatar_email, 68 ) );
 	echo $avatar . ' <span class="fn n">' . $commenter . '</span>';
 } // end commenter_link
+
+/*-----------------------------------------------------------------------------------*/	
+/* Search Form*/
+/*-----------------------------------------------------------------------------------*/
+function hipnews_custom_search( $form ) {
+
+	$form = '<form id="searchform" class="searchform" action="' . home_url( '/' ) . '">
+					<div>
+					<input type="text" class="search-field" name="s" id="s" placeholder="'.__("Search Here","colabsthemes").'..." value="'.get_search_query().'">
+					<input id="searchsubmit" type="submit" value="Search" tabindex="2">
+					</div>
+					</form>';
+    return $form;
+}
+
+add_filter( 'get_search_form', 'hipnews_custom_search' );
+?>

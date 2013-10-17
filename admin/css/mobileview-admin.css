@@ -542,7 +542,6 @@ a#upgrade-link:active {
 #colabsplugin .mobileview-ajax-results {
 	position: absolute;
 	right: 32px;
-	background: url(../images/ajax-loader.gif) no-repeat 5px 6px;
 	height: 16px;
 	text-align: right;
 	padding: 5px 5px 9px 28px;
@@ -550,13 +549,21 @@ a#upgrade-link:active {
 	top: 23px;
 	color:#FFFFFF;
 }
-
+#colabsplugin #ajax-loading.mobileview-ajax-results, #colabsplugin #ajax-saving.mobileview-ajax-results {
+	background: url(../images/ajax-install.gif) no-repeat center center;
+	height: 19px;
+	text-align: center;
+  text-indent: -999999px;
+	padding: 0px;
+	width:220px;
+}
 #colabsplugin .mobileview-ajax-results#ajax-saved {
-	background-image: url(../images/icons/check.png);
+	background: url("../images/icons/check.png") no-repeat scroll 5px 6px rgba(0, 0, 0, 0);
 }
 
 #colabsplugin .mobileview-ajax-results#ajax-fail {
-	background-image: url(../images/icons/warning.png);
+	background: url("../images/icons/warning.png") no-repeat scroll 5px 6px rgba(0, 0, 0, 0);
+	width: 155px;
 }
 
 /* @end */
@@ -2148,9 +2155,15 @@ p#colabsplugin-trademark em {
 	-webkit-border-radius: 7px 7px 0 0;
 	position:relative;
 }
-#colabsplugin .mobile-view-admin-header .loading-ajax {
-	position: absolute;
-	right: 20px;
+#colabsplugin .main-panel{
+	position:relative;
+}
+#colabsplugin .main-panel .loading-ajax {
+	  left: 50%;
+    margin-left: 120px;
+    margin-top: -9px;
+    position: absolute;
+    top: 50%;
 }
 #colabsplugin .mobile-view-admin-header:after,
 #colabsplugin .mobile-view-admin-header:before {
