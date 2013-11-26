@@ -2,7 +2,7 @@
 /*
 Plugin Name: MobileView
 Plugin URI: http://colorlabsproject.com/plugins/mobileview/
-Version: 1.1.1
+Version: 1.2
 Description: MobileView is a free wordpress plugin to transform your wordpress site into mobile-friendly theme for various devices including iPhone, Android, Blackberry and others.
 Author: ColorLabs & Company
 Text Domain: mobileviewlang
@@ -21,7 +21,7 @@ License: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.ht
 global $mobileview;
 
 // Should not have spaces in it, same as above
-define( 'MOBILEVIEW_VERSION', '1.1.1' );
+define( 'MOBILEVIEW_VERSION', '1.2' );
 
 // Configuration
 require_once( 'includes/config.php' );

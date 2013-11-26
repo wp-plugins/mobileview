@@ -17,7 +17,7 @@
 		</tr>
 		<tr>
 			<td class="device-class-name">Windows Phone 7</td>
-			<td>iemobile/7.0</td>
+			<td>iemobile/7.0, iemobile/9.0, iemobile/10.0</td>
 		</tr>
 		<tr>
 			<td class="device-class-name">Palm Pre/Pixi</td>

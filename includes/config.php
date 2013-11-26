@@ -100,6 +100,8 @@ $mobileview_device_classes[ 'iphone' ] = array(
 	's8000',					// Samsung s8000
 	'bada',						// Samsung Bada Phone
 	"IEMobile/7.0",			// Windows Phone OS 7
+	"IEMobile/9.0",			// Windows Phone OS 8
+	"IEMobile/10.0",			// Windows Phone OS 8
 	'Googlebot-Mobile',	// Google's mobile Crawler
 	'AdsBot-Google'		// Google's Ad Bot Crawler
 );
