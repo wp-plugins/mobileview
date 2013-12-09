@@ -21,7 +21,7 @@ License: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.ht
 global $mobileview;
 
 // Should not have spaces in it, same as above
-define( 'MOBILEVIEW_VERSION', '1.2' );
+define( 'MOBILEVIEW_VERSION', '1.3' );
 
 // Configuration
 require_once( 'includes/config.php' );

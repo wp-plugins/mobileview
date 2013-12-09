@@ -65,6 +65,9 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.3 =
+	* Add: Update ZeroClipboard.swf
+	
 = 1.2 =
 	* Add: Windows Phone 8 Support
 	
