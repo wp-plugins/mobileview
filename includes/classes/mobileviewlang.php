@@ -123,7 +123,6 @@ class MobileView {
 		// These actions and filters are always loaded
 		add_action( 'init', array( &$this, 'mobileview_init' ) );			
 		add_action( 'admin_init', array( &$this, 'initialize_admin_section' ) );
-		add_action( 'admin_head', array( &$this, 'mobileview_admin_head' ) );	
 		add_filter( 'plugin_action_links', array( &$this, 'mobileview_settings_link' ), 9, 2 );
 		add_action( 'wp_ajax_mobileview_client_ajax', array( &$this, 'handle_client_ajax' ) );
 		add_action( 'wp_ajax_nopriv_mobileview_client_ajax', array( &$this, 'handle_client_ajax' ) );
@@ -1382,34 +1381,7 @@ class MobileView {
 	function mobileview_is_mobileview_page() {
 		return is_admin() && ( strpos( $_SERVER['REQUEST_URI'], MOBILEVIEW_ROOT_DIR ) !== false );	
 	}
-	/*!		\brief Outputs the MobileView scripts in the administration panel header
-	 *
-	 *		This method is called internally to determine the proper scripts to use for the administration panel.  To add additional content here, use the
-	 *		WordPress action \em mobileview_admin_head.
-	 *
-	 *		\ingroup internal	
-	 *		\ingroup admin 
-	 */	
-	function mobileview_admin_head() {		
-//		$current_scheme = get_user_option('admin_color');
-		$settings = $this->get_settings();
-		if ( strpos( $_SERVER['REQUEST_URI'], MOBILEVIEW_ROOT_DIR ) !== false ) {
-			$version_string = md5( MOBILEVIEW_VERSION );
-			$minfile = MOBILEVIEW_DIR . '/admin/css/mobileview-admin.min.css';
-			if ( file_exists( $minfile ) ) {
-				echo "<link rel='stylesheet' type='text/css' href='" . MOBILEVIEW_URL . "/admin/css/mobileview-admin.min.css?ver=" . $version_string . "' />\n";
-			} else {
-				echo "<link rel='stylesheet' type='text/css' href='" . MOBILEVIEW_URL . "/admin/css/mobileview-admin.css?ver=" . $version_string . "' />\n";			
-			}
-//			if ( $current_scheme === 'fresh' ) {
-//				echo "<link rel='stylesheet' type='text/css' href='" . MOBILEVIEW_URL . "/admin/css/mobileview-admin-" . $current_scheme . ".css?ver=" . $version_string . "' />\n";		
-//			}		
-//			echo "<!--[if lte IE 8]>\n";
-//			echo "<link rel='stylesheet' type='text/css' href='" . MOBILEVIEW_URL . "/admin/css/mobileview-admin-ie.css?ver=" . $version_string . "' />\n";
-//			echo "<![endif]-->\n";
-			do_action( 'mobileview_admin_head' );
-		}
-	}
+
 	/*!		\brief Converts a string into a format that can be used as a CSS class name
 	 *
 	 *		This method converts an arbitrary string into a format the can be used in a CSS class name.  Various characters such as spaces and quotes
