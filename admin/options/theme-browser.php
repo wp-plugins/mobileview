@@ -78,15 +78,15 @@ if (isset($_POST['mobileview-skin-upload'])) {
 				<?php } ?>
 				<ul class="option-list">
 				<?php if ( !mobileview_is_theme_active() ) { ?>					
-					<li><a href="#" class="activate-theme ajax-button"><?php _e( 'Activate', 'mobileviewlang' ); ?></a></li>
+					<li><a href="#" class="activate-theme ajax-button button button-primary"><?php _e( 'Activate', 'mobileviewlang' ); ?></a></li>
 				<?php } ?>
 				<?php if ( mobileview_is_theme_custom() ) { ?>
-					<li><a href="#" class="delete-theme ajax-button"><?php _e( 'Delete', 'mobileviewlang' ); ?></a></li>
+					<li><a href="#" class="delete-theme ajax-button button"><?php _e( 'Delete', 'mobileviewlang' ); ?></a></li>
 				<?php } ?>
 				<?php if ( mobileview_is_theme_custom() && mobileview_is_theme_update() ) { ?>
 					<li>
 						<?php add_thickbox(); ?>
-						<a href="#TB_inline?width=400&height=260&inlineId=mobileview-update-login-id" class="thickbox ajax-button"><?php _e( 'Update', 'mobileviewlang' ); ?></a>
+						<a href="#TB_inline?width=400&height=260&inlineId=mobileview-update-login-id" class="thickbox ajax-button button button-primary"><?php _e( 'Update', 'mobileviewlang' ); ?></a>
 						<div id="mobileview-update-login-id" style="display:none;">
 							<div class="mobileview-login-form">
 								<p class="alert-account" style="display:none;">
