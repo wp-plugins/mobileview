@@ -6,7 +6,7 @@ function mobileview_admin_menu() {
 			define( 'MOBILEVIEW_MENU', true );
 			
 			// Add the main plugin menu for MobileView 
-			add_menu_page( 
+			$mobileview_menu = add_menu_page( 
 				'MobileView', 
 				'MobileView', 
 				'manage_options', 
@@ -14,8 +14,14 @@ function mobileview_admin_menu() {
 				'mobileview_admin_panel', 
 				get_mobileview_url() . '/admin/images/mobileview-admin-icon.png' 
 			);
+			
+			add_action( "admin_print_styles-$mobileview_menu", 'mobileview_admin_head_style' );
 		}
 		
+}
+
+function mobileview_admin_head_style(){
+	wp_enqueue_style( 'mobileview-admin-style', MOBILEVIEW_URL . '/admin/css/mobileview-admin.css' );
 }
 
 function mobileview_admin_panel() {	
@@ -278,7 +284,7 @@ function mobileview_setup_general_tab() {
 					array( 'section-start', 'backup', __( 'Backup', 'mobileviewlang' ) ),
 					array( 'copytext', 'backup-instructions', __( 'This key represents a backup of all MobileView settings.<br />You can cut and paste it into another installation, or save the data to restore at a later time.', 'mobileviewlang' ) ),
 					array( 'backup' ),
-					array( 'copytext', 'backup-copy-all', sprintf( __( '%sCopy Backup Key To Clipboard%s', 'mobileviewlang' ), '<a id="copy-text-button" class="ajax-button">', '</a>' ) ),
+					array( 'copytext', 'backup-copy-all', sprintf( __( '%sCopy Backup Key To Clipboard%s', 'mobileviewlang' ), '<a id="copy-text-button" class="ajax-button button button-primary">', '</a>' ) ),
 					array( 'copytext', 'backup-instructions-2', sprintf( __( '%sNOTE: A settings backup/restore does NOT include saved files, icons or themes inside the "wp-content/mobileview-data/" directory.%s', 'mobileviewlang' ), '<small>', '</small>' ) ),
 					array( 'section-end' ),
 					array( 'section-start', 'import', __( 'Import', 'mobileviewlang' ) ),

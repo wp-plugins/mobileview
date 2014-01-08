@@ -1,4 +1,20 @@
-<?php global $mobileview; $current_scheme = get_user_option('admin_color'); $settings = mobileview_get_settings(); ?>
+<?php 
+global $mobileview,$_wp_admin_css_colors; $current_scheme = get_user_option('admin_color'); $settings = mobileview_get_settings(); 
+
+$base_color = $_wp_admin_css_colors[ $current_scheme ]->colors[1];
+$highlight_color = $_wp_admin_css_colors[ $current_scheme ]->colors[2];
+$notification_color = $_wp_admin_css_colors[ $current_scheme ]->colors[3];
+$text_color = $_wp_admin_css_colors[ $current_scheme ]->icon_colors['base'];
+$text_current = $_wp_admin_css_colors[ $current_scheme ]->icon_colors['current'];
+
+echo '<style>';
+echo '#colabsplugin .mobile-view-admin-header, #colabsplugin #mobileview-tabbed-area{background:'.$base_color.'}';
+echo '#colabsplugin ul#mobileview-top-menu li a, #colabsplugin .left-area ul li a{color:'.$text_color.'}';
+echo '#colabsplugin ul#mobileview-top-menu li a.active, #colabsplugin .left-area ul li a.active{color:'.$text_current.'; font-weight: 600;}';
+echo '.left-area .menu-hover{background:'.$highlight_color.'}';
+echo '#colabsplugin .left-area ul li a:hover{color:'.$text_current.'}';
+echo '</style>';
+?>
 
 <form method="post" action="" id="colabsplugin-form" enctype="multipart/form-data" class="<?php if ( $mobileview->locale ) echo 'locale-' . strtolower( $mobileview->locale ); ?>">
 	<div id="colabsplugin" class="<?php echo $current_scheme; ?> <?php echo 'normal'; ?> wrap">
@@ -6,7 +22,7 @@
 			<div id="message" class="error"><p><?php _e( "MobileView Developer Mode: ON", "colabsthemes" ); ?></p></div>
 		<?php } ?>		
 		
-		<div class="mobileview_twitter_stream">
+		<div class="mobileview_twitter_stream updated">
 
 			<div class="stream-label"><?php _e('News On Twitter:','colabsthemes');?></div>				
 

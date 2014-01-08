@@ -346,9 +346,10 @@ a#upgrade-link:active {
 /* @group Forms */
 
 #colabsplugin input.checkbox {
-	vertical-align: middle;
-	margin-bottom: 4px;
-	margin-right: 4px;
+	margin-bottom: 0;
+    margin-right: 4px;
+    margin-top: 0;
+    vertical-align: middle;
 }
 #colabsplugin label.checkbox {
 	display: inline-block;
@@ -389,65 +390,6 @@ a#upgrade-link:active {
 
 #colabsplugin label {
 	margin-right: 2px;
-}
-
-#colabsplugin a.ajax-button,
-.wp-core-ui .right-area .button-primary {
-	background-image:none;
-
-	text-decoration	: none;
-	font-weight: bold;
-	text-shadow: rgba(255,255,255,.5) 0 1px 0;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-	padding: 3px 14px;
-	display: inline-block;
-	position: relative;	
-  height: auto;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 	3px;
-	border-top: 1px solid rgba(0,0,0,0.1);
-	border-left: 1px solid rgba(0,0,0,0.1);
-	border-right: 1px solid rgba(0,0,0,0.1);
-	border-bottom: 1px solid rgba(255,255,255,0.8);	
-	-webkit-transition: background .2s ease-in-out;
-	-moz-transition: background .2s ease-in-out;
-	transition: background .2s ease-in-out;
-	color: hsl(0, 0%, 40%);
-	background-color: hsl(0, 0%, 75%);
-	-webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em,
-						hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px;
-	-moz-box-shadow: 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em,
-						hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px;
-	box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em,
-						hsl(0, 0%, 60%) 0 .1em 1px, hsl(0, 0%, 45%) 0 .1em 1px;
-}
-.wp-core-ui .right-area .button-primary {
-	padding-top: 1px;
-	padding-bottom: 1px;
-}
-
-#colabsplugin a.ajax-button:active {
-	background: -webkit-gradient(linear, left top, left bottom, from(#2a95c5), to(#21759b));
-	background: -moz-linear-gradient(top, #2a95c5, #21759b);
-}
-
-#colabsplugin .button {
-	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
-	background: -moz-linear-gradient(top, #fff, #ccc);
-	border-color: #ccc;
-}
-
-#colabsplugin .button:active {
-	background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#fff));
-	background: -moz-linear-gradient(top, #ccc, #fff);
-}
-
-#colabsplugin .button:hover {
-	border: 1px solid #aaa;
-	color: #5f7176;
 }
 
 /* @end */
@@ -510,12 +452,6 @@ a#upgrade-link:active {
 	border-radius: 2px;
 }
 
-#colabsplugin .round-3 {
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}
-
 #colabsplugin .round-top-6 {
 	-webkit-border-top-left-radius: 6px;
 	-webkit-border-top-right-radius: 6px;
@@ -575,7 +511,6 @@ a#upgrade-link:active {
 #colabsplugin ul#mobileview-top-menu {
 	position: relative;
 	margin-left: 6px;
-	text-shadow: #fff 0 1px 0;
 	z-index: 1;
 	margin-bottom: 15px;
 }
@@ -597,20 +532,6 @@ a#upgrade-link:active {
 }
 
 /* @end */
-
-/* @group Right Content Area */
-
-#colabsplugin #mobileview-tabbed-area {
-	border: 1px solid #d2e5ee;
-	background-color: #eff8ff;
-	padding: 8px 8px 0;
-	min-height: 300px;
-}
-
-#colabsplugin .pane-content {
-	/*margin-bottom: -10px;*/
-}
-
 #colabsplugin #mobileview-tabbed-area .right-area {
 	padding-top: 4px;
 	background-color: #fff;
@@ -618,12 +539,6 @@ a#upgrade-link:active {
 	border: 1px solid #d2e5ee;
 	padding-left: 15px;
 	padding-right: 15px;
-	-webkit-border-top-right-radius: 3px;
-	-webkit-border-bottom-right-radius: 3px;
-	-moz-border-radius-topright: 3px;
-	-moz-border-radius-bottomright: 3px;
-	border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;
 	position: relative;
 	min-height: 350px;
 }
@@ -651,35 +566,19 @@ a#upgrade-link:active {
 	padding: 0;
 	margin: 1px 0 0;
 	width: 19%;
-	text-shadow: #fff 0 1px 0px;
 }
 
-#colabsplugin .left-area ul li {
-	border-bottom: 1px solid #d2e5ee;
-}
-
-#colabsplugin .left-area ul li a {
-	display: block;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 8px;
-	font-weight: bold;
-}
-
-#colabsplugin .left-area ul li a.active {
+#colabsplugin .left-area ul li a.active{
 	color: #d54e21;
 	position: relative;
 	z-index: 2;
-	border-top: 1px solid #d2e5ee;
-	padding-top: 10px;
-	border-bottom: 1px solid #d2e5ee;
-	padding-bottom: 10px;
-	/*background-color: #fff;*/
-	border-left: 1px solid #d2e5ee;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	margin: -1px -1px -1px -3px;
-	padding-left: 10px;
+	padding: 12px 10px;
 }
-
+#colabsplugin .left-area ul li a:hover {
+	margin-top: -1px;
+}
 /* @group General */
 
 /* @group MobileViewboard */
@@ -1082,7 +981,7 @@ a#upgrade-link:active {
 
 #colabsplugin .mobileview-theme-left-wrap {
     background-color: #FFFFFF;
-    border: 5px solid #E3EDEF;
+    border: 1px solid #DEDEDE;
     display: block;
     float: left;
     margin-right: 30px;
@@ -2008,70 +1907,47 @@ p#colabsplugin-trademark em {
 
 /* @group Fresh Styles */
 
-#colabsplugin.fresh.beta #mobileview-main-top h3 {
-	/*background: url(../images/admin-phone-48-fresh-beta.png) no-repeat left center;*/
-}
-
-#colabsplugin.fresh.normal #mobileview-main-top h3 {
-	/*background: url(../images/admin-phone-48-fresh.png) no-repeat 10% center;*/
-}
-
-#colabsplugin.fresh input.text:focus {
+#colabsplugin input.text:focus {
 	background: 
 	-webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
 	background: -moz-linear-gradient(top, #fff, #fff);
 	border: 1px solid #aaa;
 }
 
-#colabsplugin.fresh textarea.textarea:focus {
+#colabsplugin textarea.textarea:focus {
 	background: 
 	-webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
 	background: -moz-linear-gradient(top, #fff, #fff);
 	border: 1px solid #aaa;
 }
 
-#colabsplugin.fresh fieldset {
+#colabsplugin fieldset {
 	border: 1px solid #e1e1e1;
 	background: #f6f6f6;
 }
 
-#colabsplugin.fresh ul#mobileview-top-menu li a.active {
+#colabsplugin ul#mobileview-top-menu li a.active {
 	background: url(../images/up-arrow-fresh.png) no-repeat center bottom;
 	color: #d54e21;
 }
 
-#colabsplugin.fresh .left-area ul li {
-	border-bottom: 1px solid #e0e2e2;
-}
-
-#colabsplugin.fresh .left-area ul li a.active {
-	border: 1px solid #e5e5e5;
-	border-right-style: none;
-}
-
-#colabsplugin.fresh #mobileview-tabbed-area {
-	border: 1px solid #e5e5e5;
-	padding: 8px 8px 0;
-	background-color: #f5f5f5;
-}
-
-#colabsplugin.fresh #mobileview-tabbed-area .right-area {
+#colabsplugin #mobileview-tabbed-area .right-area {
 	border: 1px solid #dfdfdf;
 }
 
- #colabsplugin.fresh .box-holder h3 {
+ #colabsplugin .box-holder h3 {
 	background: #eee url(../images/gray-grad.png) repeat-x left top;
 	border-bottom-color: #e1e1e1;
 }
 
-#colabsplugin.fresh legend {
+#colabsplugin legend {
 	color: #444;
 	font-size: 15px;
 	font-weight: bold;
 	font-style: italic;
 }
 
-#colabsplugin.fresh #setting-user-agents tr {
+#colabsplugin #setting-user-agents tr {
 	border-bottom: 1px solid #e1e1e1;
 }
 
@@ -2103,16 +1979,17 @@ p#colabsplugin-trademark em {
 /* ===================================================================
 	#Color Scheme
 =================================================================== */
-#colabsplugin.fresh #mobileview-tabbed-area {
+#colabsplugin #mobileview-tabbed-area {
 	background: #353535;
 	padding: 0;
 	border: none;
 	overflow: hidden;
+	min-height: 300px;
 }
 
 /* Top Menu
 ------------------------------------------------------------------- */
-#colabsplugin.fresh {
+#colabsplugin {
 	margin-top: 20px
 }
 #colabsplugin .wrap .updated {
@@ -2121,7 +1998,7 @@ p#colabsplugin-trademark em {
 	margin: 5px 0 15px;
 	padding: 0 .6em;
 }
-#colabsplugin.fresh #mobileview-main-top h3 {
+#colabsplugin #mobileview-main-top h3 {
 	color: #FFF;
 	font-size: 19px;
 	margin: 17px 0;
@@ -2131,13 +2008,13 @@ p#colabsplugin-trademark em {
 	font-weight: normal;
 	text-transform: uppercase;
 }
-#colabsplugin.fresh #mobileview-main-top img {
+#colabsplugin #mobileview-main-top img {
 	vertical-align: middle;
 	margin-right: 5px;
 	width: 32px;
 	height:32px;
 }
-#colabsplugin.fresh #mobileview-main-top h3 span {
+#colabsplugin #mobileview-main-top h3 span {
 	color: #FFF;
 	bottom: 3px;
 	position: absolute;
@@ -2149,10 +2026,7 @@ p#colabsplugin-trademark em {
 	margin: 0;
 	zoom: 1;
 	background: #353535;
-	border-bottom: 1px solid #2c2c2c;
-	border-radius: 7px 7px 0 0;
-	-moz-border-radius: 7px 7px 0 0;
-	-webkit-border-radius: 7px 7px 0 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 	position:relative;
 }
 #colabsplugin .main-panel{
@@ -2178,57 +2052,56 @@ p#colabsplugin-trademark em {
 	width: 230px;
 	position: relative;
 }
-#colabsplugin.fresh ul#mobileview-top-menu {
+#colabsplugin ul#mobileview-top-menu {
 	margin: 0;
 	float: left;
 	-webkit-font-smoothing: antialiased;
 	border-right: 1px solid rgba(0, 0, 0, 0.2);
 	border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
-#colabsplugin.fresh ul#mobileview-top-menu li {
+#colabsplugin ul#mobileview-top-menu li {
 	float: left;
 	margin-bottom: 0px;
 	border-left: 1px solid rgba(0, 0, 0, 0.2);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
-#colabsplugin.fresh ul#mobileview-top-menu li.loading-ajax {
+#colabsplugin ul#mobileview-top-menu li.loading-ajax {
 	border-left: 0;
 	border-right: 0;
 }
 
-#colabsplugin.fresh ul#mobileview-top-menu li img {
-    opacity: 0.7;
+#colabsplugin ul#mobileview-top-menu li img {
+    opacity: 0.9;
 }
-#colabsplugin.fresh ul#mobileview-top-menu li .active img {
+#colabsplugin ul#mobileview-top-menu li .active img {
     opacity: 1;
 }
-#colabsplugin.fresh ul#mobileview-top-menu li a {
+#colabsplugin ul#mobileview-top-menu li a {
 	display: block;
 	padding: 20px 20px 15px;
 	margin: 0;
 	color: #c2c2c2;
 	font-size: 11px;
-	text-shadow: 0 1px rgba(0,0,0,.8);
 	text-align:center;
 	text-transform:uppercase;
 }
-#colabsplugin.fresh ul#mobileview-top-menu li span {
+#colabsplugin ul#mobileview-top-menu li span {
 	display: block;
 	margin-top: 5px;
 }
-#colabsplugin.fresh ul#mobileview-top-menu li a:hover {
+#colabsplugin ul#mobileview-top-menu li a:hover {
 	color: #fff;
 }
-#colabsplugin.fresh ul#mobileview-top-menu li a:hover img{
+#colabsplugin ul#mobileview-top-menu li a:hover img{
 	opacity: 1;
 }
 
-#colabsplugin.fresh ul#mobileview-top-menu li a.active {
+#colabsplugin ul#mobileview-top-menu li a.active {
 	color: #fff;
 	position: relative;
 	background-image: none;
 }
-#colabsplugin.fresh ul#mobileview-top-menu li a.active:before {
+#colabsplugin ul#mobileview-top-menu li a.active:before {
 	position: absolute;
 	content: "";
 	height: 2px;
@@ -2240,37 +2113,34 @@ p#colabsplugin-trademark em {
 
 /* Left Menu
 ------------------------------------------------------------------- */
-#colabsplugin.fresh #mobileview-tabbed-area .left-area {
+#colabsplugin #mobileview-tabbed-area .left-area {
 	width: 230px;
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 }
-#colabsplugin.fresh #mobileview-tabbed-area .right-area {
+#colabsplugin #mobileview-tabbed-area .right-area {
 	margin-left: 230px;
 	padding-top: 15px;
 }
-#colabsplugin.fresh .left-area ul li {
-	border-bottom: 1px solid #2C2C2C;
-	border-top: 1px solid #515151;
-	margin-bottom:0px;
+#colabsplugin .left-area ul li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 0;
 }
-#colabsplugin.fresh .left-area ul li:last-child {
+#colabsplugin .left-area ul li:last-child {
 	border-bottom: none;
 }
-#colabsplugin.fresh .left-area ul li a {
+#colabsplugin .left-area ul li a {
 	color: #c2c2c2;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: normal;
-	text-shadow: 0 1px #000;
-	padding: 14px 10px
+	padding: 12px 10px;
+	display: block;
 }
-#colabsplugin.fresh .left-area ul li a:hover,
-#colabsplugin.fresh .left-area ul li a.active {
-	/*background: #292929;*/
-}
-#colabsplugin.fresh .left-area ul li a.active {
-	margin: 0;
-	border: none;
+
+#colabsplugin .left-area ul li a.active {
+	margin-left: 0;
+	margin-right: 0;
 }
 .right-area + .clearer {
 	display: none
@@ -2351,49 +2221,31 @@ p#colabsplugin-trademark em {
 
 /* Main Panel
 ------------------------------------------------------------------- */
-#colabsplugin.fresh #mobileview-tabbed-area {
-	-webkit-border-radius: 0 0 3px 3px;
-		 -moz-border-radius: 0 0 3px 3px;
-					border-radius: 0 0 3px 3px;
-}
-#colabsplugin #mobileview-tabbed-area .right-area {
-	-webkit-border-top-right-radius: 0;
-			-moz-border-radius-topright: 0;
-					border-top-right-radius: 0;
-}
 
-#colabsplugin.fresh fieldset {
+#colabsplugin fieldset {
 	padding-top: 50px;
 	position: relative;
 	background: #FAFAFA;
 }
-#colabsplugin.fresh legend {
+#colabsplugin legend {
 	position: absolute;
 	left: 0;
 	right: -1px;
 	top: 0;
 	z-index: 10;
 	border-right: 1px solid #D2D2D2;
-	border-bottom: 1px solid #c7c7c7;
+	border-bottom: 1px solid #ddd;
 	margin: 0;
 	width: auto;
 	text-transform:uppercase;
-	text-shadow: 0 1px rgba(255, 255, 255, .5);
 	font-size: 13px;
 	padding: 9px 10px;
 	font-weight: bold;
 	font-family: Arial;
 	font-style:normal;
-	background: #ECECEC;
-	background: -moz-linear-gradient(top, #ECECEC 0%, #D9D9D9 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ECECEC), color-stop(100%,#D9D9D9));
-	background: -webkit-linear-gradient(top, #ECECEC 0%,#D9D9D9 100%);
-	background: -o-linear-gradient(top, #ECECEC 0%,#D9D9D9 100%);
-	background: -ms-linear-gradient(top, #ECECEC 0%,#D9D9D9 100%);
-	background: linear-gradient(top, #ECECEC 0%,#D9D9D9 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', endColorstr='#d9d9d9',GradientType=0 );
+	background: none repeat scroll 0 0 rgba(153, 153, 153, 0.1);
 }
-#colabsplugin.fresh .spacer {
+#colabsplugin .spacer {
 	height: 10px;
 }
 
@@ -2663,4 +2515,7 @@ p#colabsplugin-trademark em {
     padding: 8px 35px 8px 14px;
 	color: #C09853;
 	margin-bottom: 15px;
+}
+.mobileview_twitter_stream.updated {
+    padding-top: 7px;
 }

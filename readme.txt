@@ -1,8 +1,8 @@
 === MobileView by ColorLabs & Company ===
 Contributors: colorlabs
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@colorlabsproject.com&item_name=Donation+for+Mobile+View
-Requires at least: WordPress 3.1.0
-Tested up to: WordPress 3.6.1
+Requires at least: 3.1.0
+Tested up to: 3.8
 Stable tag: trunk
 License: GPLv3 or later
 Tags: mobile, mobile theme, mobileview, android, apple, blackberry, colorlabs, iphone, smartphone, skin
@@ -65,6 +65,9 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.4 =
+	* Fix: Update Plugin Panel Compatible with WordPress 3.8
+	
 = 1.3 =
 	* Add: Update ZeroClipboard.swf
 	
