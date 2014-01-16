@@ -12,7 +12,8 @@ function mobileview_admin_menu() {
 				'manage_options', 
 				__FILE__, 
 				'mobileview_admin_panel', 
-				get_mobileview_url() . '/admin/images/mobileview-admin-icon.png' 
+				get_mobileview_url() . '/admin/images/mobileview-admin-icon.png',
+				50
 			);
 			
 			add_action( "admin_print_styles-$mobileview_menu", 'mobileview_admin_head_style' );
@@ -33,16 +34,16 @@ function mobileview_admin_panel() {
 }
 
 //! Can be used to add a tab to the settings panel
-function mobileview_add_tab( $tab_name, $class_name, $settings, $custom_page = false, $icon_url = '') {
+function mobileview_add_tab( $tab_name, $class_name, $settings, $custom_page = false, $icon = '') {
 	global $mobileview;
 	
-    if(empty($icon_url)) $icon_url = 'cog.png'; //MOBILEVIEW_URL . '/admin/images/cog.png';
+  if(empty($icon_url)) $icon_url = 'cog.png'; //MOBILEVIEW_URL . '/admin/images/cog.png';
     
 	$mobileview->tabs[ $tab_name ] = array(
 		'page' => $custom_page,
 		'settings' => $settings,
 		'class_name' => $class_name,
-        'icon_url' => $icon_url
+    'icon' => $icon
 	);
 }
 
@@ -212,8 +213,7 @@ function mobileview_setup_general_tab() {
 					array( 'section-end' ),
 					array( 'spacer' ),
 					array( 'section-start', 'misc', __( 'Advanced', 'mobileviewlang' ) ),
-					array( 'checkbox', 'desktop_is_first_view', __( '1st time visitors see desktop theme', 'mobileviewlang' ), __( 'Your regular theme will be shown to 1st time mobile visitors first, with the MobileView switch link available in the footer.', 'mobileviewlang' ) ),
-//					array( 'checkbox', 'multisite_force_enable', __( 'Force multisite detection', 'mobileviewlang' ), __( 'This option will force  the WordPress multisite panels to be displayed. This option should only be used on an actual multisite installation.', 'mobileviewlang' ) ),					
+					array( 'checkbox', 'desktop_is_first_view', __( '1st time visitors see desktop theme', 'mobileviewlang' ), __( 'Your regular theme will be shown to 1st time mobile visitors first, with the MobileView switch link available in the footer.', 'mobileviewlang' ) ),				
 					array( 'checkbox', 'make_links_clickable', __( 'Convert all plain-text links in post content to clickable links', 'mobileviewlang' ), __( 'Normally links posted into post content are plain-text and cannot be clicked.  Enabling this option will make these links clickable, similar to the P2 theme.', 'mobileviewlang' ) ),	
 					array( 'checkbox', 'respect_wordpress_date_format', __( 'Respect WordPress setting for date format in themes', 'mobileviewlang' ), __( 'When checked MobileView will use the WordPress date format in themes that support it (set in WordPress -> Settings - > General).', 'mobileviewlang' ) ),
 					array( 'text', 'custom_css_file', __( 'URL to a custom CSS file', 'mobileviewlang' ), __( 'Full URL to a custom CSS file to be loaded last in themes. Will override existing styles, preserving updateability of themes.', 'mobileviewlang' ) ),	
@@ -232,7 +232,6 @@ function mobileview_setup_general_tab() {
 					array( 'section-start', 'tools-and-development', __( 'General', 'mobileviewlang' ) ),
 					array( 'checkbox', 'show_footer_load_times', __( 'Show load times and query counts in the footer', 'mobileviewlang' ), __( 'MobileView will show the load time and query count to help you find slow pages/posts on your site.', 'mobileviewlang' ) ),
 					array( 'checkbox', 'always_refresh_css_js_files', __( 'Always refresh theme JS and CSS files', 'mobileviewlang' ), __( 'Useful when developing. Will make sure MobileView browser cache of Javascript and CSS files is updated on every page refresh.', 'mobileviewlang' ) ),
-//					array( 'checkbox', 'put_mobileview_in_appearance_menu', __( 'Move MobileView admin settings to Appearance menu', 'mobileviewlang' ),  __( 'Moves MobileView admin settings from the top-level to the WordPress Appearance settings. Refresh your browser after saving.', 'mobileviewlang' ) ),
 					array(
 						'list', 
 						'developer_mode', 
@@ -292,7 +291,7 @@ function mobileview_setup_general_tab() {
 					array( 'section-end' )
 				)
 			)
-		), false, 'general.png'
+		), false, 'cogs'
 	);
 }
 
@@ -310,7 +309,7 @@ function mobileview_setup_theme_browser_tab() {
 						array( 'section-end' )
 					)
 				)
-			), false, 'skins.png'
+			), false, 'cabinet'
 		);		
 	}
 	
@@ -326,7 +325,7 @@ function mobileview_setup_theme_browser_tab() {
 		}
 		
 		$skin_menu =  array(
-			__( 'Theme Skins', 'mobileviewlang' ) => array ( 'theme-skins',
+			__( 'Skin Settings', 'mobileviewlang' ) => array ( 'theme-skins',
 				array(
 					array( 'section-start', 'available-skins', __( 'Available Skins', 'mobileviewlang' ) ),
 					array( 
@@ -348,7 +347,7 @@ function mobileview_setup_theme_browser_tab() {
 	if ( $theme_menu ) {
 		$settings = $mobileview->get_settings();
 		
-		mobileview_add_tab( __( "Skin Settings", 'mobileviewlang' ), 'custom_theme', $theme_menu, false, 'skin-settings.png' );
+		mobileview_add_tab( __( "Skin Settings", 'mobileviewlang' ), 'custom_theme', $theme_menu, false, 'settings' );
 	}
 }
 

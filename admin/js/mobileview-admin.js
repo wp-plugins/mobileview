@@ -39,9 +39,6 @@ function MobileViewAdminReady() {
 	MobileViewUpdateThemes();
 	MobileViewSetupDeleteThemes();
 	MobileViewAccountLogin();
-
-	/* Add a shake for unlicensed folks to remind them */
-	jQuery( '#unlicensed-board' ).shake( 4, 5, 750 );
 	
 	/* Code for colorpicker.com window */
 	jQuery( 'a#color-picker' ).live( 'click', function( e ) {
@@ -99,17 +96,6 @@ function MobileViewAdminReady() {
 			
 			jQuery( 'input#hidden-menu-items' ).attr( 'value', totalItems );
 			return true;
-	});
-	
-	/*  Page Menu Tabs */
-	jQuery( function() {
-	    var pageTabDivs = jQuery( '#page-tab-container div.menu-tab-div' );
-		jQuery( '#menu-select li a' ).live( 'click', function( e ) {
-			pageTabDivs.hide().filter( this.hash ).show();
-			jQuery( '#menu-select li a' ).removeClass( 'active' );
-			jQuery( this ).addClass( 'active' );
-			e.preventDefault();
-		}).filter( ':first' ).click();
 	});
 		
 	// For handling forum postings
@@ -322,14 +308,6 @@ function MobileViewSetupPluginDismiss() {
 	if ( dismissButtons.length > 0 ) {
 		dismissButtons.live( 'click', function() {
 			
-			var linkOffset = jQuery( this ).offset();
-			jQuery( '#colabsplugin .poof' ).css({
-				left: linkOffset.left + 14 + 'px',
-				top: linkOffset.top - 5 + 'px'
-			}).show();
-
-			MobileViewAnimatePoof();
-			
 			jQuery( this ).parent().parent().fadeOut( 250 );
 						
 			var ajaxParams = {
@@ -343,12 +321,6 @@ function MobileViewSetupPluginDismiss() {
 					jQuery( 'tr#board-warnings td.box-table-number' ).html( result );	
 				}			
 				
-				jQuery( '#setting_warnings-and-conflicts' ).load( 
-					MobileViewCustom.plugin_url + ' #setting_warnings-and-conflicts fieldset', 
-					function() {						
-						MobileViewSetupPluginDismiss();
-					}
-				);
 			});					
 			
 		e.preventDefault();
@@ -369,10 +341,10 @@ function MobileViewCookieSetup() {
 		
 		jQuery( '#pane-content-' + tabId + ' .left-area li a:first' ).click();
 		
-		jQuery( '#mobileview-top-menu li a' ).removeClass( 'active' );
+		jQuery( '#mobileview-top-menu li a' ).removeClass( 'active' ).parent().removeClass( 'active-menu' );
 		jQuery( '#mobileview-top-menu li a' ).removeClass( 'round-top-6' );
 		
-		jQuery( this ).addClass( 'active' ).addClass( 'round-top-6' );
+		jQuery( this ).addClass( 'active' ).addClass( 'round-top-6' ).parent().addClass( 'active-menu' );
 		e.preventDefault();
 	});
 
@@ -405,13 +377,14 @@ function MobileViewCookieSetup() {
 		jQuery( '.pane-content' ).hide();
 		jQuery( '#pane-content-' + tabCookie ).show();	
 		tabLink.addClass( 'active' ).addClass( 'round-top-6' );
+		tabLink.parent().addClass( 'active-menu' );
 		
 		var listCookie = jQuery.cookie( 'mobileview-list' );
 		if ( listCookie ) {
 			var menuLink = jQuery( "#mobileview-admin-form .left-area li a[rel='" + listCookie + "']");
 			jQuery( ".setting-right-section" ).hide();
 			jQuery( "#setting-" + listCookie ).show();	
-			jQuery( '#mobileview-admin-form .left-area li a' ).removeClass( 'active' );	
+			jQuery( '#mobileview-admin-form .left-area li a' ).removeClass( 'active' ).parent().removeClass( 'active-menu' );	
 			menuLink.click();			
 		} else {
 			jQuery( "#mobileview-admin-form .left-area li a:first" ).click();
@@ -548,18 +521,7 @@ function MobileViewSetupDeleteThemes() {
 	jQuery( 'a.delete-theme' ).live( 'click', function( e ) {
 		
 		var answer = confirm( MobileViewCustom.are_you_sure_delete );
-		if ( answer ) {
-
-			// set the x and y offset of the poof animation <div> from cursor's position (in pixels)
-			var xOffset = 24;
-			var yOffset = 24;
-		
-			jQuery( '#colabsplugin .poof' ).css( {
-				left: e.pageX - xOffset + 'px',
-				top: e.pageY - yOffset + 'px'
-			} ).show(); // display the poof <div>
-
-			MobileViewAnimatePoof(); // run the sprite animation			
+		if ( answer ) {		
 		
 			// remove clicked item's parent
 			jQuery( this ).parents( '.theme-wrap' ).fadeOut( 350 );
@@ -590,10 +552,9 @@ function MobileViewSetupDeleteThemes() {
 
 function MobileViewSetupPluginCompat() {
 	jQuery( 'a.regenerate-plugin-list' ).live( 'click', function( e ) {
-		jQuery( '.section-plugin-compatibility' ).animate( { opacity: 0.5 } );
 		
 		MobileViewAdminAjax( 'regenerate-plugin-list', {}, function( result ) {
-			jQuery( '.section-plugin-compatibility' ).load( MobileViewCustom.plugin_url + " .section-plugin-compatibility fieldset", function( a ) {
+			jQuery( '.section-plugin-compatibility' ).load( MobileViewCustom.plugin_url + " .section-plugin-compatibility .option-container", function( a ) {
 				jQuery( '.section-plugin-compatibility' ).animate( { opacity: 1.0 } );
 				
 				MobileViewSetupPluginCompat();
@@ -783,27 +744,7 @@ function MobileViewAjaxOn() {
 }
 
 function MobileViewAjaxOff() {
-//	jQuery( 'body' ).remove( '<div id="mobileview-saving"></div>' );
 	jQuery( '#ajax-loading' ).fadeOut( 200 );	
-}
-
-function MobileViewAnimatePoof() {
-	var bgTop = 0;		// initial background-position for the poof sprite is '0 0'
-	var frames = 5;		// number of frames in the sprite animation
-	var frameSize = 32; // size of poof <div> in pixels (32 x 32 px in this example)
-	var frameRate = 82; // set length of time each frame in the animation will display (in milliseconds)
-
-	// loop through animation frames
-	// and display each frame by resetting the background-position of the poof <div>
-
-	for( i=1; i < frames; i++ ) {
-		jQuery( '#colabsplugin .poof' ).animate( {
-			backgroundPosition: '0 ' + bgTop 
-		}, frameRate );
-		bgTop -= frameSize; // update bgPosition to reflect the new background-position of our poof <div>
-	}
-	// wait until the animation completes and then hide the poof <div>
-	setTimeout( "jQuery( '#colabsplugin .poof' ).hide();", frames * frameRate );
 }
 
 function MobileViewHandleBackupClipboard() {	
@@ -841,6 +782,25 @@ jQuery.fn.opacityToggle = function( speed, easing, callback ) {
 }
 
 jQuery( document ).ready( function() { MobileViewAdminReady(); } );
+
+/* Mobile Tab Menu
+------------------------------------------------------------------- */
+(function($){
+	$('html').on('click', function(){
+		if( $('.dropdown-mobile').is(':visible') ) {
+			$('.pane-content:visible .left-area').hide();
+		} else {
+			$('.pane-content:visible .left-area').show();
+		}
+	});
+	$('html').on('click', '.dropdown-mobile', function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		$('.pane-content:visible .left-area').toggle();
+	});
+})(jQuery);
+
+
 
 /* Use WordPress uploader
 ----------------------------------------- */

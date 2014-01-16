@@ -12,9 +12,9 @@
 			<td class="warning-item-desc"><?php mobileview_plugin_warning_the_desc(); ?></td>
 			<td>
 			<?php if ( mobileview_plugin_warning_has_link() ) { ?>
-				<a href="<?php mobileview_plugin_warning_the_link(); ?>" class="info-button" target="_blank"><?php _e( "More Info", "mobileviewlang" ) ?></a>
+				<a href="<?php mobileview_plugin_warning_the_link(); ?>" class="info-button" target="_blank"><i class="icon icon-info"></i><?php _e( "More Info", "mobileviewlang" ) ?></a>
 			<?php } ?>
-			<a href="#" id="<?php mobileview_plugin_warning_the_name(); ?>" class="dismiss-button"><?php _e( "Dismiss", "mobileviewlang" ) ?></a></td>
+			<a href="#" id="<?php mobileview_plugin_warning_the_name(); ?>" class="dismiss-button"><i class="icon icon-remove-sign"></i><?php _e( "Dismiss", "mobileviewlang" ) ?></a></td>
 		</tr>
 	<?php } ?>	
 </table>

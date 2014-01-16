@@ -65,6 +65,10 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.4.1 =
+
+	* Fix: Several Bugs
+	
 = 1.4 =
 	* Fix: Update Plugin Panel Compatible with WordPress 3.8
 	

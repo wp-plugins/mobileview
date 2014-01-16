@@ -7,12 +7,22 @@ $notification_color = $_wp_admin_css_colors[ $current_scheme ]->colors[3];
 $text_color = $_wp_admin_css_colors[ $current_scheme ]->icon_colors['base'];
 $text_current = $_wp_admin_css_colors[ $current_scheme ]->icon_colors['current'];
 
+if('fresh'==$current_scheme){
+	$base_color = '#0099CC';
+	$text_color = '#FFFFFF';
+}
+
 echo '<style>';
-echo '#colabsplugin .mobile-view-admin-header, #colabsplugin #mobileview-tabbed-area{background:'.$base_color.'}';
+echo '#colabsplugin .mobile-view-admin-header, #colabsplugin #mobileview-tabbed-area, #colabsplugin #mobileview-tabbed-area .left-area {background:'.$base_color.'}';
 echo '#colabsplugin ul#mobileview-top-menu li a, #colabsplugin .left-area ul li a{color:'.$text_color.'}';
 echo '#colabsplugin ul#mobileview-top-menu li a.active, #colabsplugin .left-area ul li a.active{color:'.$text_current.'; font-weight: 600;}';
-echo '.left-area .menu-hover{background:'.$highlight_color.'}';
+echo '.left-area .menu-hover, #colabsplugin ul#mobileview-top-menu li a.active, #colabsplugin ul#mobileview-top-menu li a:hover{background:'.$highlight_color.'}';
 echo '#colabsplugin .left-area ul li a:hover{color:'.$text_current.'}';
+if('fresh'==$current_scheme){
+echo '#colabsplugin .button-primary{background-color: #FFB101; border-color:#DA903B;box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 rgba(255, 255, 255, 0.6) inset;}';
+echo '#colabsplugin .button-primary:hover{background-color:#FFCA00}';
+echo 'div.updated, .login .message, .press-this #message{border-color: #FFB101;}';
+}
 echo '</style>';
 ?>
 
@@ -24,7 +34,7 @@ echo '</style>';
 		
 		<div class="mobileview_twitter_stream updated">
 
-			<div class="stream-label"><?php _e('News On Twitter:','colabsthemes');?></div>				
+			<div class="stream-label"><i class="icon icon-twitter"></i><?php _e('News On Twitter:','colabsthemes');?></div>				
 
 		  <?php 
 			  $mobileview_twit = new mobileview_twitter();
@@ -49,15 +59,23 @@ echo '</style>';
 					<a href="http://colorlabsproject.com/plugins/mobileview/" target="_blank" title="ColorLabs & Company"><?php echo MOBILEVIEW_PRODUCT_NAME ;?></a> <span class="version"><?php echo MOBILEVIEW_VERSION; ?></span>
 				</h3>
 			</div>
-			<ul id="mobileview-top-menu">
 			
+			<a href="#" class="dropdown-mobile">
+				<div></div>
+				<div></div>
+				<div></div>
+			</a>
+
+			<ul id="mobileview-top-menu">
+
 				<?php do_action( 'mobileview_pre_menu' ); ?>
 				
 				<?php $pane = 1; ?>
 				<?php foreach( $mobileview->tabs as $name => $value ) { ?>
 					<li>
 						<a id="pane-<?php echo $pane; ?>" class="pane-<?php echo mobileview_string_to_class( $name ); ?>" href="#">
-						<img src="<?php echo MOBILEVIEW_URL; ?>/admin/images/<?php echo $value['icon_url']; ?>">
+						<?php $icon = 'cogs'; if($value['icon'])$icon = $value['icon'];?>
+						<i class="icon icon-<?php echo $icon;?>"></i>
 						<span><?php echo $name; ?></span>
 						</a>
 					</li>
@@ -67,7 +85,7 @@ echo '</style>';
 				<?php do_action( 'mobileview_post_menu' ); ?>
 				<li>
 					<a id="mobileview-documentation" class="mobileview-documentation" href="http://colorlabsproject.com/documentation/mobileview/" target='_blank'>
-					<img src="<?php echo MOBILEVIEW_URL; ?>/admin/images/book.png">
+					<i class="icon icon-book"></i>
 					<span><?php _e('Documentation','mobileviewlang')?></span>
 					</a>
 				</li>
@@ -94,11 +112,15 @@ echo '</style>';
 		
 		<div class="mobileview-button-wrap">
 			<p class="submit" id="colabsplugin-submit">
-				<input class="button-primary" type="submit" name="mobileview-submit" title="Save" tabindex="1" value="<?php _e( "Save Changes", "mobileviewlang" ); ?>" />
+				<button class="button-primary button" type="submit" name="mobileview-submit" title="Save" tabindex="1" value="<?php _e( "Save Changes", "mobileviewlang" ); ?>">
+					<i class="icon icon-download-alt"></i><span class="button-text"><?php _e( "Save Changes", "mobileviewlang" ); ?></span>
+				</button>
 			</p>
 		
 			<p class="submit" id="colabsplugin-submit-reset">
-				<input class="button" type="submit" name="mobileview-submit-reset" title="Reset" tabindex="2" value="<?php _e( "Reset Settings", "mobileviewlang" ); ?>" />
+				<button class="button" type="submit" name="mobileview-submit-reset" title="Reset" tabindex="2" value="<?php _e( "Reset Settings", "mobileviewlang" ); ?>">
+					<i class="icon icon-spinner"></i><span class="button-text"><?php _e( "Reset Settings", "mobileviewlang" ); ?></span>
+				</button>
 				<span id="saving-ajax">
 					<?php _e( "Saving", "mobileviewlang" ); ?>&hellip; <img src="<?php echo MOBILEVIEW_URL . '/admin/images/ajax-loader.gif'; ?>" alt="ajax image" />
 				</span>
@@ -106,6 +128,5 @@ echo '</style>';
 		</div>
 
 		<p id="colabsplugin-trademark"><a href="http://colorlabsproject.com/" target="_blank" title="ColorLabs & Company"><img src="<?php echo MOBILEVIEW_URL . '/admin/images/colorlabs.png'; ?>" alt="ColorLabs & Company" /></a></p>
-		<div class="poof">&nbsp;</div>
 	</div> <!-- mobileview-admin-area -->
 </form>
