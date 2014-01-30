@@ -52,7 +52,7 @@ if (isset($_POST['mobileview-skin-upload'])) {
         <?php if ( mobileview_is_theme_custom() && mobileview_is_theme_update() ) : ?>
           
           <?php
-          $url_storefront_skin_version = wp_remote_get('http://colorlabsproject.com/updates/mobileview-skins/'.trim(mobileview_get_theme_title()).'/readme.txt');
+          $url_storefront_skin_version = wp_remote_get('http://colorlabsproject.com/updates/mobileview-skins/'.trim(strtolower(mobileview_get_theme_title())).'/readme.txt');
           if($url_storefront_skin_version){
             if ( preg_match( '#Version: (.*)#i', $url_storefront_skin_version['body'], $matches ) ) {
               $storefront_skin_version = $matches[1];

@@ -53,45 +53,55 @@ echo '</style>';
 
 		<div id="mobileview-admin-form">
 			<div class="mobile-view-admin-header">
-			<div id="mobileview-main-top">
-				<h3>
-					<img src="<?php echo MOBILEVIEW_URL; ?>/admin/images/logo.png">
-					<a href="http://colorlabsproject.com/plugins/mobileview/" target="_blank" title="ColorLabs & Company"><?php echo MOBILEVIEW_PRODUCT_NAME ;?></a> <span class="version"><?php echo MOBILEVIEW_VERSION; ?></span>
-				</h3>
-			</div>
-			
-			<a href="#" class="dropdown-mobile">
-				<div></div>
-				<div></div>
-				<div></div>
-			</a>
-
-			<ul id="mobileview-top-menu">
-
-				<?php do_action( 'mobileview_pre_menu' ); ?>
+				<div id="mobileview-main-top">
+					<h3>
+						<img src="<?php echo MOBILEVIEW_URL; ?>/admin/images/logo.png">
+						<a href="http://colorlabsproject.com/plugins/mobileview/" target="_blank" title="ColorLabs & Company"><?php echo MOBILEVIEW_PRODUCT_NAME ;?></a> <span class="version"><?php echo MOBILEVIEW_VERSION; ?></span>
+					</h3>
+				</div>
 				
-				<?php $pane = 1; ?>
-				<?php foreach( $mobileview->tabs as $name => $value ) { ?>
+				<a href="#" class="dropdown-mobile">
+					<div></div>
+					<div></div>
+					<div></div>
+				</a>
+
+				<ul id="mobileview-top-menu">
+
+					<?php do_action( 'mobileview_pre_menu' ); ?>
+					
+					<?php $pane = 1; ?>
+					<?php foreach( $mobileview->tabs as $name => $value ) { ?>
+						<li>
+							<a id="pane-<?php echo $pane; ?>" class="pane-<?php echo mobileview_string_to_class( $name ); ?>" href="#">
+							<?php $icon = 'cogs'; if($value['icon'])$icon = $value['icon'];?>
+							<i class="icon icon-<?php echo $icon;?>"></i>
+							<span><?php echo $name; ?></span>
+							</a>
+						</li>
+						<?php $pane++; ?>
+					<?php } ?>
+			
+					<?php do_action( 'mobileview_post_menu' ); ?>
 					<li>
-						<a id="pane-<?php echo $pane; ?>" class="pane-<?php echo mobileview_string_to_class( $name ); ?>" href="#">
-						<?php $icon = 'cogs'; if($value['icon'])$icon = $value['icon'];?>
-						<i class="icon icon-<?php echo $icon;?>"></i>
-						<span><?php echo $name; ?></span>
+						<a id="mobileview-documentation" class="mobileview-documentation" href="http://colorlabsproject.com/documentation/mobileview/" target='_blank'>
+						<i class="icon icon-book"></i>
+						<span><?php _e('Documentation','mobileviewlang')?></span>
 						</a>
 					</li>
-					<?php $pane++; ?>
-				<?php } ?>
-		
-				<?php do_action( 'mobileview_post_menu' ); ?>
-				<li>
-					<a id="mobileview-documentation" class="mobileview-documentation" href="http://colorlabsproject.com/documentation/mobileview/" target='_blank'>
-					<i class="icon icon-book"></i>
-					<span><?php _e('Documentation','mobileviewlang')?></span>
+				</ul>
+				
+				<div class="header-save-button">
+					<a href="#" class="button-primary button button-save-trigger">
+						<i class="icon icon-download-alt"></i> <?php _e('Save Changes', 'mobileviewlang'); ?>
 					</a>
-				</li>
-			</ul>
-			
-			</div>		
+
+					<a href="#" class="button button-reset-trigger">
+						<i class="icon icon-spinner"></i> <?php _e('Reset Settings', 'mobileviewlang'); ?>
+					</a>
+				</div>
+			</div><!-- .mobile-view-admin-header -->
+
 			<div id="mobileview-tabbed-area"  class="main-panel">
 				<?php mobileview_show_tab_settings(); ?>
 				<div class="loading-ajax">

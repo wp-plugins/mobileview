@@ -1690,10 +1690,10 @@ p#colabsplugin-trademark em {
   right: -1px;
   top: 0;
   z-index: 10;
-  border-right: 1px solid #D2D2D2;
+  /*border-right: 1px solid #D2D2D2;*/
   border-bottom: 1px solid #ddd;
   margin: 0;
-  width: auto;
+  width: 100%;
   text-transform:uppercase;
   font-size: 13px;
   padding: 9px 10px;
@@ -1701,6 +1701,9 @@ p#colabsplugin-trademark em {
   font-family: Arial;
   font-style:normal;
   background: none repeat scroll 0 0 rgba(153, 153, 153, 0.1);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 #colabsplugin .option-container > legend {
   right: 0;
@@ -1844,10 +1847,13 @@ p#colabsplugin-trademark em {
   text-decoration: none;
 }
 .mobileview_twitter_stream ul {
-  margin: 0;
+  margin: 0 0 0 170px !important;
 }
 .mobileview_twitter_stream li {
   display: none;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
 }
 .mobileview_twitter_stream li:first-child {
   display: block
@@ -1856,7 +1862,15 @@ p#colabsplugin-trademark em {
   font-size:8px;
   color:#bbb;
   font-style:italic;
-  margin-left:2px;
+  float: left;
+  width: 20%;
+}
+.mobileview_twitter_stream .content {
+  float: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
 }
 
 #TB_ajaxContent .mobileview-login-form p input {
@@ -2268,4 +2282,43 @@ p#colabsplugin-trademark em {
 }
 .mobileview-setting select{
 	width: 100%;
+}
+
+
+/* ===================================================================
+  FIXED HEADER
+=================================================================== */
+.header-save-button {
+  float: right;
+  display: none;
+  margin: 25px 20px 0 0;
+}
+.header-save-button .button {
+  font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+  .header-save-button {
+    display: block;
+  }
+  .mobileview-button-wrap {
+    display: none;
+  }
+  .header-fixed .left-area {
+    position: relative;
+  }
+  .header-fixed #mobileview-admin-form {
+    margin-top: 94px;
+  }
+
+  .header-fixed #colabsplugin .mobile-view-admin-header {
+    position: fixed;
+    top: 32px;
+    right: 20px;
+    left: 182px;
+    z-index: 100;
+  }
+  .header-fixed.folded #colabsplugin .mobile-view-admin-header {
+    left: 58px;
+  }
 }

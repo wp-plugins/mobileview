@@ -803,7 +803,7 @@ jQuery( document ).ready( function() { MobileViewAdminReady(); } );
 
 
 /* Use WordPress uploader
------------------------------------------ */
+------------------------------------------------------------------- */
 (function($){
 	$(document).ready(function(){
 		var formfield,
@@ -860,3 +860,50 @@ jQuery( document ).ready( function() { MobileViewAdminReady(); } );
 		$('.mobileview-color-field').wpColorPicker();
 	});
 })(jQuery);
+
+
+/* Sticky Header
+------------------------------------------------------------------- */
+(function($){
+	// Trigger save or reset button when user clicked
+	// the button on the header
+	$('html').on('click', '.header-save-button a', function(){
+		var $button = $(this),
+				trigger_button;
+
+		if( $button.hasClass('button-save-trigger') ) {
+			trigger_button = '#colabsplugin-submit';
+		} else {
+			trigger_button = '#colabsplugin-submit-reset';
+		}
+
+		$(trigger_button).find('button').trigger('click');
+	});
+
+	$(document).ready(function(){
+		if( $('.mobile-view-admin-header').length > 0 ) {
+
+			var $body = $('body'),
+					$admin_header = $('.mobile-view-admin-header');
+					header_height = $admin_header.height(),
+					header_pos = $admin_header.position().top;
+
+			$(window).on('scroll', function(e){
+				if( $(this).scrollTop() >= header_pos ) {
+					$body.addClass('header-fixed');
+
+					// Set position for left menu
+					$('.pane-content:visible .left-area').css({
+						top: $(this).scrollTop() - header_pos
+					});
+				}
+
+				else {
+					$body.removeClass('header-fixed');
+				}
+			});
+
+		}
+	});
+})(jQuery);
+

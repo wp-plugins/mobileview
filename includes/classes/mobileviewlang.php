@@ -3658,10 +3658,10 @@ class mobileview_twitter
 		  <li>
 			<span class="content">
 			  <?php echo $this->mobileview_linkify_twitter_text( $item->text ); ?>
-			  <a href="<?php echo $status_url; ?>" style="font-size:85%" class="time" target="_blank">
-				<?php echo date('M j, Y', strtotime($item->created_at)); ?>
-			  </a>
 			</span>
+			<a href="<?php echo $status_url; ?>" style="font-size:85%" class="time" target="_blank">
+				<?php echo date('M j, Y', strtotime($item->created_at)); ?>
+			</a>
 		  </li>
 		<?php endforeach; ?>
 		</ul>

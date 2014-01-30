@@ -1,5 +1,8 @@
 *** MobileView Changelog ***
 
+2014.01.30 - version 1.4.2
+-	Fix: Responsive Plugin Panel
+
 2014.01.16 - version 1.4.1
 -	Fix: Several Bugs
 

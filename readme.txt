@@ -65,6 +65,10 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.4.2 =
+
+	* Fix: Responsive Plugin Panel
+	
 = 1.4.1 =
 
 	* Fix: Several Bugs
