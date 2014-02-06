@@ -25,7 +25,7 @@ Features :
 <li>Import/export panel settings.</li>
 </ul>
 
-[youtube http://youtu.be/NCB5I0057LY]
+[youtube http://www.youtube.com/watch?v=NCB5I0057LY]
 
 == Installation ==
 
