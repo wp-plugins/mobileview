@@ -25,7 +25,7 @@ Features :
 <li>Import/export panel settings.</li>
 </ul>
 
-[vimeo http://vimeo.com/56080249]
+[youtube http://youtu.be/NCB5I0057LY]
 
 == Installation ==
 
