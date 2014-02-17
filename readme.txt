@@ -25,7 +25,7 @@ Features :
 <li>Import/export panel settings.</li>
 </ul>
 
-[youtube http://www.youtube.com/watch?v=NCB5I0057LY]
+[vimeo http://vimeo.com/56080249]
 
 == Installation ==
 
@@ -65,6 +65,10 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 == Changelog ==
 
+= 1.4.3 =
+
+	* Fix: Color Schemes
+	
 = 1.4.2 =
 
 	* Fix: Responsive Plugin Panel

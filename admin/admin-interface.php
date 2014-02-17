@@ -1,11 +1,24 @@
 <?php 
 global $mobileview,$_wp_admin_css_colors; $current_scheme = get_user_option('admin_color'); $settings = mobileview_get_settings(); 
 
-$base_color = $_wp_admin_css_colors[ $current_scheme ]->colors[1];
-$highlight_color = $_wp_admin_css_colors[ $current_scheme ]->colors[2];
-$notification_color = $_wp_admin_css_colors[ $current_scheme ]->colors[3];
 $text_color = $_wp_admin_css_colors[ $current_scheme ]->icon_colors['base'];
 $text_current = $_wp_admin_css_colors[ $current_scheme ]->icon_colors['current'];
+
+if('light'==$current_scheme){
+	$base_color = $_wp_admin_css_colors[ $current_scheme ]->colors[0];
+	$highlight_color = $_wp_admin_css_colors[ $current_scheme ]->colors[1];
+	$text_color = '#333';
+	$text_current = '#FFF';
+}elseif('blue'==$current_scheme){
+	$base_color = $_wp_admin_css_colors[ $current_scheme ]->colors[2];
+	$highlight_color = $_wp_admin_css_colors[ $current_scheme ]->colors[0];
+}elseif('midnight'==$current_scheme){
+	$base_color = $_wp_admin_css_colors[ $current_scheme ]->colors[1];
+	$highlight_color = $_wp_admin_css_colors[ $current_scheme ]->colors[3];
+}else{
+	$base_color = $_wp_admin_css_colors[ $current_scheme ]->colors[1];
+	$highlight_color = $_wp_admin_css_colors[ $current_scheme ]->colors[2];
+}
 
 if('fresh'==$current_scheme){
 	$base_color = '#0099CC';
@@ -22,6 +35,11 @@ if('fresh'==$current_scheme){
 echo '#colabsplugin .button-primary{background-color: #FFB101; border-color:#DA903B;box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 rgba(255, 255, 255, 0.6) inset;}';
 echo '#colabsplugin .button-primary:hover{background-color:#FFCA00}';
 echo 'div.updated, .login .message, .press-this #message{border-color: #FFB101;}';
+}
+if('light'==$current_scheme){
+	echo '#mobileview-top-menu .icon{color:#999999}';
+	echo '#mobileview-top-menu .active .icon{color:#CCCCCC}';
+	echo '#colabsplugin #mobileview-main-top h3 span{color:#333333}';
 }
 echo '</style>';
 ?>

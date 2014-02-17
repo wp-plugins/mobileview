@@ -1,5 +1,8 @@
 *** MobileView Changelog ***
 
+2014.02.17 - version 1.4.3
+-	Fix: Color Schemes
+
 2014.01.30 - version 1.4.2
 -	Fix: Responsive Plugin Panel
 

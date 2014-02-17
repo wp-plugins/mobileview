@@ -1491,7 +1491,6 @@ p#colabsplugin-trademark em {
   margin: 0;
   zoom: 1;
   background: #353535;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   position:relative;
 }
 #colabsplugin .main-panel{
@@ -1573,6 +1572,7 @@ p#colabsplugin-trademark em {
 #colabsplugin #mobileview-tabbed-area .left-area {
   width: 232px;
   margin: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-font-smoothing: antialiased;
 }
 #colabsplugin #mobileview-tabbed-area .right-area {
@@ -1585,9 +1585,6 @@ p#colabsplugin-trademark em {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 0;
-}
-#colabsplugin .left-area ul li:last-child {
-  border-bottom: none;
 }
 #colabsplugin .left-area ul li a {
   color: #c2c2c2;
@@ -1701,14 +1698,6 @@ p#colabsplugin-trademark em {
   font-family: Arial;
   font-style:normal;
   background: none repeat scroll 0 0 rgba(153, 153, 153, 0.1);
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-#colabsplugin .option-container > legend {
-  right: 0;
-  border-right: 0;
-  width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
