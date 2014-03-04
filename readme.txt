@@ -67,84 +67,86 @@ Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com
 
 = 1.4.3 =
 
-	* Fix: Color Schemes
+* Fix: Color Schemes
 	
 = 1.4.2 =
 
-	* Fix: Responsive Plugin Panel
+* Fix: Responsive Plugin Panel
 	
 = 1.4.1 =
-
-	* Fix: Several Bugs
+ 
+* Fix: Several Bugs
 	
 = 1.4 =
-	* Fix: Update Plugin Panel Compatible with WordPress 3.8
+
+* Fix: Update Plugin Panel Compatible with WordPress 3.8
 	
 = 1.3 =
-	* Add: Update ZeroClipboard.swf
+
+* Add: Update ZeroClipboard.swf
 	
 = 1.2 =
-	* Add: Windows Phone 8 Support
+
+* Add: Windows Phone 8 Support
 	
 = 1.1.1 =
 
-	* Fix: Several Bugs
-	* Files Affected: admin/admin-init.php, admin/admin-interface.php, mobileview-admin.css, mobileview-admin.js, themes.php, mobileviewlang.php, custom-post-type.php, theme.php, hipnews/global.php, hipnews/theme.php, hipnews/iphone/functions.php, hipnews/iphone/js/hipnews.js, hipnews/iphone/page.php 
+* Fix: Several Bugs    
+Files Affected: admin/admin-init.php, admin/admin-interface.php, mobileview-admin.css, mobileview-admin.js, themes.php, mobileviewlang.php, custom-post-type.php, theme.php, hipnews/global.php, hipnews/theme.php, hipnews/iphone/functions.php, hipnews/iphone/js/hipnews.js, hipnews/iphone/page.php 
 	
 = 1.1.0 =
 
-	* Fix: Several Bugs
-	* Add: Custom Post Type Support
+* Fix: Several Bugs
+* Add: Custom Post Type Support
  
 = 1.0.9 =
 
- * Change switcher style
- * Change plugin panel interface
- * Fix HipNews default skin
- * Add new feature of delete and update the skins
- * Several Bug Fixes
- * Add colorpicker feature for option
+* Change switcher style
+* Change plugin panel interface
+* Fix HipNews default skin
+* Add new feature of delete and update the skins
+* Several Bug Fixes
+* Add colorpicker feature for option
  
 = 1.0.8 =
 
- * Several Bug Fixes
- * MobileView now support Mobile Skin
+* Several Bug Fixes
+* MobileView now support Mobile Skin
  
 = 1.0.7 =
 
- * Change switcher text from "Mobile Theme" to "MobileView"
- * Change footer credit text
- * Change switcher style
- * Change admin footer credit text
+* Change switcher text from "Mobile Theme" to "MobileView"
+* Change footer credit text
+* Change switcher style
+* Change admin footer credit text
  
 = 1.0.6 =
 
- * Changed footer credit link and content.
- * Fix HipNews thumbnail
- * Changed mobile switcher design
+* Changed footer credit link and content.
+* Fix HipNews thumbnail
+* Changed mobile switcher design
  
 = 1.0.5 =
 
- * Fixed post thumbnail function
+* Fixed post thumbnail function
 
 = 1.0.4 =
 
- * Fixed Featured Image
+* Fixed Featured Image
 
 = 1.0.3 =
 
- * Fix thumbnail size
- * Fix image thumbnail size in single post
- * small bug fixed
+* Fix thumbnail size
+* Fix image thumbnail size in single post
+* small bug fixed
 
 = 1.0.2 =
 
- * Removed Regionalization feature.
+* Removed Regionalization feature.
  
 = 1.0.1 =
 
-* /includes/config.php 
-    - Fix dirname bug.
+* Fix dirname bug.
 
 = 1.0.0 =
 
