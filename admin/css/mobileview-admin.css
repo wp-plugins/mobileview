@@ -1774,6 +1774,7 @@ p#colabsplugin-trademark em {
 #colabsplugin-trademark img {
   margin-left: 10px;
   vertical-align: middle;
+  width: 170px;
 }
 
 .mobileview-button-wrap .submit {

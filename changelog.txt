@@ -1,5 +1,11 @@
 *** MobileView Changelog ***
 
+2015.04.23 - version 1.4.4
+- Fix: System Info
+  File Affected: sysinfo.php
+- Change: New logo of Colorlabs & Company
+  Files Affected: colorlabs.png, style.css
+
 2014.02.17 - version 1.4.3
 - Fix: Color Schemes
 

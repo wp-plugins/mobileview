@@ -58,7 +58,7 @@ if (isset($_POST['mobileview-skin-upload'])) {
               $storefront_skin_version = $matches[1];
             }
           } 
-          $changelog_uri = add_query_arg(array('TB_iframe' => 'true'), 'http://colorlabsproject.com/updates/mobileview-skins/'.mobileview_get_theme_title().'/readme.txt');
+          $changelog_uri = add_query_arg(array('TB_iframe' => 'true'), esc_url('http://colorlabsproject.com/updates/mobileview-skins/'.mobileview_get_theme_title().'/readme.txt'));
           
           printf( __('<div class="update-available">There is a new version of <strong>%1$s</strong> is available. <a href="%2$s" title="%1$s" class="thickbox">View version %3$s details.</a></div>'), mobileview_get_theme_title(),$changelog_uri,$storefront_skin_version );
           ?>

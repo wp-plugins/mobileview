@@ -272,7 +272,7 @@ function hipnews_was_redirect_target() {
 function hipnews_get_previous_post_link() {	
 	$settings = mobileview_get_settings();
 
-	$prev_post = get_adjacent_post( false, $settings->hipnews_excluded_categories ); 
+	$prev_post = get_adjacent_post( false, $settings->mobileview_excluded_categories ); 
 	if ( $prev_post ) {
 		$prev_url = get_permalink( $prev_post->ID ); 
 		echo '<a href="' . $prev_url . '" class="nav-back ajax-link">' . __( "Prev", "mobileviewlang" ) . '</a>';
@@ -282,7 +282,7 @@ function hipnews_get_previous_post_link() {
 function hipnews_get_next_post_link() {
 	$settings = mobileview_get_settings();
 
-	$next_post = get_adjacent_post( false, $settings->hipnews_excluded_categories, 0 ); 
+	$next_post = get_adjacent_post( false, $settings->mobileview_excluded_categories, 0 ); 
 	if ( $next_post ) {
 		$next_url = get_permalink( $next_post->ID ); 
 		echo '<a href="' . $next_url . '" class="nav-fwd ajax-link">'. __( "Next", "mobileviewlang" ) . '</a>';
@@ -442,7 +442,7 @@ function hipnews_show_date_in_posts() {
 // filter added in functions.php for mobile + ipad
 function hipnews_exclude_categories( $query ) {
 	$settings = mobileview_get_settings();
-	$excluded = $settings->hipnews_excluded_categories;
+	$excluded = $settings->mobileview_excluded_categories;
 	
 	if ( $excluded ) {
 		$cats = explode( ',', $excluded );
