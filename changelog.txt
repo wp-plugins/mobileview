@@ -1,0 +1,81 @@
+*** MobileView Changelog ***
+
+2014.02.17 - version 1.4.3
+- Fix: Color Schemes
+
+2014.01.30 - version 1.4.2
+- Fix: Responsive Plugin Panel
+
+2014.01.16 - version 1.4.1
+- Fix: Several Bugs
+
+2013.12.09 - version 1.4
+- Fix: Update Plugin Panel Compatible with WordPress 3.8
+  Files Affected: admin-init.php, admin-interface.php, mobileview-admin.css
+
+2013.12.09 - version 1.3
+- Fix: Update ZeroClipboard.swf
+
+2013.10.17 - version 1.1.1
+- Fix: Several Bugs
+- Files Affected: admin/admin-init.php, admin/admin-interface.php, mobileview-admin.css, mobileview-admin.js, themes.php, mobileviewlang.php, custom-post-type.php, theme.php, hipnews/global.php, hipnews/theme.php, hipnews/iphone/functions.php, hipnews/iphone/js/hipnews.js, hipnews/iphone/page.php
+
+2013.10.09 - version 1.1.0
+- Fix: Several Bugs
+  Files Affected: mobileviewlang.php, theme.php, mobileview-admin.js, admin-init.php, config.php
+- Add: Custom Post Type Support
+  Files Affected: mobileviewlang.php, custom-post-types.php
+  
+2013.09.27 - version 1.0.9
+- Fix: Several Bugs
+  File Affected: mobileviewlang.php
+- Add: Delete and Update Skins
+  Files Affected: theme-browser.php, mobileviewlang.php, themes.php, mobileview-admin.js, mobileview-admin.css
+- Fix: Plugin Panel Interface
+  Files Added: current-header-light.png, current-light.png, general.png, skins.png, skin-settings.png, book.png, twitter.png, BebasNeue-webfont
+  Files Affected: mobileview-admin.css, admin-interface.php
+- Fix: HipNews Default Skin Bugs
+  Files Affected: page.php, theme.php, style.css, global.php, single.php
+- Add: Custom Color for MobileView Switcher 
+  File Added: colorpicker.php
+  Files Affected: mobileviewlang.php, admin-init.php, mobileview-admin.js, mobileview-admin.css 
+ 
+2013.08.15 - version 1.0.8
+ * Several bug fixes
+ * MobileView now support Mobile Skin
+ * Theme Panel new design
+ * Added different icon for each Settings Menu
+ * Set global function for social share
+ * Added ajax loading and saved settings notification
+ 
+2013.01.18 - version 1.0.7
+ * Change switcher text from "Mobile Theme" to "MobileView"
+ * Change footer credit text
+ * Change switcher style
+ * Change admin footer credit text
+ 
+2013.01.15 - version 1.0.6
+ * Changed footer credit link and content.
+ * Fix HipNews thumbnail
+ * Changed mobile switcher design
+
+2012.12.27 - version 1.0.5 
+ * Fixed post thumbnail function
+
+2012.12.27 - version 1.0.4
+ * Fixed Featured Image
+ 
+2012.12.27 - version 1.0.3
+ * Fix thumbnail size
+ * Fix image thumbnail size in single post
+ * small bug fixed
+
+2012.12.20 - version 1.0.2
+ * Removed Regionalization feature.
+ 
+2012.12.20 - version 1.0.1
+ * /includes/config.php 
+    - Fix dirname bug.
+ 
+2012.12.15 - version 1.0.0
+ * First release!
