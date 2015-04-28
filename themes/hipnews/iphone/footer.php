@@ -1,14 +1,14 @@
-				  </div><!-- .post-list -->
-                </div><!-- .main-container -->
+			</div><!-- .post-list -->
+    </div><!-- .main-container -->
 					
-				<?php do_action( 'mobileview_body_bottom' ); ?>
+		<?php do_action( 'mobileview_body_bottom' ); ?>
 
     <div class="footer">
         <h3 class="footer-branding">
             <a href="<?php mobileview_bloginfo( 'url' ); ?>"><?php mobileview_bloginfo( 'site_title' ); ?></a>
         </h3>
         <div class="footer-nav container copyrights">
-            <?php show_mobileview_message_in_footer();?>
+          <?php show_mobileview_message_in_footer();?>
         </div><!-- .footer-nav -->
         <div class="<?php mobileview_footer_classes(); ?> switcher container">
             <?php if ( mobileview_show_switch_link() && !hipnews_is_web_app_mode() ) { ?>
@@ -21,7 +21,6 @@
 					</div>
 					
 					<?php
-					
 					$settings = mobileview_get_settings();
 					$get_colour = $settings->switch_colour;
 					

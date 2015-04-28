@@ -173,6 +173,7 @@ class MobileView {
 		// Check if we're using a version of WordPress that supports themes
 		if ( function_exists( 'add_theme_support' ) ) {
 			add_theme_support( 'menus' );	
+      add_theme_support( 'title-tag' );
 		}
 		if ( $this->is_mobile_device && $this->showing_mobile_theme ) {		
 			do_action( 'mobileview_mobile_theme_showing' );
@@ -2111,7 +2112,7 @@ class MobileView {
 	 *		\ingroup admin
 	 */		
 	function in_admin_panel() {
-		return ( strpos( $_SERVER['REQUEST_URI'], '/admin/' ) !== false );	
+		return ( strpos( urldecode($_SERVER['REQUEST_URI']), '/admin/' ) !== false );	
 	}
 	/*!		\brief Performs initialization for MobileView for when the administration panel is showing
 	 *
@@ -2153,7 +2154,7 @@ class MobileView {
 				'reset_icon_menu_settings' => __( 'Reset Menu Page and Icon settings?', 'mobileviewlang' ) . ' ' . __( 'This operation cannot be undone.', 'mobileviewlang' ),
 				'copying_text' => __( 'Your Backup Key was copied to the clipboard.', 'mobileviewlang' ),
 			);
-      $localize_params[ 'plugin_url' ] = get_bloginfo('wpurl') . '/wp-admin/admin.php?page='.MOBILEVIEW_ROOT_DIR.'/admin/admin-init.php';
+      $localize_params[ 'plugin_url' ] = admin_url( 'admin.php?page='.MOBILEVIEW_ROOT_DIR.'/admin/admin-init.php');
 			wp_enqueue_script( 'jquery-plugins', MOBILEVIEW_URL . '/admin/js/mobileview-plugins-min.js', 'jquery', md5( MOBILEVIEW_VERSION ) );	
 
 			wp_enqueue_script( 'mobileview-custom', MOBILEVIEW_URL . '/admin/js/mobileview-admin.js', array( 'jquery-plugins', 'jquery-ui-draggable', 'jquery-ui-droppable', 'wp-color-picker' ), md5( MOBILEVIEW_VERSION ) );			

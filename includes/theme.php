@@ -55,8 +55,17 @@ function mobileview_title() {
 	} else {
 		echo mobileview_bloginfo( 'site_title' ) . wp_title( ' &raquo; ', 0 );	
 	}
+  
 }
-/*!		\brief Echos the short title for the WordPress site
+
+function mobileview_bloginfo_title($info, $show) {
+  if ($show == 'name') {
+    $info = mobileview_get_bloginfo( 'site_title' );
+  }
+  return $info;
+}
+
+add_filter( 'bloginfo', 'mobileview_bloginfo_title', 10, 2 );/*!		\brief Echos the short title for the WordPress site
  *
  *		This method echos the result of the mobileview_get_site_title() method.
  *

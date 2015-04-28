@@ -3,10 +3,7 @@
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="<?php mobileview_bloginfo('html_type'); ?>; charset=<?php mobileview_bloginfo('charset'); ?>" />
 <meta name="viewport" content="width=device-width">
-	<title><?php mobileview_title(); ?></title>
-	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
-	<?php mobileview_head(); ?>
-  <link href='http://fonts.googleapis.com/css?family=Rokkitt:700' rel='stylesheet' type='text/css'> 
+	<?php mobileview_head(); ?> 
 	<link type="text/css" rel="stylesheet" media="screen" href="<?php hipnews_the_static_css_url( 'iphone' ); ?>?version=<?php hipnews_the_static_css_version( 'iphone' ); ?>"></link>
 </head>
 <?php flush(); ?>
@@ -61,4 +58,4 @@
 			<?php do_action( 'mobileview_body_top' ); ?>
 		
 			<div class="container main-container">
-                <div class="<?php if(is_single() || is_page() || is_404()){ echo 'content-left'; }else{ echo 'post-list row'; } ?>">
+        <div class="<?php if(is_single() || is_page() || is_404()){ echo 'content-left'; }else{ echo 'post-list row'; } ?>">

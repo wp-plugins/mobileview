@@ -1,5 +1,11 @@
 *** MobileView Changelog ***
 
+2015.04.28 - version 1.4.5
+- Fix: Filter to wp_title
+  File Affected: theme.php
+- Fix: Saving options at MobileView panel
+  File Affected: mobileviewlang.php
+  
 2015.04.23 - version 1.4.4
 - Fix: System Info
   File Affected: sysinfo.php
