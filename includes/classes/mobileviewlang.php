@@ -796,7 +796,7 @@ class MobileView {
 	 */
 	function mobileview_settings_link( $links, $file ) {
 	 	if( $file == $this->plugin_name && function_exists( "admin_url" ) ) {
-			$settings_link = '<a href="' . admin_url( 'admin.php?page='.MOBILEVIEW_ROOT_DIR.'/admin/admin-init.php' ) . '">' . __('Settings') . '</a>';
+			$settings_link = '<a href="' . admin_url( 'admin.php?page=mobileview-admin' ) . '">' . __('Settings') . '</a>';
 			array_push( $links, $settings_link ); // after other links
 		}
 		return $links;
@@ -1807,9 +1807,9 @@ class MobileView {
 	 *
 	 */	
 	function mobileview_init() {	
-		$is_mobileview_page = ( strpos( $_SERVER['REQUEST_URI'], 'mobileview' ) !== false );
+		
 		// Only process POST settings on mobileview pages
-		if ( $is_mobileview_page && $this->in_admin_panel() ) {
+		if ( $this->in_admin_panel() ) {
 			$this->process_submitted_settings();
 		}		
 		do_action( 'mobileview_settings_processed' );
@@ -2112,7 +2112,12 @@ class MobileView {
 	 *		\ingroup admin
 	 */		
 	function in_admin_panel() {
-		return ( strpos( urldecode($_SERVER['REQUEST_URI']), '/admin/' ) !== false );	
+		if ((isset($_GET['page'])) && ('mobileview-admin' == $_GET['page']) ) {
+      return true;
+    }
+    else {
+      return false;
+    }
 	}
 	/*!		\brief Performs initialization for MobileView for when the administration panel is showing
 	 *
@@ -2154,7 +2159,7 @@ class MobileView {
 				'reset_icon_menu_settings' => __( 'Reset Menu Page and Icon settings?', 'mobileviewlang' ) . ' ' . __( 'This operation cannot be undone.', 'mobileviewlang' ),
 				'copying_text' => __( 'Your Backup Key was copied to the clipboard.', 'mobileviewlang' ),
 			);
-      $localize_params[ 'plugin_url' ] = admin_url( 'admin.php?page='.MOBILEVIEW_ROOT_DIR.'/admin/admin-init.php');
+      $localize_params[ 'plugin_url' ] = admin_url( 'admin.php?page=mobileview-admin');
 			wp_enqueue_script( 'jquery-plugins', MOBILEVIEW_URL . '/admin/js/mobileview-plugins-min.js', 'jquery', md5( MOBILEVIEW_VERSION ) );	
 
 			wp_enqueue_script( 'mobileview-custom', MOBILEVIEW_URL . '/admin/js/mobileview-admin.js', array( 'jquery-plugins', 'jquery-ui-draggable', 'jquery-ui-droppable', 'wp-color-picker' ), md5( MOBILEVIEW_VERSION ) );			

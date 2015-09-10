@@ -24,15 +24,6 @@ function hipnews_get_static_css_filename( $device ) {
 	}
 }
 
-function hipnews_get_static_css_url( $device ) {
-	if ( mobileview_is_multisite_enabled() ) {
-		global $blog_id;
-		return apply_filters( 'hipnews_static_css_url', MOBILEVIEW_TEMP_URL . '/hipnews-' . $device . '-' . $blog_id . '.css' );
-	} else {
-		return apply_filters( 'hipnews_static_css_url', MOBILEVIEW_TEMP_URL . '/hipnews-' . $device . '.css' );
-	}	
-}
-
 function hipnews_write_data_to_file( $file_name, $data ) {	
 	if ( $data ) {
 		$f = fopen( $file_name, 'w+t' );
@@ -53,15 +44,6 @@ function hipnews_remove_static_css() {
 	}	
 }
 
-function hipnews_generate_static_one_css( $device ) {
-	ob_start();
-	//include( dirname( __FILE__ ) . '/' . $device . '/dynamic-style.php' );
-	$contents = ob_get_contents();
-	ob_end_clean();
-	
-	hipnews_write_data_to_file( hipnews_get_static_css_filename( $device ), $contents );		
-}
-
 function hipnews_the_static_css_version( $device ) {
 	$file_name = hipnews_get_static_css_filename( $device );
 	if ( file_exists( $file_name ) ) {
@@ -69,15 +51,6 @@ function hipnews_the_static_css_version( $device ) {
 	} else {
 		echo 0;	
 	}
-}
-
-function hipnews_the_static_css_url( $device ) {
-	$file_name = hipnews_get_static_css_filename( $device );
-	if ( !file_exists( $file_name ) ) {
-		hipnews_generate_static_one_css( $device );
-	}	
-	
-	echo hipnews_get_static_css_url( $device );
 }
 
 function hipnews_supported_devices( $devices ) {

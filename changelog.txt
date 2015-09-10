@@ -1,5 +1,15 @@
 *** MobileView Changelog ***
 
+2015.09.10 - version 1.4.7
+- Fix: Checking update version
+  Files Affected: themes.php, theme-browser.php
+  
+2015.08.26 - version 1.4.6
+- Fix: Compatible with WordPress 4.3
+  Files Affected: mobileview.php, admin-init.php, theme.php
+- Fix: Saving options at MobileView panel
+  File Affected: mobileviewlang.php
+  
 2015.04.28 - version 1.4.5
 - Fix: Filter to wp_title
   File Affected: theme.php

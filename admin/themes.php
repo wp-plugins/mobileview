@@ -207,7 +207,7 @@ function mobileview_is_theme_update(){
 			}
 		}
 		$skin_version = mobileview_get_theme_version();
-		if ( version_compare( $storefront_skin_version, $skin_version, '>' ) ) {
+		if ( version_compare( trim($storefront_skin_version), trim($skin_version), '>' ) ) {
 			return true;
 		}else{
 			return false;

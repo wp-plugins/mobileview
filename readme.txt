@@ -1,8 +1,8 @@
-=== MobileView by ColorLabs & Company ===
+=== MobileView by Colorlabs & Company ===
 Contributors: colorlabs
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@colorlabsproject.com&item_name=Donation+for+Mobile+View
 Requires at least: 3.1.0
-Tested up to: 4.2.1
+Tested up to: 4.3.0
 Stable tag: trunk
 License: GPLv3 or later
 Tags: mobile, mobile theme, mobileview, android, apple, blackberry, colorlabs, iphone, smartphone, skin
@@ -64,6 +64,14 @@ Yes, MobileView will work with any theme, but may require some styling to make i
 Bugs can be reported in our [ColorLabs Support Desk](http://colorlabsproject.com/resolve/) or you can also use wordpress plugins support for reporting bugs and error.
 
 == Changelog ==
+
+= 1.4.7 =
+
+* Fix: Checking update version
+
+= 1.4.6 =
+
+* Fix: Compatibility with WordPress 4.3
 
 = 1.4.5 =
 

@@ -10,7 +10,7 @@ function mobileview_admin_menu() {
 				'MobileView', 
 				'MobileView', 
 				'manage_options', 
-				__FILE__, 
+				'mobileview-admin', 
 				'mobileview_admin_panel', 
 				get_mobileview_url() . '/admin/images/mobileview-admin-icon.png',
 				50

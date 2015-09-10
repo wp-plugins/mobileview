@@ -66,7 +66,7 @@ if (isset($_POST['mobileview-skin-upload'])) {
         <?php endif;?>
         <h4>
           <?php mobileview_the_theme_title(); ?>
-          <span><?php echo sprintf( __( '(%s)', 'mobileviewlang' ), mobileview_get_theme_version() ); ?></span>
+          <span><?php echo sprintf( __( '(%s)', 'mobileviewlang' ), trim(mobileview_get_theme_version()) ); ?></span>
         </h4>
         <p class="mobileview-theme-author green-text"><?php echo sprintf( __( 'By %s', 'mobileviewlang' ), mobileview_get_theme_author() ); ?></p>
         <p class="mobileview-theme-description"><?php mobileview_the_theme_description(); ?></p>

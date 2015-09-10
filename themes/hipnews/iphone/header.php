@@ -3,8 +3,7 @@
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="<?php mobileview_bloginfo('html_type'); ?>; charset=<?php mobileview_bloginfo('charset'); ?>" />
 <meta name="viewport" content="width=device-width">
-	<?php mobileview_head(); ?> 
-	<link type="text/css" rel="stylesheet" media="screen" href="<?php hipnews_the_static_css_url( 'iphone' ); ?>?version=<?php hipnews_the_static_css_version( 'iphone' ); ?>"></link>
+	<?php mobileview_head(); ?>
 </head>
 <?php flush(); ?>
 <body class="<?php mobileview_body_classes();?>">
